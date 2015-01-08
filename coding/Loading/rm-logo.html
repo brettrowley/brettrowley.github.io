@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>RapidMiner - Animation</title>
+	<link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+</head>
+
+<style>
+
+	html{
+		font-family: Sans-Serif;
+		text-align: center;
+		padding-top: 25px;
+	}
+
+	.logo-layer {
+		position: absolute;
+		height: 300px;
+		margin-left: -150px;
+		top: 30%;
+	}
+
+	#l0{
+		-webkit-animation: mymove 1.25s infinite; /* Chrome, Safari, Opera */ 
+		-moz-animation: mymove 1.25s infinite;
+    	animation: mymove 1.25s infinite;
+
+	}
+
+	#l1{
+		-webkit-animation: mymove 1.25s infinite; /* Chrome, Safari, Opera */ 
+    	-moz-animation: mymove 1.25s infinite;
+    	animation: mymove 1.25s infinite;
+    	-webkit-animation-delay: .1s;
+    	-moz-animation-delay: .1s;
+    	animation-delay: .1s;
+	}
+
+	#l2{
+		-webkit-animation: mymove 1.25s infinite; /* Chrome, Safari, Opera */ 
+    	-moz-animation: mymove 1.25s infinite;
+    	animation: mymove 1.25s infinite;
+    	-webkit-animation-delay: .2s;
+    	-moz-animation-delay: .2s;
+    	animation-delay: .2s;
+	}
+
+	#l3{
+		-webkit-animation: mymove 1.25s infinite; /* Chrome, Safari, Opera */ 
+    	-moz-animation: mymove 1.25s infinite;animation: mymove 1.25s infinite;
+    	-webkit-animation-delay: .3s;
+    	-moz-animation-delay: .3s;
+    	animation-delay: .3s;
+	}
+
+	@-webkit-keyframes mymove {
+    0%   {transform: scale(1);}
+    15% {transform: scale(1.1);}
+   	35% {transform: scale(1);}
+    100%   {transform: scale(1);}
+	}
+
+    @-moz-keyframes mymove {
+    0%   {transform: scale(1);}
+    15% {transform: scale(1.1);}
+   	35% {transform: scale(1);}
+    100%   {transform: scale(1);}
+	}
+
+	@keyframes mymove {
+    0%   {transform: scale(1);}
+    15% {transform: scale(1.1);}
+   	35% {transform: scale(1);}
+    100%   {transform: scale(1);}
+    }
+</style>
+
+<body>
+	<h3>Fun project: animate the <a target="_blank" href="https://rapidminer.com/wp-content/themes/rapidminer/assets/images/rapidminer-logo-retina.png">RapidMiner logo</a> for use as a loading icon.</h3>
+	<img class="logo-layer" id="l0"src="layer0.svg" />
+	<img class="logo-layer" id="l1"src="layer1.svg" />
+	<img class="logo-layer" id="l2"src="layer2.svg" />
+	<img class="logo-layer" id="l3"src="layer3.svg" />
+</body>
+</html>

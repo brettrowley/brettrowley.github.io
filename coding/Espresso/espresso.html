@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<head>
+
+<title>Espresso Patronum</title>
+
+<!-- IMPORT SCRIPTS AND CSS-->
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="espresso_script.js"></script>
+<link type="text/css" rel="stylesheet" href="espresso_style.css"/>
+<link href='http://fonts.googleapis.com/css?family=Raleway:800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+<link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="Images/apple-touch-icon-iphone.png">
+<link rel="apple-touch-icon" sizes="76x76" href="Images/touch-icon-ipad.png">
+<link rel="apple-touch-icon" sizes="120x120" href="Images/touch-icon-iphone-retina.png">
+<link rel="apple-touch-icon" sizes="152x152" href="Images/touch-icon-ipad-retina.png">
+<meta name="apple-mobile-web-app-title" content="Espresso">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+</head>
+<body>
+	<div id="header_box">
+		<h1>Espresso Patronum!</h1>
+	</div>
+
+	<p id="searching">Finding the best coffee in <br />
+		<span id="city" style="cursor: pointer"><u>Cambridge</u></span></p>
+
+	<p class="help_text">
+		Espresso Patronum finds the best coffee shops around you.
+	</p>
+
+	<div id="espresso">
+		<img src="Images/mug.svg" style="width: 202px; margin: -1px -1px"/>
+	</div>
+
+	<p class="help_text" style="font-size: 0.75em; margin-bottom: 30px">
+		Directions by Google. Icons by TheNounProject.
+	</p>
+
+	<div id="result">
+		<p id="name"></p>
+		<p id="address"></p>
+		<div id="actions">
+			<div class="action" id ="refresh"><img id="refresh_icon" src="Images/refresh.svg" /></div>
+			<div class="action" id ="directions"><img id="map_icon" src="Images/directions.svg" ></div>
+			<div class="action" id ="yelp"><img id="yelp_icon" src="Images/yelp.svg" /></div>
+		</div>
+	</div>
+
+	<div id="error" style="font-size: 1.2em; ">
+		<p>Uh oh, we weren't able to get your current location.<br />
+			Check your location permissions, then try again.</p>
+	</div>
+	<div id="map-canvas" style="display: none"></div>
+</body>
+</html>

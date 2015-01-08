@@ -1,0 +1,130 @@
+html{
+	margin: 0;
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+	color: white;
+	padding-top: 30px;
+}
+
+body{
+	margin: 0;
+	background: #bdc3c7;
+	background-image:url(Images/espresso_blur_desktop.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+h1{
+	font-family: 'Raleway', sans-serif;
+	display: inline;
+	font-weight: 800;
+	font-size: 1em;
+	text-align: center;
+}
+
+p {
+	font-size: 1.2em;
+	text-shadow: 0px 1px 3px black;
+}
+
+#header_box{
+	padding: 15px;
+	display: inline-block;
+	border: 10px solid white;
+}
+
+#espresso{
+	top: 40vh;
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	cursor: pointer;
+	margin: 0 auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	transition: 0.5s;
+	background: white;
+	
+}
+
+#espresso img{
+	margin-left: -10px;
+	margin-top: -10px;
+	border-radius: 50%;
+	box-shadow: 0px 3px 8px black;
+}
+
+#espresso:hover{background: #3498db;}
+
+#refresh_info{
+	text-align: center;
+	color: white;
+	font-weight: 100;
+}
+
+#location{
+	font-size: 2em;
+	color: white;
+	text-align: center;
+}
+
+#name{
+	font-size: 2.5em;
+	margin-bottom: -20px;
+	text-shadow: 0px 1px 3px black;
+}
+
+#address{
+	font-size: 1.5em;
+	
+}
+
+#actions{
+	/*width: 500px;*/
+	margin-top: 60px;
+	margin: 0 auto;
+}
+
+.action{
+	background: #34495e;
+	box-shadow: 0px 3px 8px black;
+	height: 70px;
+	width: 70px;
+	border-radius: 50%;
+	display: inline-block;
+	cursor: pointer;
+	margin: 10px 20px;
+	transition: 0.5s;
+}
+
+#refresh:hover {background: #2980b9;}
+#directions{background: #27ae60;}
+#directions:hover {background: #2ecc71;}
+#yelp{background: #c0392b;}
+#yelp:hover {background: #e74c3c;}
+
+.action img{
+	display: block;
+	margin: auto auto;
+}
+
+#refresh_icon{
+	margin-top: 10px;
+	width: 50px;
+}
+#map_icon{
+	margin-top: 8px;
+	width: 50px;
+}
+#yelp_icon{
+	margin-top: 22px;
+	width: 50px;
+}
+
+.help_text{
+	font-size: 1.2em;
+	text-shadow: 0px 1px 3px black;
+}

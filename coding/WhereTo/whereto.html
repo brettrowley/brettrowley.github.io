@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<head>
+
+<title>WhereTo? Mobile Transit</title>
+
+<!-- IMPORT SCRIPTS AND CSS-->
+<script src="../../Assets/js/jquery-1.11.1.min.js"></script>
+<script src="whereto_script.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<link type="text/css" rel="stylesheet" href="whereto_style.css"/>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:100,400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
+<link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+
+</head>
+<body>
+	<div id="header">
+		<div id="intro" class="container" >
+			<h1>WhereTo?</h1>
+			<p>A mobile application concept targeted at inexperienced users of public transportation.</p>
+		</div>
+	</div>
+		<div class="container" id="background">
+			<h3 style="margin-top:20px">Background</h3>
+			<img src="Images/whereto_mockups.png" style="width: 900px; margin: 0 auto; margin-top: 20px" />
+			<p style="margin-left: 10%; margin-right: 10%">This concept started life as a team project in Olin's introductory interface design course. I redesigned the mockups to reflect mobile design trends and my improved visual design skills. The goal of this demo was to learn the CSS/jQuery skills needed to build a dynamic prototype from scratch.</p>
+			<p><a target="_blank" href="http://hfid.olin.edu/sa2013/s_engr3220-nietzsche/">Course Project Site</a> | 
+				<a target="_blank" href="Images/whereto_overview.png">Initial Redesign | 
+				<a target="_blank" href="https://github.com/brettrowley/brettrowley.github.io/tree/master/WhereTo">GitHub Repository</a></p>
+		</div>
+		<div class="container" id="features">
+			<h3>Features</h3>
+			<div class="design_feature">
+				<img src="Images/clock_icon.svg" />
+				<p>Quick</p>
+				<p><em>WhereTo</em> takes 30% fewer taps to get directions compared to Google Maps.</p></div>
+
+			<div class="design_feature" style="margin-left: 50px; margin-right: 50px">
+				<img src="Images/ui_layer_icon.svg" />
+				<p>Light</p>
+				<p><em>WhereTo</em> shows just enough information to get from A to B - no distractions.</p></div>
+
+			<div class="design_feature">
+				<img src="Images/flat_gear.svg" />
+				<p>Clever</p>
+				<p><em>WhereTo</em> uses Predictive Analytics to take the uncertainty out of public transit.</p></div>
+			<h3>Demo</h3>	
+		</div>
+	
+<!--- //////////////////////LET THE DEMO BEGIN\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+<div id="demo">
+	<div id="phone_blank"> <!-- DIV TO CONTAIN PHONE FRAME -->
+		<!-- DEMO STEPS -->
+		<h4 class="demo_step" id="demo_step1" style="margin-top: 130px">You're at South Station trying to get to Harvard University. Click the location icon to get started!</h4>
+		<h4 class="demo_step" id="demo_step2" style="margin-top: 180px"><em>WhereTo</em> can search for more than just subway stations. Type "Harvard" and press enter.</h4>
+		<h4 class="demo_step" id="demo_step3" style="margin-top: 390px">Hey look, Harvard University!</h4>
+		<h4 class="demo_step" id="demo_step4" style="margin-top: 390px">This is <em>WhereTo's</em> suggestion for the best route. You can click on the arrows to see alternative routes or scroll down to see more information.</h4>
+		<h4 class="demo_step" id="demo_step5" style="margin-top: 390px">Oops. I haven't really had a chance to think through the walking maps part of the UI yet!</h4>
+
+		<div id="screen_blank" class="screen"> <!-- BLANK BACKGROUND WITHIN PHONE FRAM -->
+			<div id="splash_screen" class="screen"> <!-- WHERETO ICON, DEMO START POINT -->
+				<img id="splash_icon" src="Images/whereto_icon.svg" />
+				<h2>WhereTo?</h2>
+				<h2 style="font-size: 1em">Click this screen to start the demo</h2>
+			</div>
+		
+			<div id="search_area"> <!-- INPUT BOXES FOR START AND END POINTS -->
+				<input class="search_box ui-widget" id="start_point" type="text" placeholder="Start from:" style="border-bottom: 1px solid #bdc3c7">
+					<img id="location_icon" src="Images/location_inactive.svg">
+				</input>
+				<input class="search_box" id="end_point" type="text" placeholder="Get to:"></input>
+			</div>
+
+			<div id="search_settings"> <!-- MOCKUP OF TIME SELECTOR -->
+				<p>Options</p>
+				<img id="search_settings_icon" src="Images/gear.svg" style="width: 30px; position: absolute; right: 10px; top: 0px" />
+				<img id="search_drop_icon" src="Images/chevron.svg" style="height: 18px; position: absolute; right: 13px; top: 6px" />
+				<div id="settings_content">
+					<p id="leave_at">Leave at</p>
+					<p id="arrive_by">| Arrive by</p>
+					<img src="Images/datepicker.png" style="width: 100%; margin-top:40px"/>
+				</div>
+			</div>
+			<!-- BLACK BACKGROUND HIDES CONTENT WHILE SETTINGS ARE OPEN -->
+			<div id="settings_blank" style="width: 100%; height: 100%; background: black; opacity: 0.3"></div>
+
+			<div id="search_results"> <!-- DIV TO CONTAIN SEARCH RESULTS -->
+				<div class="search_result" id="result-1">
+					<p>Harvard Square</p>
+					<p>Subway Station</p>
+					<img src="Images/red_line_icon.svg" style="position: absolute; top: 5px; right: -7px; height: 20px">
+				</div>
+				<div class="search_result" id="result-2">
+					<p>Harvard Avenue</p>
+					<p>Subway Station</p>
+					<img src="Images/green_line_icon.svg" style="position: absolute; top: 75px; right: -7px; height: 20px">
+				</div>
+				<div class="search_result" id="result-3">
+					<p>Harvard University</p>
+					<p>Massachusetts Ave, Cambridge, MA</p>
+				</div>
+				<div class="search_result" id="result-4">
+					<p>Harvard Bookstore</p>
+					<p>JFK St, Cambridge, MA</p>
+				</div>
+			</div>
+
+			<!-- BUTTONS TO ADVANCE ROUTE CARDS LEFT AND RIGHT -->
+			<p id="advance_left" class="advance" style="left: 10px;"><</p>
+			<p id="advance_right" class="advance" style="right: 10px">></p>
+
+			<!-- ROUTE CARD -->
+			<div id="route1" class="route_card">
+				<div class="card_time"> <!-- DEPARTURE -->
+					<p>Board</p>
+					<h3>2:07 pm</h3>
+				</div>
+
+				<div class="route_stats"> <!-- ROUTE OVERVIEW WITH STATS -->
+					<div style="margin-top:7px; margin-bottom: -15px;">
+						<img src="Images/walking_icon.svg" style = "width: 30px; margin: 0 5px"><img src="Images/red_line_icon.svg" style = "width: 30px; margin: 0 5px"><img src="Images/walking_icon.svg" style = "width: 30px; margin: 0 5px">
+					</div>
+				<p>18 min (5 min walking)</p>
+				<p style="margin-top:-15px">Comes again in 4 min</p>
+				</div>
+
+				<div class="card_time"> <!-- ARRIVAL TIME -->
+					<p>Arrive</p>
+					<h3>2:25 pm</h3>
+				</div>
+
+				<!-- INDICATOR TO SCROLL DOWN -->
+				<p style="margin-top: 38px; background: #ecf0f1; padding: 3px 0; color: #95a5a6">▼</p>
+
+				<div class="directions" style="margin-bottom: 50px"> <!-- DIV TO CONTAIN GRAPHICAL ROUTE INFO -->
+					<p class="mainstep">Walk to South Station</p>
+					<p class="substep">2:06pm</p>
+					<div class="step" style="height: 70px; background: #bdc3c7"><img class="maps" src="Images/map_icon.svg" /></div>
+					<p class="mainstep">Red Line Train (Alewife)</p>
+					<p class="substep">2:07pm</p>
+					<div class="step" style="height: 70px; background: #d33c32"></div>
+					<p class="mainstep">Harvard Square Station</p>
+					<p class="mainstep" style="margin-top:-15px; border-top: 1px solid #bdc3c7; width: 240px; margin-left: auto; margin-right: auto; padding-top:3px">Walk to Harvard University</p>
+					<p class="substep">2:21pm</p>
+					<div class="step" style="height: 70px; background: #bdc3c7"><img class="maps" src="Images/map_icon.svg" /></div>
+					<p class="mainstep">Arrive</p>
+					<p class="substep">2:25pm</p>
+				</div>
+			</div>
+
+			<!-- ROUTE CARD -->
+			<div id="route2" class="route_card">
+				<div class="card_time">
+					<p>Board</p>
+					<h3>2:20 pm</h3>
+				</div>
+
+				<div class="route_stats">
+					<div style="margin-top:7px; margin-bottom: -15px;">
+						<img src="Images/walking_icon.svg" style = "width: 30px; margin: 0 5px"><img src="Images/bus_icon.svg" style = "width: 30px; margin: 0 5px"><img src="Images/bus_icon.svg" style = "width: 30px; margin: 0 5px"><img src="Images/walking_icon.svg" style = "width: 30px; margin: 0 5px">
+					</div>
+				<p>47 min (9 min walking)</p>
+				<p style="margin-top:-15px">Comes again in 21 min</p>
+				</div>
+
+				<div class="card_time">
+					<p>Arrive</p>
+					<h3>2:59 pm</h3>
+				</div>
+
+				<p style="margin-top: 38px; background: #ecf0f1; padding: 3px 0; color: #95a5a6">▼</p>
+				
+				<div class="directions" style="margin-bottom: 50px">
+					<p class="mainstep">Walk to Pearl St @ Congress St</p>
+					<p class="substep">2:12 pm</p>
+					<div class="step" style="height: 70px; background: #bdc3c7"><img class="maps" src="Images/map_icon.svg" /></div>
+					<p class="mainstep">#92 Bus (Assembly Square)</p>
+					<p class="substep">2:20pm</p>
+					<div class="step" style="height: 70px; background: #f1c40f"></div>
+					<p class="mainstep">Cambridge St @ Maffa Way</p>
+					<p class="substep">2:37 pm</p>
+					<p class="mainstep" style="margin-top:0px; border-top: 1px solid #bdc3c7; width: 235px; margin-left: auto; margin-right: auto; padding-top:2px">#86 Bus (Cleveland Circle)</p>
+					<p class="substep">2:46 pm</p>
+					<div class="step" style="height: 70px; background: #f1c40f"></div>
+					<p class="mainstep">Kirkland St @ Kirkland Pl</p>
+					<p class="substep">2:58 pm</p>
+					<p class="mainstep" style="margin-top:0px; border-top: 1px solid #bdc3c7; width: 240px; margin-left: auto; margin-right: auto; padding-top:2px">Walk to Harvard University</p>
+					<div class="step" style="height: 70px; background: #bdc3c7"><img class="maps" src="Images/map_icon.svg" /></div>
+					<p class="mainstep">Arrive</p>
+					<p class="substep">2:59 pm</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- DEBUG MESSAGE -->
+	<p style="text-align: center; font-family: 'Lato', sans-serif; font-weight: 300; font-size: 1em">If you're experiencing any bugs in the demo, refresh the page and try again. If the problems persist, <a target="_blank" href="http://brettrowley.me/contact"> contact me</a>.</p>
+</div>
+</body>
+</html>

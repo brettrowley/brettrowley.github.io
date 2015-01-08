@@ -1,0 +1,102 @@
+---
+layout: default
+title: Contact
+---
+	<style>
+		.section{
+		text-align: center;
+	width: 100%;
+		padding: 40px;}
+
+	.section p {
+		font-size: 1.5em;
+		color: white;
+		display: none;
+	}
+
+	.section p a {
+		font-weight: bold;
+		color: white;
+		text-decoration: underline
+	}
+
+	.icon{
+		margin: 0;
+		font-size: 5em;	
+		display: block;
+		color: white;
+	}
+
+	.section .btn{
+		font-family: sans-serif;
+		font-weight: 600;
+		font-size: 2em;
+		width: 200px;
+		margin: 0 auto;
+		margin-bottom: 25px;
+		display: block;
+		background: transparent;
+		border: 3px solid white;
+		color: white;
+		transition: 0.25s;
+		-webkit-transition: 0.25s;
+	}
+
+	.section .btn:hover{
+		border-color: white;
+		background: white;
+	}
+
+	#email-div{background-color:#f39c12;}
+	#phone-div{background-color:#27ae60;}
+	#linked-div{background-color:#2980b9;}
+	#map-div{background-color:#e74c3c;}
+
+	</style>
+
+	<script>
+	$(document).ready(function(){
+		//makes button text color equal to background div color on hover
+		$('.section .btn').mouseover(function(){
+			$(this).css("color", $(this).parent().css("background-color"))
+		})	
+		//resets button text to white on mouse out
+		$('.section .btn').mouseout(function(){
+			$(this).css("color", "white")
+		})
+		//toggles visiblity of extra information on button click
+		$('.section .btn').click(function(){
+			$(this).next("p").slideToggle()
+		})
+	})
+	
+	</script>
+</head>
+<body>
+	<div class="section" id="email-div">
+		<i class="icon ion-ios-email"></i>
+		<a class="btn btn-lg" type="button" href="mailto:brett.rowley@outlook.com" target="_blank"> Email</a>
+		<p>In case you just want to write it down:<br>
+			brett.rowley@outlook.com</p>
+	</div>
+
+	<div class="section" id="phone-div">
+		<i class="icon ion-ios-telephone"></i>
+		<a class="btn btn-lg" type="button" href="tel:1-520-955-9087"> Call</a>
+		<p>If you're not ready to call right this second, here's my number for future reference:<br>
+			(520) 955-9087</p>
+	</div>
+
+	<div class="section" id="linked-div">
+		<i class="icon ion-social-linkedin"></i>
+		<a class="btn btn-lg" type="button" href="https://www.linkedin.com/pub/brett-rowley/37/728/762" target="_blank"> Connect</a>
+	</div>
+
+	<div class="section" id="map-div">
+		<i class="icon ion-ios-location"></i>
+		<a class="btn btn-lg" type="button"> Meet</a>
+		<p>Are you close to Boston, MA? That's where I am!<br><a href="mailto:brett.rowley@outlook.com?subject=Let's Meet Up!" target="_blank">Email me</a> and we can schedule a time to meet up.</p>
+	</div>
+
+</body>
+</html>

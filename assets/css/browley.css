@@ -1,0 +1,50 @@
+	html{
+		margin: 0;
+		width: 100%;
+	}
+
+	body{
+		font-family: 'Open Sans', sans-serif !important;
+		background: #F9F9F9 !important}
+
+	#header{
+		width: 100%;
+		height: 50px;
+		margin: 0;
+		background: white;
+		border-bottom: 3px solid #e7e7e7;
+		text-align: left;
+	}
+
+	#home-link{
+		float: left;
+		padding: 7px 11px;
+		border-right: 1px solid #e7e7e7;
+		margin-right: 10px;
+	}
+
+	#page-name{
+		font-size: 1.8em;
+		line-height: 1.9em;
+		font-weight: 300;
+		color: #e74c3c;
+		display: inline;
+	}
+
+	#contact-link{
+		float: right;
+		font-size: 1em;
+		margin: 7px;
+		color: #95a5a6;
+	}
+
+	#header a{
+		transition: 0.25s;
+		-webkit-transition: 0.25s;
+	}
+
+	#header a:hover{
+		border-color: #e74c3c;
+		background: #e74c3c;
+		color: white;
+	}
