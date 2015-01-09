@@ -1,0 +1,40 @@
+---
+layout: default
+title: Blog
+---
+<style>
+.post-snip{
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-top: 1px solid #aeaeae;
+  padding-bottom: 20px;
+}
+
+h1{
+  font-weight: bold;
+  text-align: center;
+}
+
+h3{
+  font-weight: 300;
+  margin-bottom: 5px !important;
+}
+
+.date{
+  display: block;
+  margin-bottom: 10px;
+}
+</style>
+
+<h1>Recent Posts</h1>
+{% assign sorted_pages = (site.pages | sort: 'created') %}
+{% for article in sorted_pages reversed%}
+  {% if article.layout == "post" %}
+  <div class="post-snip">
+    <a href="{{ article.url }}"><h3>{{article.headline}}</h3></a>
+    <span class="date" style="color: #aeaeae;">{{article.date}}</span>
+    {{ article.content | strip_html | truncatewords:30}}
+          </div>
+  {% endif %}
+{% endfor %}
