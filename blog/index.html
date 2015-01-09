@@ -3,11 +3,14 @@ layout: default
 title: Blog
 ---
 <style>
-.post-snip{
-  width: 80%;
+#recent-posts{
+    width: 90%;
   max-width: 600px;
   margin: 0 auto;
-  border-top: 1px solid #aeaeae;
+}
+
+.post-snip{
+
   padding-bottom: 20px;
 }
 
@@ -26,8 +29,9 @@ h3{
   margin-bottom: 10px;
 }
 </style>
-
+<div id="recent-posts">
 <h1>Recent Posts</h1>
+<hr>
 {% assign sorted_pages = (site.pages | sort: 'created') %}
 {% for article in sorted_pages reversed%}
   {% if article.layout == "post" %}
@@ -38,3 +42,4 @@ h3{
           </div>
   {% endif %}
 {% endfor %}
+</div>
