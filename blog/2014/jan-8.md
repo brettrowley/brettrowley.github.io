@@ -10,11 +10,11 @@ New Year, new website! This project has been a long time in the making - when I 
 
 I'm using Jekyll as a platform to manage templates - it makes building HTML sites _so_ much easier! That still left a lot for me to code from scratch. I tried to stick to a few requirements:
 
-####Responsive
+###Responsive
 "Responsive" is a buzz-word for good reason and I should admit that this site is not _completely_ responsive in the truest sense of the term. Still, I've tried to use layouts and interactions that work on phones, tablets, laptops, and monitors, no matter how tempting a fancy jQuery animation or shiny Bootstrap element might be.
 
-####Scalable
+###Scalable
 During development I hard-coded a lot of stuff just to get up and running. But I've tried to make sure that everything I've built won't break on January 1, 2016. The Recent Posts page, for example, would be a lot easier to make if I only considered posts coming in the next 12 months. But hopefully I'm writing past that, so I need to build an architecture that will accomodate that.
 
-####Clean UX
+###Clean UX
 There is always a struggle between what I have termed "emotional UX" (aesthetics) and "functional UX" (usability). Aesthetics do not have a significant impact on our _ability_ to use a product, but they sure affect how much we enjoy using it. I have been enjoying the challenge of balancing those two and hopefully this site is a good representation of what I've learned thus far.

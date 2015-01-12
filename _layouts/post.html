@@ -5,7 +5,7 @@ layout: default
 
 .post{
 	width: 90%;
-	max-width: 600px;
+	max-width: 700px;
 	margin: 0 auto;
 	padding-top: 15px;
 }
@@ -19,7 +19,7 @@ layout: default
 }
 
 .post-content{
-	font-size: 1.3em;
+	font-size: 1.4em;
 	line-height: 1.5em;
 	font-family: serif
 }
@@ -31,16 +31,57 @@ layout: default
 h1, h2, h3, h4, h5, h6{
 	font-weight: bold;
 }
+
+.twitter-share-button, .pocket-btn{
+	display: inline-block;
+}
+
+.pocket-btn>iframe{
+	padding-top: 2px !important;
+}
+
+#share{
+	width: 130px;
+	margin: 0 auto;
+}
+
+#back-btn{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: inline;
+	float: left;
+	border: 1px solid #c0392b;
+	font-size: 1.9em;
+	text-align: center;
+	color: #c0392b;
+	transition: 0.25s;
+	-webkit-transition: 0.25s;
+	margin-right: -40px;
+}
+
+#back-btn:hover{
+	background: #c0392b;
+	color: white;
+}
 </style>
 
 <div class="post">
-	<a style="text-align: center; display: block" href="/blog">< Recent Posts</a>
   <header class="post-header">
+  	<a href=".." id="back-btn"><i class="icon ion-arrow-left-c"></i></a>
     <h1 class="post-title">{{ page.headline }}</h1>
     <p class="post-meta">{{ page.date }}</p>
+<!--     <div id="share">
+	  	<a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+		<script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+
+		<a href="https://twitter.com/share" class="twitter-share-button" data-via="browley20" data-count="none">Tweet</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	</div> -->
   </header>
 <hr>
   <article class="post-content">
+  	
     {{ content }}
   </article>
 
