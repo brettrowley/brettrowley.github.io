@@ -10,8 +10,7 @@ title: Blog
 }
 
 .post-snip{
-
-  padding-bottom: 20px;
+  padding-bottom: 50px;
 }
 
 h1{
@@ -36,8 +35,10 @@ h3{
 {% for article in sorted_pages reversed%}
   {% if article.layout == "post" %}
   <div class="post-snip">
-    <a href="{{ article.url }}"><h3>{{article.headline}}</h3></a>
-    <span class="date" style="color: #aeaeae;">{{article.date}}</span>
+    <div id="snip-header" style="color: white !important; background-image: url('img/{{article.created}}.jpg'); overflow: hidden; background-size: 100%; padding-left: 15px; margin-bottom: 10px">
+    <a href="{{article.url}}"><h3>{{article.headline}}</h3></a>
+    <span class="date" style="color:">{{article.date}}</span>
+  </div>
     {{ article.content | strip_html | truncatewords:50}}
           </div>
   {% endif %}
