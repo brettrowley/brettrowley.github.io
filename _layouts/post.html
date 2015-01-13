@@ -32,43 +32,21 @@ h1, h2, h3, h4, h5, h6{
 	font-weight: bold;
 }
 
-.twitter-share-button, .pocket-btn{
-	display: inline-block;
-}
-
-.pocket-btn>iframe{
-	padding-top: 2px !important;
-}
-
-#share{
-	width: 130px;
-	margin: 0 auto;
-}
-
-#back-btn{
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	display: inline;
-	float: left;
-	border: 1px solid #c0392b;
-	font-size: 1.9em;
-	text-align: center;
-	color: #c0392b;
-	transition: 0.25s;
-	-webkit-transition: 0.25s;
-	margin-right: -40px;
-}
-
-#back-btn:hover{
-	background: #c0392b;
-	color: white;
+#page-name:hover{
+	background: none !important;
+	color: #34495e !important;
 }
 </style>
 
+<script>
+$(document).ready(function(){
+	$('#page-name').replaceWith("<a id='page-name' href='/blog'>Blog <i class='icon ion-arrow-up-c'></i></a>")
+})
+</script>
+
 <div class="post">
   <header class="post-header">
-  	<a href=".." id="back-btn"><i class="icon ion-arrow-left-c"></i></a>
+  	<!-- <a href=".." id="back-btn"><i class="icon ion-arrow-left-c"></i></a> -->
     <h1 class="post-title">{{ page.headline }}</h1>
     <p class="post-meta">{{ page.date }}</p>
 <!--     <div id="share">
