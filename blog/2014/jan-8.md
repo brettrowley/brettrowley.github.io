@@ -5,7 +5,6 @@ headline: New Website!
 created: 2014_01_08
 date: January 8, 2014
 ---
-
 New Year, new website! This project has been a long time in the making - when I started updating old coding projects and cleaning up my GitHub account, I knew I wanted to eventually move away from Wordpress and consolidate everything here. As my comfort with HTML/CSS/Javascsript grew, fighting with Wordpress' default styles became more and more irritating. So along with a new coffee machine, a new commitment to running, and a new project at work, I decided to finally get this new site up and running. 
 
 I'm using Jekyll as a platform to manage templates - it makes building HTML sites _so_ much easier! That still left a lot for me to code from scratch. I tried to stick to a few requirements:
