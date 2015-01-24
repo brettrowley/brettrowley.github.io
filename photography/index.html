@@ -18,10 +18,27 @@ title: Photography
 	h3{
 		margin-top: 25px;
 	}
+
+	#to-top{
+	display: block;
+	text-align: center;
+	font-size: 3em;
+	color: rgba(0,0,0,0.3);
+	cursor: pointer;
+	transition: 0.25s;
+	-webkit-transition: 0.25s;
+	}
+
+	#to-top:hover{
+		color: black;
+	}
 	</style>
 
 	<script>
 	$(document).ready(function(){
+		$('#to-top').click(function(){
+		window.scrollTo(0,0);
+	})
 	})
 	
 	</script>
@@ -44,7 +61,7 @@ title: Photography
 <a target="_blank" href="http://www.flickr.com/photos/96116540@N02/sets/"><img class="art" style="max-width: 400px;" src="https://farm3.staticflickr.com/2933/14297422210_952b8e24a7_h.jpg"></a><br>
 <a target="_blank" href="http://www.flickr.com/photos/96116540@N02/sets/"><img class="art" style="max-width: 600px;" src="https://farm3.staticflickr.com/2805/8770511111_2796e7f06a_h.jpg"></a><br>
 
-
+<i id="to-top" class="icon ion-android-arrow-dropup-circle"></i>
 
 </body>
 </html>
