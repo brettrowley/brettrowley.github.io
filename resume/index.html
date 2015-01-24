@@ -33,24 +33,8 @@ title: Resume
 	}
 
 	#competencies li{
-		width: 280px;
+		width: 200px;
 	}
-
-	#competencies .score{
-		width:100px;
-		float: right;
-	}
-
-	#competencies .glyphicon{
-		margin-right: 5px;
-	}
-
-	.score .glyphicon{color: #7f8c8d;}
-	.score .glyphicon:nth-of-type(1){opacity:0.4;}
-	.score .glyphicon:nth-of-type(2){opacity:0.55;}
-	.score .glyphicon:nth-of-type(3){opacity:0.7;}
-	.score .glyphicon:nth-of-type(4){opacity:0.85;}
-	.score .glyphicon:nth-of-type(5){opacity:1.0;}
 
 	#toggle-courses{
 		cursor: pointer;
@@ -89,10 +73,12 @@ title: Resume
 		display: block;
 		text-align: center;
 		padding: 20px;
-		/*margin-bottom: -50px;*/
 	}
 
-	#external-links a{
+	.badge{
+		width: 19px;
+		float:right;
+		font-weight:300;
 	}
 
 	</style>
@@ -109,6 +95,18 @@ title: Resume
 		$('#toggle-courses').click(function(){
 			$('#course-list').slideToggle(600)
 			$('#toggle-courses .icon').toggleClass('ion-arrow-down-b').toggleClass('ion-arrow-up-b')
+		})
+
+		$('.badge').each(function(){
+			year = ($(this).text().substr(0,1))
+
+			if (year == 1) {
+				$(this).css("background-color", "#95a5a6")
+			} else if (year == 2 ) {
+				$(this).css("background-color", "#2980b9")
+			} else if (year == 3) {
+				$(this).css("background-color", "#27ae60")
+			}
 		})
 	})
 	</script>
@@ -192,53 +190,48 @@ title: Resume
   		</div>
   		<div class="panel-body">
 			<ul id="competencies">
-				<li>Solidworks (CAD)
-					<div class="score">
-						<i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i>
-					</div>
+				<li>
+					<strong>Skill
+					<span style="float: right">Years</span></strong>
 				</li>
-				<li>Fabrication
-					<div class="score">
-						<i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i>
-					</div>
+				<li>
+					Solidworks (CAD)
+					<span class="badge">3</span>
 				</li>
-				<br />
-				<li>HTML/CSS
-					<div class="score">
-						<i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i>
-					</div>
-				</li>
-				<li>Javascript/jQuery
-					<div class="score">
-						<i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i>
-					</div>
-				</li>
-				<li>Python
-					<div class="score">
-						<i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i>
-					</div>
+				<li>
+					Fabrication
+					<span class="badge">2</span>
 				</li>
 				<br />
-				<li>Adobe Creative Suite
-					<div class="score">
-						<i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i>
-					</div>
+				<li>
+					HTML/CSS
+					<span class="badge">1</span>
 				</li>
-				<li>Human Factors
-					<div class="score">
-						<i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i>
-					</div>
+				<li>
+					Javascript/jQuery
+					<span class="badge">1</span>
 				</li>
-				<li>Usability Testing
-					<div class="score">
-						<i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i>
-					</div>
+				<li>
+					Python
+					<span class="badge">1</span>
 				</li>
 				<br />
-				<li>Conversational German
-					<div class="score">
-						<i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i>
-					</div>
+				<li>
+					Adobe Creative Suite
+					<span class="badge">3</span>
+				</li>
+				<li>
+					Human Factors
+					<span class="badge">2</span>
+				</li>
+				<li>
+					Usability Testing
+					<span class="badge">1</span>
+				</li>
+				<br />
+				<li>
+					Conversational German
+					<span class="badge">1</span>
 				</li>
 			</ul>
   		</div>
