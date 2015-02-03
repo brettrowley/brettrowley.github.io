@@ -5,19 +5,22 @@ title: Running
 
 <style>
 #date-range{
-	color: #aeaeae;
+	color: #616161;
 	font-weight: 300;
+	text-align: center;
 }
 
 #stats{
 	list-style: none;
 	padding: 0;
-	width: 300px;
-	margin: 25px auto;
+	width: 330px;
+	margin: 0 auto;
 	font-size: 16pt;
+	margin-bottom: 30px;
 }
 
 #stats li{
+	padding-left: 35px;
 	margin: 0;
 	margin-bottom: 5px;
 }
@@ -104,13 +107,8 @@ $(document).ready(function(){
 		</div>
 	</div> -->
 		<div class="row">
-			<h3 id="date-range">January, 2015</h3>
-		</div>
-  		<div class="row">
-			<canvas id="running_chart" width="800;" height="200"></canvas>
-			<p><em style="display: block; text-align: center">Date of run versus average pace (min/mi)</em></p>
-		</div>
-		<div class="row">
+			<h3 id="date-range">In January, 2015</h3>
+			<hr style="width: 400px">
 			<ul id="stats">
 				<li><strong>4.65 hours</strong> spent running</li>
 				<li><strong>33.94 miles</strong> ran</li>
@@ -119,5 +117,10 @@ $(document).ready(function(){
 				<li><strong>29.4 °F</strong> average temperature</li>
 			</ul>
 		</div>
+  		<div class="row">
+  			<p><em style="display: block; text-align: center">Date of run versus average pace (min/mi):</em></p>
+			<canvas id="running_chart" width="800;" height="200"></canvas>
+		</div>
+		
 	</div>
 </body>
