@@ -4,6 +4,23 @@ title: Running
 ---
 
 <style>
+#date-range{
+	color: #aeaeae;
+	font-weight: 300;
+}
+
+#stats{
+	list-style: none;
+	padding: 0;
+	width: 300px;
+	margin: 25px auto;
+	font-size: 16pt;
+}
+
+#stats li{
+	margin: 0;
+	margin-bottom: 5px;
+}
 </style>
 
 <script>
@@ -87,10 +104,20 @@ $(document).ready(function(){
 		</div>
 	</div> -->
 		<div class="row">
-			<h3>Running Data from January, 2015</h3>
+			<h3 id="date-range">January, 2015</h3>
 		</div>
   		<div class="row">
 			<canvas id="running_chart" width="800;" height="200"></canvas>
+			<p><em style="display: block; text-align: center">Date of run versus average pace (min/mi)</em></p>
+		</div>
+		<div class="row">
+			<ul id="stats">
+				<li><strong>4.65 hours</strong> spent running</li>
+				<li><strong>33.94 miles</strong> ran</li>
+				<li><strong>4,348 calories</strong> burned</li>
+				<li><strong>8:14 min/mi</strong> average pace</li>
+				<li><strong>29.4 °F</strong> average temperature</li>
+			</ul>
 		</div>
 	</div>
 </body>
