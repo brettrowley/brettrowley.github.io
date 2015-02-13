@@ -29,13 +29,26 @@ body{
 	resize: none;
 	outline: none;
 	width: 75vw;
-	height: 60vh;
+	height: 100vh;
 	margin: 0 auto;
 	margin-top: 5vw;
 	background: transparent;
 	border: none;
-	font-size: 4em;
+	font-size: 2em;
 	font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+	#tweet{
+		font-size: 4em;
+		margin-top: 11vw;
+	}
+}
+
+#tweet-btn{
+	display: block;
+	width: 120px;
+	margin: 0 auto;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
@@ -58,6 +71,7 @@ body{
 
 <script>
 $(document).ready(function(){
+
 	$('#tweet').focus();
 
 	$('#tweet').keyup(function(){
@@ -88,15 +102,32 @@ $(document).ready(function(){
 		}
 		
 	})
+
+	$('#tweet-btn').click(function(){
+		var message = $('#tweet').val();
+		$(this).attr('href', 'http://twitter.com/share?text=' + message.replace(/\s/g,"%20"))
+
+		var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = this.href,
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+    
+    window.open(url, 'twitter', opts);
+ 
+    return false;
+	})
 })
 </script>
 	<div class="container-fluid">
 		<div id="characters"><span id="char-count">0</span> / 140</div>
+		<a id="tweet-btn" class="btn btn-primary twitter popup" href="#">Send Tweet</a>
 		<textarea id="tweet" rows="2" cols="70" placeholder="Tweet with focus." maxlength="140"></textarea>
 	</div>
-
-	<!-- <a class="twitter popup" href="http://twitter.com/share?text=This%20is%20so%20easy">Tweet</a> -->
-	<!-- <button class="btn btn-info btn-lg">Tweet!</button> -->
-
 <body>
 </body>
