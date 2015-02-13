@@ -1,0 +1,102 @@
+---
+layout: default
+title: '#tweeter'
+---
+<style>
+body{
+	background: #55acee;
+
+}
+
+#characters{
+	display: block;
+	height: 70px;
+	text-align: center;
+	padding-top: 20px;
+	font-family: 'Helvetica', sans-serif !important;
+	font-size: 2em;
+	font-weight: 300;
+	color: white;
+	opacity: 0.5;
+	/*color: rgb(192, 57, 43);*/
+}
+
+#tweet{
+	font-family: 'Helvetica', sans-serif !important;
+	color: white;
+	display: block;
+	overflow: auto;
+	resize: none;
+	outline: none;
+	width: 75vw;
+	height: 60vh;
+	margin: 0 auto;
+	margin-top: 5vw;
+	background: transparent;
+	border: none;
+	font-size: 4em;
+	font-weight: 600;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #2980b9;
+    font-weight: 300;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:#2980b9;
+   font-weight: 300;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:#2980b9;
+   font-weight: 300;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:#2980b9;
+   font-weight: 300;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+	$('#tweet').focus();
+
+	$('#tweet').keyup(function(){
+		// console.log($(this).val())
+		var characters = $(this).val().length;
+		$('#char-count').text(characters)
+
+		var size = parseInt($('#char-count').css("font-size"));
+		var trans = parseInt($('#char-count').css("opacity"));
+		if (characters >= 120 && characters < 140){
+			$('#characters').css({
+				// 'font-size': (82 - characters),
+				'color': '#e74c3c',
+				'opacity': 1,
+				'font-weight': 300
+			})	
+		} else if (characters < 120){
+			$('#characters').css({
+				// 'font-size': 42,
+				'color': 'white',
+				'opacity': 0.5,
+				'font-weight': 300
+			})	
+		} else if (characters == 140){
+			$('#characters').css({
+				'font-weight': 800
+			})	
+		}
+		
+	})
+})
+</script>
+	<div class="container-fluid">
+		<div id="characters"><span id="char-count">0</span> / 140</div>
+		<textarea id="tweet" rows="2" cols="70" placeholder="Tweet with focus." maxlength="140"></textarea>
+	</div>
+
+	<!-- <a class="twitter popup" href="http://twitter.com/share?text=This%20is%20so%20easy">Tweet</a> -->
+	<!-- <button class="btn btn-info btn-lg">Tweet!</button> -->
+
+<body>
+</body>
