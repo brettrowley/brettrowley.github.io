@@ -32,8 +32,9 @@ function showPosition(position) {
 
 
 $(document).ready(function(){
-//hide results page by default
+//hide results page and location error message by default
 $('#results-page').hide()
+$('#error').hide()
 	
 //define function to create google maps ap
 function initialize() {	
@@ -131,6 +132,7 @@ function initialize() {
   })
 ////////////////////////////////////
 
+  //this displays another result when the 'refresh' button is clicked
   $("#refresh").click(function(){
   	$("#result").fadeOut(500)
 

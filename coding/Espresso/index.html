@@ -22,6 +22,10 @@ title: Espresso Patronum!
 	<button class="btn btn-primary" id="espresso"><i class="ion-coffee"></i> <em>Find Coffee!</em></button>
 
 	<p id="google-attr">Powered by Google</p>
+
+	<div id="error" class="alert alert-danger">
+		<p style="font-size: 0.8em"><i class="ion-alert-circled"></i> We couldn't get your location! Check your location settings, then try again.</p>
+	</div>
 </div>
 <div class="container-fluid" id="results-page">
 	<p id="searching"><em>Finding the best coffee in <span id="city">your city</span></em></p>
@@ -36,10 +40,6 @@ title: Espresso Patronum!
 		</div>
 	</div>
 
-	<div id="error" style="font-size: 1.2em; ">
-		<p>Uh oh, we weren't able to get your current location.<br />
-			Check your location permissions, then try again.</p>
-	</div>
 	<div id="map-canvas" style="display: none"></div>
 	</div>
 </body>
