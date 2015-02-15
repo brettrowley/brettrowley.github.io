@@ -15,7 +15,7 @@ div.container-fluid{
 }
 
 button#espresso{
-	font-size: 1.5em;
+	font-size: 1.2em;
 	font-weight: bold;
 	padding: 0.5em;
 	
@@ -62,7 +62,7 @@ a.btn.action{
 	width: 75px;
 	display: inline-block;
 	cursor: pointer;
-	margin: 10px 10px;
+	margin: 10px 5px;
 	transition: 0.25s;
 }
 
