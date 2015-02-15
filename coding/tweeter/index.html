@@ -71,26 +71,29 @@ body{
 
 <script>
 $(document).ready(function(){
-
+	//focus keyboard on input on page load
 	$('#tweet').focus();
 
 	$('#tweet').keyup(function(){
-		// console.log($(this).val())
+		//on keyup, record how many characters are in the current tweet
 		var characters = $(this).val().length;
+		//update the character counter to the current number of characters
 		$('#char-count').text(characters)
 
+		//grab the current font size of the character counter
 		var size = parseInt($('#char-count').css("font-size"));
+		//grab the current opacity of the character counter
 		var trans = parseInt($('#char-count').css("opacity"));
+
+		//logic to change character counter color, size, and opacity based on number of characters in tweet
 		if (characters >= 120 && characters < 140){
 			$('#characters').css({
-				// 'font-size': (82 - characters),
 				'color': '#e74c3c',
 				'opacity': 1,
 				'font-weight': 300
 			})	
 		} else if (characters < 120){
 			$('#characters').css({
-				// 'font-size': 42,
 				'color': 'white',
 				'opacity': 0.5,
 				'font-weight': 300
@@ -103,31 +106,32 @@ $(document).ready(function(){
 		
 	})
 
+	//function to be executed when 'Tweet' button is pressed
 	$('#tweet-btn').click(function(){
+		//grab current tweet
 		var message = $('#tweet').val();
-		$(this).attr('href', 'http://twitter.com/share?text=' + message.replace(/\s/g,"%20"))
 
+		//define options for opening twitter link in new window
 		var width  = 575,
         height = 400,
         left   = ($(window).width()  - width)  / 2,
         top    = ($(window).height() - height) / 2,
-        url    = this.href,
         opts   = 'status=1' +
                  ',width='  + width  +
                  ',height=' + height +
                  ',top='    + top    +
                  ',left='   + left;
-    
-    window.open(url, 'twitter', opts);
+	    //call twitter post function
+	    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(message), 'Tweet', opts);
  
-    return false;
+    	return false;
 	})
 })
 </script>
+<body>
 	<div class="container-fluid">
 		<div id="characters"><span id="char-count">0</span> / 140</div>
 		<a id="tweet-btn" class="btn btn-primary twitter popup" href="#"><i class="ion-social-twitter"></i> Send Tweet</a>
 		<textarea id="tweet" rows="2" cols="70" placeholder="Tweet with focus." maxlength="140"></textarea>
-	</div>
-<body>
+		</div>
 </body>
