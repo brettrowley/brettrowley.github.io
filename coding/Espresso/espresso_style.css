@@ -1,68 +1,49 @@
-html{
-	margin: 0;
-	width: 100%;
-	font-family: 'Roboto', sans-serif;
-	text-align: center;
-	color: white;
-	padding-top: 30px;
-}
-
 body{
-	margin: 0;
-	background: #bdc3c7;
 	background-image:url(Images/espresso_blur_desktop.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
+	text-align:center;
+	color: white;
 }
 
-h1{
-	font-family: 'Raleway', sans-serif;
-	display: inline;
-	font-weight: 800;
-	font-size: 1em;
-	text-align: center;
+div.container-fluid{
+	padding-top: 20vh;
+	font-size: 16pt;
+	font-weight: 300;
 }
 
-p {
-	font-size: 1.2em;
-	text-shadow: 0px 1px 3px black;
-}
-
-#header_box{
-	padding: 15px;
-	display: inline-block;
-	border: 10px solid white;
-}
-
-#espresso{
-	top: 40vh;
-	height: 200px;
-	width: 200px;
-	border-radius: 50%;
-	cursor: pointer;
-	margin: 0 auto;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	transition: 0.5s;
-	background: white;
+button#espresso{
+	font-size: 1.5em;
+	font-weight: bold;
+	padding: 0.5em;
 	
+	background: rgba(0,0,0,0.3);
+	border: 5px solid white;
+	border-radius: 10px;
+
+	margin: 50px;
+
+	transition: 0.25s;	
 }
 
-#espresso img{
-	margin-left: -10px;
-	margin-top: -10px;
-	border-radius: 50%;
-	box-shadow: 0px 3px 8px black;
+@media screen and (min-width: 768px) {
+	button#espresso{
+		font-size: 2.5em;
+		border: 10px solid white;
+		border-radius: 20px;
+	}
+
 }
 
-#espresso:hover{background: #3498db;}
+button#espresso:hover{
+	background: rgba(255,255,255,0.1);	
+}
 
 #refresh_info{
 	text-align: center;
 	color: white;
-	font-weight: 100;
 }
 
 #location{
@@ -73,8 +54,7 @@ p {
 
 #name{
 	font-size: 2.5em;
-	margin-bottom: -20px;
-	text-shadow: 0px 1px 3px black;
+	font-weight: bold;
 }
 
 #address{
@@ -88,43 +68,28 @@ p {
 	margin: 0 auto;
 }
 
-.action{
-	background: #34495e;
-	box-shadow: 0px 3px 8px black;
-	height: 70px;
-	width: 70px;
+a.btn.action{
+	background: rgba(0,0,0,0.3);
+	border: 3px solid white;
 	border-radius: 50%;
+	color: white;
+	font-size: 30pt;
+	width: 75px;
 	display: inline-block;
 	cursor: pointer;
 	margin: 10px 20px;
-	transition: 0.5s;
+	transition: 0.25s;
 }
 
-#refresh:hover {background: #2980b9;}
-#directions{background: #27ae60;}
-#directions:hover {background: #2ecc71;}
-#yelp{background: #c0392b;}
-#yelp:hover {background: #e74c3c;}
-
-.action img{
-	display: block;
-	margin: auto auto;
+a.btn#refresh {
+	border-color: #e74c3c;
+	color: #e74c3c;
 }
-
-#refresh_icon{
-	margin-top: 10px;
-	width: 50px;
+a.btn#directions {
+	border-color:#2ecc71;
+	color:#2ecc71;
 }
-#map_icon{
-	margin-top: 8px;
-	width: 50px;
-}
-#yelp_icon{
-	margin-top: 22px;
-	width: 50px;
-}
-
-.help_text{
-	font-size: 1.2em;
-	text-shadow: 0px 1px 3px black;
+a.btn#yelp {
+	border-color: #f1c40f;
+	color: #f1c40f;
 }
