@@ -11,7 +11,7 @@ body{
 }
 
 div.container-fluid{
-	padding-top: 20vh;
+	padding-top: 10vw;
 	font-size: 16pt;
 	font-weight: 300;
 }
@@ -25,7 +25,7 @@ button#espresso{
 	border: 5px solid white;
 	border-radius: 10px;
 
-	margin: 50px auto;
+	margin: 50px auto 150px;
 
 	transition: 0.25s;	
 }
@@ -70,6 +70,8 @@ h1#name{
 	font-weight: bold;
 	line-height: 1em;
 }
+
+#result{margin-top:50px;}
 
 /*style changes for desktop*/
 @media screen and (min-width: 768px) {
