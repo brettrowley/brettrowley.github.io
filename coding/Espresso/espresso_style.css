@@ -28,15 +28,6 @@ button#espresso{
 	transition: 0.25s;	
 }
 
-@media screen and (min-width: 768px) {
-	button#espresso{
-		font-size: 2.5em;
-		border: 10px solid white;
-		border-radius: 20px;
-	}
-
-}
-
 button#espresso:hover{
 	background: rgba(255,255,255,0.1);	
 }
@@ -53,19 +44,13 @@ button#espresso:hover{
 }
 
 #name{
-	font-size: 2.5em;
+	font-size: 1.5em;
 	font-weight: bold;
 }
 
 #address{
 	font-size: 1.5em;
 	
-}
-
-#actions{
-	/*width: 500px;*/
-	margin-top: 60px;
-	margin: 0 auto;
 }
 
 a.btn.action{
@@ -77,7 +62,7 @@ a.btn.action{
 	width: 75px;
 	display: inline-block;
 	cursor: pointer;
-	margin: 10px 20px;
+	margin: 10px 10px;
 	transition: 0.25s;
 }
 
@@ -92,4 +77,20 @@ a.btn#directions {
 a.btn#yelp {
 	border-color: #f1c40f;
 	color: #f1c40f;
+}
+
+/*style changes for desktop*/
+@media screen and (min-width: 768px) {
+	button#espresso{
+		font-size: 2.5em;
+		border: 10px solid white;
+		border-radius: 20px;
+	}
+
+	#name{
+		font-size: 2.5em;
+	}
+
+	a.btn.action{margin: 10px 20px;}
+
 }
