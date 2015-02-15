@@ -147,8 +147,8 @@ function initialize() {
 
       $("#name").html(store)
       $("#address").html(city[0])
-      $("#directions").html("<a target='_blank' href='http://www.maps.google.com/?q=" + store + " " + address + "'><img id='map_icon' src='Images/directions.svg' /></a>")
-      $("#yelp").html("<a target='_blank' href='http://www.yelp.com/search?find_desc=" + store + "&find_loc=" + city[1] + "'><img id='yelp_icon' src='Images/yelp.svg' /></a>")
+      $("#directions").attr("href", "http://www.maps.google.com/?q=" + store + " " + address)
+      $("#yelp").attr("href", "http://www.yelp.com/search?find_desc=" + store + "&find_loc=" + city[1])
       $("#result").fadeIn();
     }, 500)
   })
