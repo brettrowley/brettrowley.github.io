@@ -73,6 +73,16 @@ h1#name{
 
 #result{margin-top:50px;}
 
+#google-attr{
+	font-size:0.75em;
+	position:absolute;
+	width:100%;
+	text-align: center;
+	bottom:0;
+	padding-bottom: 15px;
+	margin-left:-15px; /*to offset for .container-fluid padding*/
+}
+
 /*style changes for desktop*/
 @media screen and (min-width: 768px) {
 	button#espresso{
