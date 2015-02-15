@@ -56,17 +56,13 @@ title: Resume
 		margin: 5px auto;
 	}
 
-	.course-num, .course-name{
+	.course-num{
 		display: inline-block;
 	}
 
 	.course-num{
 		color: #95a5a6;
-		width: 90px;
-	}
-
-	.course-name{
-		width: 310px;
+		width: 85px;
 	}
 
 	#external-links{
@@ -75,10 +71,9 @@ title: Resume
 		padding: 20px;
 	}
 
-	.badge{
-		width: 19px;
-		float:right;
-		font-weight:300;
+	.workPeriod{
+		display:block;
+		margin-bottom: 1em;
 	}
 
 	</style>
@@ -88,7 +83,7 @@ title: Resume
 		var t = new Date();
 		var s = new Date(2014,5,2,0,0,0,0)
 		var d = Math.floor((t-s)*(1/1000)*(1/60)*(1/60)*(1/24)*(1/30))
-		$('#work-period').text(d + " months")
+		$('#currentWorkPeriod').text(d + " months")
 
 		$('#course-list').hide();
 
@@ -113,15 +108,17 @@ title: Resume
 </head>
 <body>
 	<div id="external-links">
-		<a href="#"><i class="ion-archive"></i> Download this as a PDF</a><br style="line-height: 2em">
-		<a href="https://www.linkedin.com/pub/brett-rowley/37/728/762" target="_blank"><i class="ion-social-linkedin"></i> Read more on LinkedIn</a>
+		<!-- <a href="#"><i class="ion-archive"></i> PDF Version</a><br style="line-height: 2em"> -->
+		<a href="https://www.linkedin.com/pub/brett-rowley/37/728/762" target="_blank"><i class="ion-social-linkedin"></i> LinkedIn</a>
 	</div>
 	<div class="panel panel-default">
   		<div class="panel-heading" style="background: #e74c3c !important; border-bottom: 3px solid #c0392b !important;">
     		<h3 class="panel-title">About</h3>
   		</div>
   		<div class="panel-body">
-			A leader by habit, an engineer by training, and a designer by practice. I have a passion for creating products with a superior user experience and a big-picture perspective on technical and business constraints. I love working on tight-knit teams bridging the gaps between different domains, from usability details to new product validation.
+  			<strong>I never took 'jack of all trades' as an insult.</strong> Olin College of Engineering gave me not only a solid grounding in engineering, but also significant experience in user-centered design by building real products for real people. Add some business courses plus free-lance graphic design into the mix and you're probably getting the picture.<br><br>
+			My education helped grow my passion for creating products with a superior user experience, tempered with a big-picture perspective on technical and business constraints. I consider myself an "in-betweener" who works best in interdisciplinary teams and loves to guide projects from a whiteboard sketch to a public product. <br><br>
+			<em>Current objectives: improve web/mobile development skills; gain more visual design experience.</em>
   		</div>
 	</div>
 
@@ -134,22 +131,20 @@ title: Resume
 			B.S. General Engineering with a Concentration in Product Design<br>
 			Graduated May 2014, 3.79 GPA<br>
 			Grand Challenge Scholar
-			<!-- <div class="well" style="padding: 0 15px; margin: 0; background: transparent"> -->
-				<span id="toggle-courses">Course History <i class="icon ion-arrow-down-b"></i></span>
-				<ul id="course-list">
-					<li><span class="course-num">ENGR 2199</span><span class="course-name">Engineering for Humanity</span></li>
-					<li><span class="course-num">ENGR 2250</span><span class="course-name">User-Oriented Collaborative Design</span></li>
-					<li><span class="course-num">ENGR 3220</span><span class="course-name">Human Factors and Interface Design</span></li>
-					<li><span class="course-num">ENGR 3250</span><span class="course-name">Integrated Product Design</span></li>
-					<li><span class="course-num">ENGR 2330</span><span class="course-name">Introduction to Mechanical Prototying</span></li>
-					<li><span class="course-num">ENGR 3330</span><span class="course-name">Introduction to Mechanical Design </span></li>
-					<li><span class="course-num">AHSE 1500</span><span class="course-name">Foundations of Business and Entrepreneurship</span></li>
-					<li><span class="course-num">ENGR 3299</span><span class="course-name">Real Products Real Markets</span></li>
-					<li><span class="course-num">MKT 3560</span><span class="course-name">Developing and Marketing New Products</span></li>
-					<li style="margin-top: 15px;"><i class="icon ion-folder"></i><a href="#">View Project Portfolio</a></li>
-					<li><i class="icon ion-link"></i><a href="http://www.olin.edu/academics/">Learn more about Olin's academic program</a></li>
-				</ul>
-			<!-- </div> -->
+			<span id="toggle-courses">Notable Courses <i class="icon ion-arrow-down-b"></i></span>
+			<ul id="course-list">
+				<li><span class="course-num">AHSE 1500</span>Foundations of Business and Entrepreneurship</li>
+				<li><span class="course-num">MKT 3560</span>Developing and Marketing New Products</li>
+				<li><span class="course-num">ENGR 3299</span>Real Products Real Markets</li>
+				<li><span class="course-num">ENGR 2330</span>Introduction to Mechanical Prototying</li>
+				<li><span class="course-num">ENGR 3330</span>Introduction to Mechanical Design </li>
+				<li><span class="course-num">ENGR 2250</span>User-Oriented Collaborative Design</li>
+				<li><span class="course-num">ENGR 3220</span>Human Factors and Interface Design</li>
+				<li><span class="course-num">ENGR 3250</span>Integrated Product Design</li>
+				<li><span class="course-num">ENGR 4190</span>Senior Capstone Program in Engineering (SCOPE)</li>
+				
+				<li><i class="icon ion-link"></i><a href="http://www.olin.edu/academics/">Learn more about Olin's academic program</a></li>
+			</ul>
   		</div>
 	</div>
 
@@ -159,27 +154,37 @@ title: Resume
   		</div>
   		<div class="panel-body">
 			<strong>Principal UI/UX Designer</strong><br>
-			<a href="#">RapidMiner</a><br>
-			<!-- <i class="icon ion-android-calendar"></i> --><span id="work-period">? months</span> (06/14 - Present)<br><br>
-			Responsible for all aspects of user experience in RapidMiner’s product range. Responsibilites include new product assessment, interface design, front-end prototype development, and usability testing.<br>
+			<a href="http://rapidminer.com/">RapidMiner</a><br>
+			<span class="workPeriod"><span id="currentWorkPeriod">? months</span> (06/2014 - Present)</span>
+			As the chief "user evangelist" at RapidMiner, I am responsible for overseeing all aspects of user experience within our product portfolio. This includes:
+			<ul class="noMarginList">
+				<li>evalating new product and feature ideas through user research</li>
+				<li>sketching, refining, and testing new feature designs</li>
+				<li>developing functional 'proof-of-concept' prototypes in HTML/CSS/JS</li>
+				<li>assessing performance of current features through monthly usability tests</li>
+				<li>creating usability guidelines and documentation for developers</li>
+				<li>working with marketers to ensure consistent messaging and user experience</li>
+			</ul>
 
 			<hr style="clear:all">
 			<strong>Student Engineering Consultant</strong><br>
-			<a href="#">DePuy Synthes Mitek Sports Medicine</a><br>
-			<!-- <i class="icon ion-android-calendar"></i> -->9 months (09/13 - 05/14)<br><br>
-			Developed an innovative new arthroscopic instrument based on technical feasibility, financial viability, and surgeon desirability. Personally worked on market research, CAD simulation, and prototype testing.<br>
+			<a href="http://www.olin.edu/collaborate/scope/projects/2013_14/depuy_synthes">DePuy Synthes Mitek Sports Medicine</a><br>
+			<span class="workPeriod">9 months (09/2013 - 05/2014)</span>
+			Olin College's senior capstone project partners teams of 4th year students with Fortune 500 companies for a 2 semester experience. DePuy Synthes Mitek Sports Medicine asked us to investigate the current state of arthroscopic surgery and identify opportunities for new instruments. Through user interviews, an iterative design process, and lab testing, we produced prototypes of a new instrument for further evaluation by Mitek.
+			<br><br>
+			My personal responsibilities in the project included market analysis and research, CAD simulation of prototype instruments, and designing/fabricating lab testing fixtures.
 
 			<hr style="clear:all">
 			<strong>Mechanical Designer</strong><br>
-			<a href="#">Boston Device Development</a><br>
-			<!-- <i class="icon ion-android-calendar"></i> -->3 months (06/13 - 08/13)<br><br>
-			Intern hired to assist both the industrial design and mechanical engineering departments. Responsibilities included designing, fabricating and testing prototypes of client products, primarily medical devices.<br>
+			<a href="http://bostondevice.com/">Boston Device Development</a><br>
+			<span class="workPeriod">3 months (06/2013 - 08/2013)</span>
+			My role as a mechanical design intern was to help smoothly transition projects from our industrial designers to mechanical engineers by designing, building, and testing early stage prototypes. I also assisted with idea generation and foamcore modeling for our lead industrial designer, as well as documenting performance tests of finished projects.
 
 			<hr style="clear:all">
 			<strong>UI Designer</strong><br>
-			<a href="#">Fetchnotes</a><br>
-			<!-- <i class="icon ion-android-calendar"></i> -->4 months(02/13 - 05/13)<br><br>
-			Assisted part-time with product strategy and new feature concepts. Developed several sketches and mock-ups of a new company website as reference material for future work.<br>
+			<a href="http://www.fetchnotes.com/#/">Fetchnotes</a><br>
+			<span class="workPeriod">4 months (02/2013 - 05/2013)</span>
+			This was a part-time opportunity during the school semester to provide design assistance to a new software startup. My main project was sketching new layouts for the company website with an emphasis on community engagement.
 
   		</div>
 	</div>
@@ -191,7 +196,7 @@ title: Resume
   		<div class="panel-body">
 			<ul id="competencies">
 				<li>
-					<strong>Skill
+					<strong>Topic
 					<span style="float: right">Years</span></strong>
 				</li>
 				<li>
@@ -199,10 +204,10 @@ title: Resume
 					<span class="badge">3</span>
 				</li>
 				<li>
-					Fabrication
+					Mechanical Fabrication
 					<span class="badge">2</span>
 				</li>
-				<br />
+				<br>
 				<li>
 					HTML/CSS
 					<span class="badge">1</span>
@@ -215,10 +220,14 @@ title: Resume
 					Python
 					<span class="badge">1</span>
 				</li>
-				<br />
+				<br>
 				<li>
 					Adobe Creative Suite
 					<span class="badge">3</span>
+				</li>
+				<li>
+					Graphic Design
+					<span class="badge">2</span>
 				</li>
 				<li>
 					Human Factors
@@ -228,7 +237,7 @@ title: Resume
 					Usability Testing
 					<span class="badge">1</span>
 				</li>
-				<br />
+				<br>
 				<li>
 					Conversational German
 					<span class="badge">1</span>
