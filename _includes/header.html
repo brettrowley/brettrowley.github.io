@@ -1,6 +1,38 @@
+<script>
+$(document).ready(function(){
+	$('ul#nav-menu').hide();
+	$('div#click-to-close').hide();
+
+	$('div#nav-btn').click(function(){
+		$('ul#nav-menu').slideToggle()
+		$('div#click-to-close').toggle()
+	})
+
+	$('div#click-to-close').click(function(){
+		$('div#click-to-close').hide();
+		$('ul#nav-menu').slideToggle()
+	})
+})
+</script>
+
 <header id="header">
-    <a id="home-link" href="/">
-      <img alt="Home" src="/assets/img/profile_pic.png" style="width: 35px;">
-    </a>
-    <p id="page-name">{{page.title}}</p>
+
+<div class="dropdown">
+  <div id="nav-btn">
+    <i class="ion-android-menu"></i> {{page.title}}
+  </div>
+
+  <ul id="nav-menu">
+
+    <li><a role="menuitem" tabindex="-1" href="/">Home</a></li>
+    <li><a role="menuitem" tabindex="-1" href="/contact">Contact</a></li>
+    <li><a role="menuitem" tabindex="-1" href="/resume">Resume</a></li>
+    <li><a role="menuitem" tabindex="-1" href="#">Portfolio</a></li>
+    <li><a role="menuitem" tabindex="-1" href="#">Coding</a></li>
+    <li><a role="menuitem" tabindex="-1" href="/photography">Photography</a></li>
+    <li><a role="menuitem" tabindex="-1" href="/blog">Blog</a></li>
+  </ul>
+</div>
+
+<div id="click-to-close"></div>
 </header>
