@@ -4,13 +4,14 @@ title: Resume
 ---
 
 	<style>
-
+	body{background: #f0f0f0;}
 	.panel{
 		width: 60%;
-		max-width: 1000px;
+		max-width: 600px;
 		min-width: 300px;
-		margin: 0px auto 4vw;
-		border-color: #f0f0f0;
+		margin: 0px auto 2vw;
+		border: none;
+		box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
 	}
 
 	.panel-heading{
@@ -19,7 +20,16 @@ title: Resume
 	}
 
 	.panel-title{
-		font-weight: bold;
+		font-weight: light;
+		font-size: 1.3em;
+		text-align: center;
+	}
+
+	@media screen and (min-width: 768px) {
+		.panel-title{
+			font-weight: light;
+			text-align: left;
+		}
 	}
 
 	.panel-body .icon{
@@ -65,15 +75,15 @@ title: Resume
 		/*width: 85px;*/
 	}
 
-	#external-links{
-		display: block;
-		text-align: center;
-		padding: 20px;
-	}
-
 	.workPeriod{
 		display:block;
 		margin-bottom: 1em;
+	}
+
+	a.contact-link{
+		display: block;
+		text-align: center;
+		padding: 20px;
 	}
 
 	</style>
@@ -107,10 +117,7 @@ title: Resume
 	</script>
 </head>
 <body>
-	<div id="external-links">
-		<!-- <a href="#"><i class="ion-archive"></i> PDF Version</a><br style="line-height: 2em"> -->
-		<a href="https://www.linkedin.com/pub/brett-rowley/37/728/762" target="_blank"><i class="ion-social-linkedin"></i> LinkedIn</a>
-	</div>
+	<a class="contact-link" href="/contact"><i class="ion-paper-airplane"></i> Connect with me!</a>
 	<div class="panel panel-default">
   		<div class="panel-heading" style="background: #e74c3c !important; border-bottom: 3px solid #c0392b !important;">
     		<h3 class="panel-title">About</h3>
@@ -130,7 +137,7 @@ title: Resume
 			<strong><a href="http://olin.edu/" target="_blank">Olin College of Engineering</a></strong><br>
 			B.S. General Engineering with a Concentration in Product Design<br>
 			Graduated May 2014, 3.79 GPA<br>
-			Grand Challenge Scholar
+			National Academy of Engineering Grand Challenge Scholar
 			<span id="toggle-courses">Notable Courses <i class="icon ion-arrow-down-b"></i></span>
 			<ul id="course-list">
 				<li><span class="course-num">AHSE 1500:</span> Foundations of Business and Entrepreneurship</li>
@@ -149,7 +156,7 @@ title: Resume
 	</div>
 
 	<div class="panel panel-default">
-  		<div class="panel-heading" style="background: #1abc9c !important; border-bottom: 3px solid #16a085 !important;">
+  		<div class="panel-heading" style="background: #f39c12 !important; border-bottom: 3px solid #e67e22 !important;">
     		<h3 class="panel-title">Experience</h3>
   		</div>
   		<div class="panel-body">
@@ -190,7 +197,7 @@ title: Resume
 	</div>
 
 	<div class="panel panel-default">
-  		<div class="panel-heading" style="background: #f1c40f !important; border-bottom: 3px solid #f39c12 !important;">
+  		<div class="panel-heading" style="background: #34495e !important; border-bottom: 3px solid #2c3e50 !important;">
     		<h3 class="panel-title">Competencies</h3>
   		</div>
   		<div class="panel-body">
@@ -245,4 +252,5 @@ title: Resume
 			</ul>
   		</div>
 	</div>
+	<a class="contact-link" href="/contact"><i class="ion-paper-airplane"></i> Connect with me!</a>
 </body>
