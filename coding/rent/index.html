@@ -4,10 +4,16 @@ title: Rent Check
 ---
 
 	<style>
+	/*body{background: #27ae60; color: white;}*/
+
 	h1#result{
 		font-weight: 300;
 		font-size: 80px;
 		padding: 30px 0px;
+	}
+
+	@media screen and (max-width: 768px){
+		h1#result{font-size:60px;}
 	}
 	</style>
 
@@ -47,19 +53,17 @@ title: Rent Check
 		
 	})
 	</script>
-
-	<script src='https://platform.venmo.com/sdk.js'></script>
 </head>
 <body>
 	<div class="container center-container" style="padding: 30px 0px">
-		<h1 style="text-transform: capitalize">Is Rent Due?</h1>
+		<h1 style="text-transform: capitalize;">Is Rent Due?</h1>
 		<h1 id="result"></h1>
 		
 		<p style="margin-bottom: 30px; line-height: 30px;">Today is <span class="this-month">month</span> <span class="day">day</span>.<br>
 		You should have paid rent on <span class="this-month">month</span> 1.<br>
 		Rent is next due on <span class="next-month">month</span> 1.</p>
 
-		<a class="venmo-pay-button" data-recipient-id="989725385031680280"></a>
+		<a class="btn btn-success btn-lg" href="https://venmo.com/?txn=pay&recipients=989725385031680280&note=Rent&audience=private" style="color: white"><i class="ion-cash" style="margin-right: 5px"></i>Pay Me</a>
 
 	</div>
 </body>
