@@ -122,3 +122,11 @@
 	ul.noMarginList li{
 		margin-bottom: 0.1em;
 	}
+
+	h1{
+		font-weight: bold;
+	}
+
+	div.center-container{
+		text-align: center;
+	}
