@@ -7,13 +7,8 @@ title: Rent Check
 	/*body{background: #27ae60; color: white;}*/
 
 	h1#result{
-		font-weight: 300;
-		font-size: 80px;
-		padding: 30px 0px;
-	}
-
-	@media screen and (max-width: 768px){
-		h1#result{font-size:60px;}
+		font-weight: lighter;
+		font-size: 150px;
 	}
 	</style>
 
@@ -53,13 +48,15 @@ title: Rent Check
 	</script>
 </head>
 <body>
-	<div class="container center-container" style="padding: 30px 0px">
+	<div class="container center-container" style="padding: 30px 0px; max-width: 600px;">
 		<h1 style="text-transform: capitalize;">Is Rent Due Today?</h1>
 		<h1 id="result"></h1>
 		
-		<p style="margin-bottom: 30px; line-height: 30px;">Today is <span class="this-month">month</span> <span class="day">day</span>.<br>
-		You should have paid rent on <span class="this-month">month</span> 1.<br>
-		Rent is next due on <span class="next-month">month</span> 1.</p>
+		<p style="line-height: 30px; color: #7f8c8d">Today is <strong><span class="this-month">month</span> <span class="day">day</span></strong>.<br>
+		You should have paid rent on <strong><span class="this-month">month</span> 1</strong>.<br>
+		Rent is next due on <strong><span class="next-month">month</span> 1</strong>.</p>
+
+		<hr style="margin: 30px 0px 40px;">
 
 		<a href="https://ifttt.com/view_embed_recipe/277424-rent-reminder" target = "_blank" class="embed_recipe embed_recipe-l_13" id= "embed_recipe-277424"><img src= 'https://ifttt.com/recipe_embed_img/277424' alt="IFTTT Recipe: Rent Reminder connects date-time to email" width="370px" style="max-width:100%"/></a><script async type="text/javascript" src= "//ifttt.com/assets/embed_recipe.js"></script>
 
