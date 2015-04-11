@@ -14,8 +14,9 @@ div.row{
 .portfolio-square{
 	color: white;
 	text-align: center;
-	padding: 15vh 0px;
+	padding: 15vh 40px;
 	margin: 0;
+	height: 450px;
 }
 
 .portfolio-square h3{
@@ -26,57 +27,106 @@ div.row{
 }
 
 img.portfolio-icon{
-	height: 100px;
+	height: 150px;
+	margin-bottom: -20px;
+	-webkit-filter: drop-shadow(7px 7px 5px rgba(0,0,0,0.5));
 }
 
+img.portfolio-icon[src="fire-icon.png"]{margin-right: 150px; margin-bottom: 0px;}
+
 a.readMore{
-	font-family: 'Roboto Slab';
-	color: white;
+	background: transparent;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	transition: 0.25s;
+	-webkit-transition: 0.25s;
 }
+
+a.readMore:hover{background: rgba(255,255,255,0.1);}
+
+div.modal.fade.in{
+	background: rgba(0,0,0,0.4);
+}
+
+div.modal .modal-title{font-weight: bold;}
 </style>
 
 <script>
+$(document).ready(function(){
+	$('.fade.in').click(function(){
+		
+	})
+})
 </script>
 </head>
 <body>
 <div class="row">
 	<div class="col-md-4 portfolio-square" style="background: #1abc9c">
-		<img src="http://icons.iconarchive.com/icons/graphicloads/seo-services/256/services-portfolio-icon.png" class="portfolio-icon"/>
+		<img src="tap-icon.png" class="portfolio-icon"/>
 		<h3>TAP: A Smart Dish Sponge</h3>
-		<p>Project Description</p>
-		<a href="#" class="readMore">Read More</a>
+		<p>Pitched and prototyped an innovative kitchen product to reduce water consumption.</p>
+		<a href="#" class="readMore" data-toggle="modal" data-target="#tap-modal"></a>
+		
 	</div>
 	<div class="col-md-4 portfolio-square" style="background: #9b59b6">
-		<img src="http://icons.iconarchive.com/icons/graphicloads/seo-services/256/services-portfolio-icon.png" class="portfolio-icon"/>
+		<img src="bone-icon.png" class="portfolio-icon"/>
 		<h3>Arthroscopic Surgical Instrument</h3>
-		<p>Project Description</p>
-		<a href="#" class="readMore">Read More</a>
+		<p>Senior Capstone Project: propose a new athroscopic device for knee surgeries to DePuy Synthes Mitek Sports Medicine</p>
+		<a href="#" class="readMore" data-toggle="modal" data-target="#myModal"></a>
+		
 	</div>
 	<div class="col-md-4 portfolio-square" style="background: #3498db">
-		<img src="http://icons.iconarchive.com/icons/graphicloads/seo-services/256/services-portfolio-icon.png" class="portfolio-icon"/>
+		<img src="phone-icon.png" class="portfolio-icon"/>
 		<h3>Mobile Application Concept</h3>
-		<p>Project Description</p>
-		<a href="#" class="readMore">Read More</a>
+		<p>Designed and prototyped a mobile application to help better navigate public transit lines.</p>
+		<a href="#" class="readMore" data-toggle="modal" data-target="#myModal"></a>
+		
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-4 portfolio-square" style="background: #f39c12">
-		<img src="http://icons.iconarchive.com/icons/graphicloads/seo-services/256/services-portfolio-icon.png" class="portfolio-icon"/>
+		<img src="fire-icon.png" class="portfolio-icon"/>
 		<h3>Firefighting Robots</h3>
-		<p>Project Description</p>
-		<a href="#" class="readMore">Read More</a>
+		<p>Designed and fabricated 3 radio-controlled robots to extinguish raging campfires.</p>
+		<a href="#" class="readMore" data-toggle="modal" data-target="#myModal"></a>
+		
 	</div>
 	<div class="col-md-4 portfolio-square" style="background: #34495e">
-		<img src="http://icons.iconarchive.com/icons/graphicloads/seo-services/256/services-portfolio-icon.png" class="portfolio-icon"/>
+		<img src="logo-icon.png" class="portfolio-icon"/>
 		<h3>Freelance Graphic Design</h3>
-		<p>Project Description</p>
-		<a href="#" class="readMore">Read More</a>
+		<p>Independent projects for friends and family with print media and logo design.</p>
+		<a href="#" class="readMore" data-toggle="modal" data-target="#myModal"></a>
+		
 	</div>
 	<div class="col-md-4 portfolio-square" style="background: #e74c3c">
-		<img src="http://icons.iconarchive.com/icons/graphicloads/seo-services/256/services-portfolio-icon.png" class="portfolio-icon"/>
+		<img src="code-icon.png" class="portfolio-icon"/>
 		<h3>Download as a PDF</h3>
-		<p>Project Description</p>
-		<a href="#" class="readMore">Read More</a>
+		<a href="#" class="readMore" data-toggle="modal" data-target="#myModal"></a>
+		
 	</div>
+</div>
+<div class="modal fade" id="tap-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">TAP: A Smart Dish Sponge</h4>
+      </div>
+      <div class="modal-body">
+        <p>Project manager on a team of 5 students from Olin College, Babson College, and Massachusetts College of Art. We were told to design and develop a ‘sustainable product for the home.’ The final presentation included a functional proof-of-concept, a visual model, and a hypothetical business plan.</p>
+		<p> Through our user research, we realized many people still wash their dishes by hand in a sink. Almost 90% reported that they leave the faucet running during this task, wasting 1,000s of gallons of clean water per year.</p>
+		<p>We saw an opportunity to reduce this waste by evolving a commonon household item: the dish sponge.</p>
+		<p>TAP is a smart dishwashing sponge that enables the user to control their sink with a simple tap of the sponge. A small wireless transmitter inside the sponge controls a solenoid valve attached to the end of the sink faucet. The attachment simply screws onto the faucet with no under-sink plumbing required. The transmitter is removable so that sponges can be replaced when dirty.</p>
+		<p>The concept of evaluating an idea based on technical feasibility, user desirability, and financial viability was not new to me, but this project pushed my ability to find a satisfactory solution to all three.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ion-link"></i> External Link</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ion-close"></i>Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 </body>
