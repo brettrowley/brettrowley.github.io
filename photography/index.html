@@ -35,11 +35,45 @@ title: Photography
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
+
+	#spinnerBox{
+		display: block;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.7);
+	}
+
+	#spinner{
+		font-size: 150px;
+		color: white;
+		display: block;
+		position: fixed;
+		left: calc(50vw - 75px);
+		top: calc(50vh - 75px);
+		animation:spin 1.5s linear infinite;
+		-webkit-animation:spin 1.5s linear infinite;
+    	-moz-animation:spin 1.5s linear infinite;
+	}
+
+	@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+	@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+	@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 	</style>
+
+	<script>
+	$(window).load(function(){
+		$('#spinnerBox').fadeOut(function(){$(this).remove()})
+		console.log("All images have laoded!")
+	})
+	</script>
 
 </head>
 <body>
 
+<div id="spinnerBox">
+	<i id="spinner" class="ion-load-c"></i>
+</div>
 
 <a id="caption" href="http://www.flickr.com/photos/96116540@N02/sets/"><i class="ion-images"></i> Full Gallery</a>
 
