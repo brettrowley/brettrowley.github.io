@@ -3,65 +3,69 @@ layout: default
 title: Photography
 ---
 	<style>
-	body{
-		text-align: center;
-		/*padding-top: 50px;*/
+	body{padding: 0;}
+
+	#caption{
+		color: white;
+		position: fixed;
+		padding: 10px 20px;
+		margin: 15px;
+		border-radius: 5px;
+		border: 3px solid white;
+		bottom: 0;
+		font-size: 1.5em;
+		font-weight: bolder;
+		transition: 0.5s;
+		-webkit-transition: 0.5s;
+	}
+
+	#caption:hover{
+		text-decoration: none;
+		background: rgba(255,255,255,0.2);
 	}
 
 	.art{
-		margin: 3vw 0;
-		width: 90%;
-		border-radius: 5px;
-		box-shadow: 0px 5px 10px 2px rgba(0,0,0,0.4);
-	}
-
-	h3{
-		margin-top: 25px;
-	}
-
-	#to-top{
-	display: block;
-	text-align: center;
-	font-size: 3em;
-	color: rgba(0,0,0,0.3);
-	cursor: pointer;
-	transition: 0.25s;
-	-webkit-transition: 0.25s;
-	}
-
-	#to-top:hover{
-		color: black;
+		display: block;
+		padding: 0;
+		width: 100%;
+		min-height: 300px;
+		height: calc(100vw / 2);
+		overflow: hidden;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 	</style>
 
-	<script>
-	$(document).ready(function(){
-		$('#to-top').click(function(){
-		window.scrollTo(0,0);
-	})
-	})
-	
-	</script>
 </head>
 <body>
-	<div style="padding: 15px">
-		<h3>My passion for cars and autosport extends to photography as well.</h3>
-		<h4><a href="http://www.flickr.com/photos/96116540@N02/sets/"><strong>flickr Gallery</strong></a></h4>
-	</div>
 
-<hr>
 
-<em>Some of my favorites:</em><br>
-<a target="_blank" href="http://www.flickr.com/photos/96116540@N02/sets/"><img class="art" style="margin-top: 20px; max-width: 400px;" src="https://farm6.staticflickr.com/5506/14431110414_bc82e9b9c7_h.jpg"></a><br>
-<a target="_blank" href="http://www.flickr.com/photos/96116540@N02/sets/"><img class="art" style="max-width: 600px;" src="https://farm3.staticflickr.com/2894/10484401895_340417d295_h.jpg"></a><br>
-<a target="_blank" href="http://www.flickr.com/photos/96116540@N02/sets/"><img class="art" style="max-width: 400px;" src="https://farm4.staticflickr.com/3821/10484425474_00b7c9dc83_h.jpg"></a><br>
-<a target="_blank" href="http://www.flickr.com/photos/96116540@N02/sets/"><img class="art" style="max-width: 600px;" src="https://farm9.staticflickr.com/8267/8769836137_de8999d6a4_h.jpg"></a><br>
-<a target="_blank" href="http://www.flickr.com/photos/96116540@N02/sets/"><img class="art" style="max-width: 400px;" src="https://farm3.staticflickr.com/2948/15184523158_a35bb31d08_h.jpg"></a><br>
-<a target="_blank" href="http://www.flickr.com/photos/96116540@N02/sets/"><img class="art" style="max-width: 600px;" src="https://farm9.staticflickr.com/8544/8771439483_d1d13d88a4_h.jpg"></a><br>
-<a target="_blank" href="http://www.flickr.com/photos/96116540@N02/sets/"><img class="art" style="max-width: 400px;" src="https://farm3.staticflickr.com/2933/14297422210_952b8e24a7_h.jpg"></a><br>
-<a target="_blank" href="http://www.flickr.com/photos/96116540@N02/sets/"><img class="art" style="max-width: 600px;" src="https://farm3.staticflickr.com/2805/8770511111_2796e7f06a_h.jpg"></a><br>
+<a id="caption" href="http://www.flickr.com/photos/96116540@N02/sets/"><i class="ion-images"></i> Full Gallery</a>
 
-<i id="to-top" class="icon ion-android-arrow-dropup-circle"></i>
+<span class="art" style="background-image: url(/assets/img/photography/le-mans-audi.jpg)"></span>
+
+<span class="art" style="background-image: url(/assets/img/photography/porsche-wheel.jpg)"></span>
+
+<span class="art" style="background-image: url(/assets/img/photography/sebring-lmp2-brakes.jpg)"></span>
+
+<span class="art" style="background-image: url(/assets/img/photography/petit-porsche.jpg)"></span>
+
+<span class="art" style="background-image: url(/assets/img/photography/larz-anderson-ferrari.jpg)"></span>
+
+<span class="art" style="background-image: url(/assets/img/photography/porsche-grille.jpg)"></span>
+
+<span class="art" style="background-image: url(/assets/img/photography/petit-porsche2.jpg)"></span>
+
+<span class="art" style="background-image: url(/assets/img/photography/larz-anderson-engine.jpg)"></span>
+
+<span class="art" style="background-image: url(/assets/img/photography/porsche-lights.jpg)"></span>
+
+<span class="art" style="background-image: url(/assets/img/photography/porsche-mesh.jpg)"></span>
+
+<span class="art" style="background-image: url(/assets/img/photography/le-mans-lmp2.jpg)"></span>
+
+<span class="art" style="background-image: url(/assets/img/photography/sebring-viper.jpg)"></span>
 
 </body>
 </html>
