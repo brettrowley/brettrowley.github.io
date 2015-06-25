@@ -3,37 +3,34 @@ layout: default
 title: Photography
 ---
 	<style>
-	body{padding: 0;}
-
-	#caption{
-		color: white;
-		position: fixed;
-		padding: 10px 20px;
-		margin: 15px;
-		border-radius: 5px;
-		border: 3px solid white;
-		bottom: 0;
-		font-size: 1.5em;
-		font-weight: bolder;
-		transition: 0.5s;
-		-webkit-transition: 0.5s;
-	}
-
-	#caption:hover{
-		text-decoration: none;
-		background: rgba(255,255,255,0.2);
-	}
+	div.container{max-width: 768px;}
 
 	.art{
-		display: block;
-		padding: 0;
-		width: 100%;
-		min-height: 300px;
-		height: calc(100vw / 2);
+		display: inline-block;	
 		overflow: hidden;
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: cover;
+		/*cursor: pointer;*/
+	}
+
+	.art img{
+		width: 100%;
+	}
+
+	@media screen and (min-width: 993px){
+		.art{
+		 	width: 241px;
+		}
+	}
+
+	@media screen and (min-width: 768px) and (max-width: 992px){
+		.art{
+			width: 348px;
+		 	margin: 5px
+		}
+	}
+	@media screen and (max-width: 768px){
+		.art{
+		 	margin: 7.5px auto;
+		}
 	}
 
 	#spinnerBox{
@@ -64,7 +61,9 @@ title: Photography
 	<script>
 	$(window).load(function(){
 		$('#spinnerBox').fadeOut(function(){$(this).remove()})
-		console.log("All images have laoded!")
+	})
+
+	$(document).ready(function(){
 	})
 	</script>
 
@@ -75,31 +74,35 @@ title: Photography
 	<i id="spinner" class="ion-load-c"></i>
 </div>
 
-<a id="caption" href="http://www.flickr.com/photos/96116540@N02/sets/"><i class="ion-images"></i> Full Gallery</a>
+<div class="container">
+	<h1 class="page-title">{{page.title}}</h1>
+	<p class="page-lead">View the <a href="#">full albums</a></p>
+	<hr style="margin-bottom: 4px">
 
-<span class="art" style="background-image: url(/assets/img/photography/le-mans-audi.jpg)"></span>
+	<div class="art"><img src="/assets/img/photography/le-mans-audi.jpg"></div>
 
-<span class="art" style="background-image: url(/assets/img/photography/porsche-wheel.jpg)"></span>
+	<div class="art"><img src="/assets/img/photography/porsche-wheel.jpg"></div>
 
-<span class="art" style="background-image: url(/assets/img/photography/sebring-lmp2-brakes.jpg)"></span>
+	<div class="art"><img src="/assets/img/photography/sebring-lmp2-brakes.jpg"></div>
 
-<span class="art" style="background-image: url(/assets/img/photography/petit-porsche.jpg)"></span>
+	<div class="art"><img src="/assets/img/photography/petit-porsche.jpg"></div>
 
-<span class="art" style="background-image: url(/assets/img/photography/larz-anderson-ferrari.jpg)"></span>
+	<div class="art"><img src="/assets/img/photography/larz-anderson-ferrari.jpg"></div>
 
-<span class="art" style="background-image: url(/assets/img/photography/porsche-grille.jpg)"></span>
+	<div class="art"><img src="/assets/img/photography/porsche-grille.jpg"></div>
 
-<span class="art" style="background-image: url(/assets/img/photography/petit-porsche2.jpg)"></span>
+	<div class="art"><img src="/assets/img/photography/petit-porsche2.jpg"></div>
 
-<span class="art" style="background-image: url(/assets/img/photography/larz-anderson-engine.jpg)"></span>
+	<div class="art"><img src="/assets/img/photography/larz-anderson-engine.jpg"></div>
 
-<span class="art" style="background-image: url(/assets/img/photography/porsche-lights.jpg)"></span>
+	<div class="art"><img src="/assets/img/photography/porsche-lights.jpg"></div>
 
-<span class="art" style="background-image: url(/assets/img/photography/porsche-mesh.jpg)"></span>
+	<div class="art"><img src="/assets/img/photography/porsche-mesh.jpg"></div>
 
-<span class="art" style="background-image: url(/assets/img/photography/le-mans-lmp2.jpg)"></span>
+	<div class="art"><img src="/assets/img/photography/le-mans-lmp2.jpg"></div>
 
-<span class="art" style="background-image: url(/assets/img/photography/sebring-viper.jpg)"></span>
+	<div class="art"><img src="/assets/img/photography/sebring-viper.jpg"></div>
+</div>
 
 </body>
 </html>

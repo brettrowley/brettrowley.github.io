@@ -1,130 +1,155 @@
-	html{
-		margin: 0;
-		width: 100%;
-	}
+	html{margin: 0; width: 100%;}
 
 	body{
-		font-family: 'Open Sans', 'Helvetica Neue', sans-serif !important;
+		font-family: 'Open Sans', sans-serif !important;
+		padding-top: 50px;
 		padding-bottom: 30px;
 	}
 
-	#header{
-		width: 100%;
-		height: 50px;
-		margin: 0;
-		background: white;
-		border-bottom: 3px solid #e7e7e7;
-		text-align: left;
+	h1.page-title{
+	  text-align: center;
+	  text-transform: uppercase;
+	  letter-spacing: 5px;
+	  font-weight: 100;
+	  color: #333;
+	  margin-top: 50px;
+	  font-family: 'Open Sans';
+	}
+
+	p.page-lead{
+		text-align: center;
+		padding: 0px 15px 30px;
+		color: #333;
+		letter-spacing: 0.5px;
+		font-family: 'Open Sans';
+	}
+
+
+	nav#navbar{
+		background: #494A4C;
+		box-shadow: 0px 3px 5px rgba(0,0,0,0.3);
+		border: none;
+	}
+	nav#navbar li a{
+		color: white;
+		font-size: 11pt;
+		text-transform: uppercase;
+		letter-spacing: 1px;
 		font-weight: 300;
 	}
-
-	#click-to-close{
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		height: 100vh;
-		/*background: red;*/
-		z-index: 100;
+	#deskHome{
+		font-weight: 700 !important;
+		text-transform: none !important;
+	}
+	nav#navbar a:hover{
+		text-decoration: underline;
 	}
 
-	div.dropdown{z-index:101; display:block;}
-
-	div#nav-btn{
-		display: block;
-		padding: 10px 15px;
-		font-size: 14pt;
-		color: #e74c3c;
-		cursor: pointer;
-		transition: 0.25s;
-		-webkit-transition: 0.25s;
-		text-align: center;
-	}
-
-	div#nav-btn:hover{
-		color: white;
-		background: #e74c3c;
-	}
-
-	ul#nav-menu{
-		list-style: none;
-		padding: 0;
-		margin-top: 0px;
-		background: #fafafa;
-		z-index: 101;
-		text-align: center;
-		box-shadow: 0px 3px 2px rgba(0,0,0,0.3);
-		font-weight: 400;
-	}
-
-	ul#nav-menu li{
-		font-size: 14pt;
-		color: #e74c3c;
-	}
-
-	ul#nav-menu li:not(:nth-of-type(1)){border-top:1px solid #e4e4e4;}
-
-	ul#nav-menu li a{
-		display: block;
-		padding: 10px 10px;
-		color: #e74c3c;
-	}
-
-	ul#nav-menu li a:hover{
-		background: #e74c3c;
-		color: white;
-		text-decoration: none !important;
-	}
 
 	@media screen and (min-width: 768px) {
-		div.dropdown{display:inline-block;}
-		div#nav-btn{
-			display:inline-block;
-			text-align: left;
+		ul#menu{
+			display: block !important;
+		  	float: none;
+		  	margin: 0 auto;
+		  	width: 768px;
 		}
-		ul#nav-menu{
-			text-align: left;
-			margin-left: 12px;
-			margin-top: 3px;
-			
+		#mobileMenu{display: none;}
+		#mobileHome{display: none;}
+		#deskHome{display: block;}
+	}
+
+	@media screen and (max-width: 768px) {
+		#mobileMenu{
+			display: block;
+			text-align: center;
+			font-size: 14pt;
+			font-weight: 700;
+			cursor: pointer;
+			margin-top: 10px;
+			color: white;
+		}
+		#mobileHome{display: block;}
+		#deskHome{display: none;}
+		#menu{
+			display: none;
+			background: #CB3F32;
+			margin-top: 15px !important;
+			margin-bottom: 0px !important;
+		}
+		ul#menu li a{
+			font-weight:400 !important;
+			border-top: 1px solid rgba(0,0,0,0.15);
+		}
+		#click-to-close{
+			position: fixed;
+			display: none;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			z-index: 100;
+			background: rgba(0,0,0,0.6);
 		}
 
-		ul#nav-menu li a{
-			padding: 10px 30px 10px 22px;
-		}
+		
 
+		nav#navbar a.active{
+			background: rgba(0,0,0,0.05);
+			border: none;
+		}
 	}
 
 
 
+div.container{
+	max-width: 768px;
+}
+
+.portfolio-page h4{
+	display: block;
+	font-size: 14pt;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	margin: 45px auto 5px;
+}
+
+.portfolio-page p:not(.page-lead), .portfolio-page ul{
+	font-size: 14pt;
+	font-family: 'Lora';
+}
+
+.portfolio-page img.screenshot{
+	width: 100%;
+	border-radius: 5px;
+	margin: 7.5px auto;
+}
 
 
 
-
-
-
-
-
-
-	span.badge{
-		width: 18px;
-		float: right;
-		font-weight: 300 !important;
-		padding: 3px 6px !important;
+	div#homepage{
+		padding-top: 50px;
+		text-align: center;
+		padding-left: 30px;
+		padding-right: 30px;
+		max-width: 700px;
 	}
 
-	ul.noMarginList{
-		padding:0;
+	div#homepage img#profilePhoto{
+		width: 200px;
+	}
+
+	ul{
 		padding-left: 20px;
-		margin: 10px auto;
 	}
 
-	ul.noMarginList li{
-		margin-bottom: 0.1em;
+	ul.no-bullets{
+		list-style: none;
 	}
 
-	h1{
-		font-weight: bold;
+	ul.no-margins{
+		padding:0;
+		margin: 0;
 	}
 
 	div.center-container{
