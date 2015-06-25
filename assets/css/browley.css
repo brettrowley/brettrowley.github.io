@@ -26,7 +26,7 @@
 
 
 	nav#navbar{
-		background: #444;
+		background: #c0392b;
 		box-shadow: 0px 3px 5px rgba(0,0,0,0.3);
 		border: none;
 	}
@@ -72,7 +72,7 @@
 		#deskHome{display: none;}
 		#menu{
 			display: none;
-			background: #595B5F;
+			background: #e74c3c;
 			margin-top: 15px !important;
 			margin-bottom: 0px !important;
 		}
