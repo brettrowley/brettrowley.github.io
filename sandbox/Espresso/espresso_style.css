@@ -10,7 +10,7 @@ body{
 	color: white;
 }
 
-div.container-fluid{
+div#front-page{
 	padding-top: 10vw;
 	font-size: 16pt;
 	font-weight: 300;

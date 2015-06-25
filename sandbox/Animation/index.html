@@ -4,7 +4,8 @@ title: Animation
 ---
 
 <style>
-	body{
+	div.container{
+		padding-top: 75px;
 		text-align: center;
 	}
 
@@ -14,11 +15,11 @@ title: Animation
 		margin-left: -150px;
 		top: 30%;
 	}
+
 	#l0{
 		-webkit-animation: mymove 1.25s infinite; /* Chrome, Safari, Opera */ 
 		-moz-animation: mymove 1.25s infinite;
     	animation: mymove 1.25s infinite;
-
 	}
 
 	#l1{
@@ -70,9 +71,12 @@ title: Animation
 </style>
 
 <body>
-	<h4 style="margin-top: 20px">Fun project: animate the <a target="_blank" href="https://rapidminer.com/wp-content/themes/rapidminer/assets/images/rapidminer-logo-retina.png">RapidMiner logo</a> for use as a loading icon.</h4>
-	<img class="logo-layer" id="l0"src="layer0.svg" />
-	<img class="logo-layer" id="l1"src="layer1.svg" />
-	<img class="logo-layer" id="l2"src="layer2.svg" />
-	<img class="logo-layer" id="l3"src="layer3.svg" />
+	<div class="container">
+		<p>Fun project: animate the <a target="_blank" href="https://rapidminer.com/wp-content/themes/rapidminer/assets/images/rapidminer-logo-retina.png">RapidMiner logo</a> for use as a loading icon.</p>
+		<p><em>Sorry, doesn't work on mobile! :( </em></p>
+		<img class="logo-layer" id="l0"src="layer0.svg" />
+		<img class="logo-layer" id="l1"src="layer1.svg" />
+		<img class="logo-layer" id="l2"src="layer2.svg" />
+		<img class="logo-layer" id="l3"src="layer3.svg" />
+	</div>
 </body>
