@@ -1,0 +1,197 @@
+<head>
+<title>Welcome to RapidMiner</title>
+ <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+<style>
+	body {
+		background-image: url('Start.png');
+		background-repeat: no-repeat;
+	}
+	#modalFrame{
+		width: 710px;
+		background: white;
+		position: absolute;
+		left: 475px;
+		top: 180px;
+	}
+
+	#nav ul{
+		list-style: none;
+		margin-left: -25px;
+		margin-top: 20px;
+		margin-bottom: 15px;
+	}
+	#nav ul li{
+		display: inline-block;
+		margin-right: 10px;
+		color: #2980b9;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	#nav ul li.active{
+		color: #333;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	#nav ul .ion-chevron-right{color: #bbb;}
+
+	#gif img{
+		width: 710px;
+		height: 375px;
+		box-shadow: 0px 0px 5px rgba(0,0,0,0.75)
+	}
+
+	/*#gif img.hide{display: none;}*/
+
+	#text{padding-top: 15px;}
+	.next, .repeat{
+		color: #2980b9;
+		text-decoration: underline;
+		cursor: pointer;
+		display: block;
+		width: 120px;
+		margin-top: 10px;
+	}
+
+	.next:hover, .repeat:hover, #nav li.link:not(.active):hover{
+		color: #ff6600;
+	}
+</style>
+<script>
+$(document).ready(function(){
+
+	$('#gif .step2').hide();
+	$('#gif .step3').hide();
+	$('#gif .step4').hide();
+	$('#gif .step5').hide();
+	$('#text .step2').hide();
+	$('#text .step3').hide();
+	$('#text .step4').hide();
+	$('#text .step5').hide();
+
+	$('#nav li.link').click(function(){
+		$('#nav li.link').removeClass('active');
+		$(this).addClass('active');
+		var classes = $(this).attr('class').split(" ");
+		var step = classes[1];
+
+		$('#gif img').each(function(){
+			if ($(this).hasClass(step)){
+				$(this).show()
+			} else {
+				$(this).hide()
+			}
+		})
+
+		$('#text p').each(function(){
+			if ($(this).hasClass(step)){
+				$(this).show()
+			} else {
+				$(this).hide()
+			}
+		})
+
+	})
+
+	$('.next').click(function(){
+		var current_step = $(this).parent().attr('class');
+		var next_step = "step".concat(parseInt(current_step.slice(-1)) + 1);
+
+		$('#nav li.link').each(function(){
+			if ($(this).hasClass(next_step)){
+				$(this).addClass('active')
+			} else {
+				$(this).removeClass('active')
+			} 
+		})
+
+		$('#gif img').each(function(){
+			if ($(this).hasClass(next_step)){
+				$(this).show()
+			} else {
+				$(this).hide()
+			}
+		})
+
+		$('#text p').each(function(){
+			if ($(this).hasClass(next_step)){
+				$(this).show()
+			} else {
+				$(this).hide()
+			}
+		})
+	})
+
+	$('.repeat').click(function(){
+		$('#nav li.link').each(function(){
+			if ($(this).hasClass('step1')){
+				$(this).addClass('active')
+			} else {
+				$(this).removeClass('active')
+			} 
+		})
+
+		$('#gif .step1').show();
+		$('#gif .step2').hide();
+		$('#gif .step3').hide();
+		$('#gif .step4').hide();
+		$('#gif .step5').hide();
+		$('#text .step1').show();
+		$('#text .step2').hide();
+		$('#text .step3').hide();
+		$('#text .step4').hide();
+		$('#text .step5').hide();
+	})
+})
+</script>
+<body>
+<div id="modalFrame">
+	<div id="nav">
+	<ul>
+		<li class="link step1 active">1. Import Data</li>
+		<li><i class="ion-chevron-right"></i></li>
+		<li class="link step2">2. Build Process</li>
+		<li><i class="ion-chevron-right"></i></li>
+		<li class="link step3">3. Run Process</li>
+		<li><i class="ion-chevron-right"></i></li>
+		<li class="link step4">4. Inspect Results</li>
+		<li><i class="ion-chevron-right"></i></li>
+		<li class="link step5">5. Improve Process</li>
+	</ul>
+	</div>
+	<div id="gif">
+		<img class="step1" src="RM1.gif" />
+		<img class="step2" src="RM2.gif" />
+		<img class="step3" src="RM4.gif" />
+		<img class="step4" src="RM3.gif" />
+		<img class="step5" src="RM5.gif" />
+	</div>
+	<div id="text">
+		<p class="step1">Start by clicking  <strong><i class="ion-android-add-circle" style="color: #2ecc71"></i> Add Data</strong> to import your data into the repository. The <strong>repository</strong> is where you store all your data and save the work you do in RapidMiner. Data in the repository is the starting point for building your analytics processes.
+		<span class="next">Next <i class="ion-arrow-right-a"></i></span></p>
+
+		<p class="step2">
+		<strong>Processes</strong> are made from <strong>operators</strong>. Each operator has a specific function like loading data into the process, replacing missing values in the data, or building a predictive model. Data flows between operators by connecting the <strong>output port</strong> of one to the <strong>input port</strong> of another.
+
+		<span class="next">Next <i class="ion-arrow-right-a"></i></span></p>
+
+		<p class="step3">To see the results of an operator, connect its output port to the results port (on the right side of the canvas), then click the <strong> <i class="ion-ios-play" style="color: #38a6ef"></i> Run</strong> button in the toolbar.
+		<span class="next">Next <i class="ion-arrow-right-a"></i></span></p>
+
+		<p class="step4">The <strong>Results View</strong> displays the results of the operator you connected to the results port, along with statistics and configurable charts. If you connected multiple operators, their outputs are listed as tabs at the top of the Results View.
+
+		<span class="next">Next <i class="ion-arrow-right-a"></i></span></p>
+
+		<p class="step5">Click on the <strong>Design View</strong> to get back to and enhance your process. You can change the settings of the selected operator in the Parameter panel on the right. When adding more operators, make sure again you connect the final operator to the results port.
+		<span class="repeat"><i class="ion-ios-undo"></i> Back to Step 1</span></p>
+
+	
+	</div>
+</div>
+</body>
