@@ -1,0 +1,31 @@
+---
+layout: default
+title: 'RapidMiner Wellable Challenge'
+---
+<style>
+</style>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script>
+  $.ajax({
+  url:"https://www.kimonolabs.com/api/c0xh0bzc?apikey=kULyVYErfQfsy8mkfcSlLie5VvDkXQhh",
+  crossDomain: true,
+  dataType: "jsonp",
+  beforeSend: function(xhr) { xhr.setRequestHeader('authorization', 'Bearer 2uZMXOIbafpMXorDXzuvVa78wXaKB26P'); },
+  success: function (response) {
+    //Do something with the response
+    $(".panel-heading").html(response.name);
+  },
+  error: function (xhr, status) {
+    //handle errors
+  }
+});</script>
+
+<body>
+<div class="container padding">
+   <div class="panel panel-info">
+      <div class="panel-heading"> </div>
+         <ul class="list-group">
+         </ul>
+   </div>
+</div> 
+</body>
