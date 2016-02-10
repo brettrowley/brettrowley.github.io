@@ -109,6 +109,10 @@ span#scores i{
 
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script>
+document.ontouchmove = function(event){
+    event.preventDefault();
+}
+
 $(document).ready(function(){
 	$('div.team').each(function(){
 		var index = $(this).index();
