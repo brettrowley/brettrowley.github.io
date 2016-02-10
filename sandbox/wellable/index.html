@@ -1,19 +1,151 @@
----
-layout: default
-title: 'RapidMiner Wellable Challenge'
----
+<link href='/assets/css/ionicons.css' rel='stylesheet' type='title/css'>
 <style>
+body, html{
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+	font-weight: 300;
+	color: white;
+	overflow: hidden; 
+}
+
+.stats{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: rgba(0,0,0,0.1);
+	transition: 0.5s;
+}
+.stats ul{
+	list-style: none;
+	padding-left: 4vw;
+	margin: 0;
+}
+
+li.position{
+	padding: 15px 30px 15px 0;
+	display: inline-block;
+}
+
+
+span#scores{
+	color: white;
+	display: none;
+	cursor: pointer;
+}
+span#scores i{
+	display: inline-block;
+	transition: 0.5s;
+}
+
+
+
+
+.intro span{
+	color: #333 !important;
+	font-size: 20pt;
+	vertical-align: middle;
+    display: table-cell;
+    height: 100vh;
+	margin: 0;
+}
+.team, .intro {
+	display: block;
+	padding-left: 4vw;
+	height: 100vh;
+
+}
+.team span.title{
+	font-size: 100pt;
+	margin: 0;
+	height: 100vh;
+	max-width: 75vw;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+@media screen and (max-width: 1100px){
+	.team span.title{
+		font-size: 30pt;
+		width: 100vw;
+		font-weight: 700;
+	}
+	.intro span{
+	font-size: 15pt;
+}
+
+
+	.stats{
+		bottom: -160px;
+	}
+	.stats.expand{
+		bottom: 0px;
+	}
+	.stats ul{
+		padding: 10px 0 10px 4vw;
+		
+	}
+	li.position{
+		display: block;
+		padding: 5px 0px;
+		font-size: 10pt;
+	}
+
+	span#scores{
+		display: block;
+		padding-bottom: 10px;
+	}
+	span#scores i.expand{
+		transform: rotate(45deg);
+	}
+}
 </style>
+
+
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script>
+$(document).ready(function(){
+	$('div.team').each(function(){
+		var index = $(this).index();
+		console.log(index)
+		switch (index){
+			case 2:
+			$(this).css("background", "#2ecc71");
+			break;
+			case 3:
+			$(this).css("background", "#16a085");
+			break;
+			case 4:
+			$(this).css("background", "#f39c12");
+			break;
+			case 5:
+			$(this).css("background", "#e67e22");
+			break;
+			case 6:
+			$(this).css("background", "#e74c3c");
+			break;
+			case 7:
+			$(this).css("background", "#c0392b");
+			break;
+		}
+
+		var team = $(this).find("span.title").text().toLowerCase().replace(/[^\w\s]/gi, '').replace(/ /g, "-");
+		$(this).attr("id", team)
+	})
+
+	$('span#scores').click(function(){
+		$('.stats').toggleClass("expand")
+		$('span#scores i').toggleClass("expand")
+	})
+})
   $.ajax({
-  url:"https://www.kimonolabs.com/api/c0xh0bzc?apikey=kULyVYErfQfsy8mkfcSlLie5VvDkXQhh",
+  // url:"https://www.kimonolabs.com/api/c0xh0bzc?apikey=kULyVYErfQfsy8mkfcSlLie5VvDkXQhh",
+  "url":"https://www.kimonolabs.com/api/5qtdkod0?apikey=z6vewKq5SXBcF6Q6L17sQEJ8gaYMou0C",
   crossDomain: true,
   dataType: "jsonp",
-  beforeSend: function(xhr) { xhr.setRequestHeader('authorization', 'Bearer 2uZMXOIbafpMXorDXzuvVa78wXaKB26P'); },
+  // beforeSend: function(xhr) { xhr.setRequestHeader('authorization', 'Bearer 2uZMXOIbafpMXorDXzuvVa78wXaKB26P'); },
   success: function (response) {
     //Do something with the response
-    $(".panel-heading").html(response.name);
   },
   error: function (xhr, status) {
     //handle errors
@@ -21,11 +153,46 @@ title: 'RapidMiner Wellable Challenge'
 });</script>
 
 <body>
-<div class="container padding">
-   <div class="panel panel-info">
-      <div class="panel-heading"> </div>
-         <ul class="list-group">
-         </ul>
-   </div>
+<div class="stats">
+	<ul>
+		<li><span id="scores"><i class="ion-plus-round"></i> Scores</span></li>
+		<li class="position">HASFAL - <strong>80.6</strong></li>
+		<li class="position">S.M.A.R.T@ DE - <strong>69.8</strong></li>
+		<li class="position">The Young and the Rest of Us - <strong>67.4</strong></li>
+		<li class="position">Unbeatable Unicorns - <strong>44.1</strong></li>
+		<li class="position">London Pride - <strong>39.1</strong></li>
+		<li class="position">Rogue Nation - <strong>29.9</strong></li>
+	</ul>
+</div>
+<div class="intro">
+	<span>
+		<p><strong>Pick your team:</p></strong></p>
+		<p><a href="#hasfal">HASFAL</a></p>
+		<p><a href="#london-pride">London Pride</a></p>
+		<p><a href="#rogue-nation">Rogue Nation</a></p>
+		<p><a href="#smart-de">S.M.A.R.T@ DE</a></p>
+		<p><a href="#unbeatable-unicorns">Unbeatable Unicorns</a></p>
+		<p><a href="#the-young-and-the-rest-of-us">The Young and the Rest of Us</a></p>
+	</span>
+</div>
+
+<div class="team" id="#">
+	<span class="title">HASFAL</span>
+</div>
+<div class="team" id="#">
+	<span class="title">S.M.A.R.T@ DE</span>
+</div>
+<div class="team" id="#">
+	<span class="title">The Young and the Rest of Us</span>
+</div>
+<div class="team" id="#">
+	<span class="title">Unbeatable Unicorns</span>
+</div>
+<div class="team" id="#">
+	<span class="title">London Pride</span>
+</div>
+<div class="team" id="#">
+	<span class="title">Rogue Nation</span>
+</div>
 </div> 
 </body>
