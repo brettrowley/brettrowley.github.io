@@ -160,16 +160,15 @@ $(document).ready(function(){
 	})
 })
   $.ajax({
-  // url:"https://www.kimonolabs.com/api/c0xh0bzc?apikey=kULyVYErfQfsy8mkfcSlLie5VvDkXQhh",
-  "url":"https://www.kimonolabs.com/api/5qtdkod0?apikey=z6vewKq5SXBcF6Q6L17sQEJ8gaYMou0C",
+  url:"https://www.kimonolabs.com/api/c0xh0bzc?apikey=kULyVYErfQfsy8mkfcSlLie5VvDkXQhh",
   crossDomain: true,
   dataType: "jsonp",
-  // beforeSend: function(xhr) { xhr.setRequestHeader('authorization', 'Bearer 2uZMXOIbafpMXorDXzuvVa78wXaKB26P'); },
+  beforeSend: function(xhr) { xhr.setRequestHeader('authorization', 'Bearer 2uZMXOIbafpMXorDXzuvVa78wXaKB26P'); },
   success: function (response) {
     //Do something with the response
   },
   error: function (xhr, status) {
-    //handle errors
+    alert("Oops, something is wrong with the API right now")
   }
 });</script>
 
@@ -190,6 +189,10 @@ $(document).ready(function(){
 <div class="intro">
 	<span>
 		<p><strong>Pick your team:</p></strong></p>
+		<p style="
+    font-size:  0.66em;
+    margin-top: -20px;
+">Each page is an "ambient tracker", using color to indicate each team's relative performance. Red means you're falling behind, green means you're pulling ahead.</p>
 		<p><a href="#hasfal">HASFAL</a></p>
 		<p><a href="#london-pride">London Pride</a></p>
 		<p><a href="#rogue-nation">Rogue Nation</a></p>
@@ -216,5 +219,4 @@ $(document).ready(function(){
 <div class="team" id="#">
 	<span class="title">Rogue Nation</span>
 </div>
-</div> 
 </body>
