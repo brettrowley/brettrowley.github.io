@@ -153,6 +153,11 @@ $(document).ready(function(){
 		$('.stats').toggleClass("expand")
 		$('span#scores i').toggleClass("expand")
 	})
+
+	$('a#pick-team').click(function(){
+		$('.stats').removeClass("expand")
+		$('span#scores i').removeClass("expand")
+	})
 })
   $.ajax({
   // url:"https://www.kimonolabs.com/api/c0xh0bzc?apikey=kULyVYErfQfsy8mkfcSlLie5VvDkXQhh",
@@ -178,7 +183,7 @@ $(document).ready(function(){
 		<li class="position">S.M.A.R.T@ DE - <strong>83.4</strong></li>
 		<li class="position">London Pride - <strong>75.2</strong></li>
 		<li class="position">Rogue Nation - <strong>50.6</strong></li>
-		<li class="position"><a href="#">Pick another team</a></li>
+		<li class="position"><a id="pick-team" href="#">Pick another team</a></li>
 		<li class="position"><a target="_blank" href="https://wellable.co/User/LeaderBoard">Go to Wellable</a></li>
 	</ul>
 </div>
