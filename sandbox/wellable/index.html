@@ -1,225 +1,110 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <META HTTP-EQUIV="refresh" CONTENT="3600">
 <link href='/assets/css/ionicons.css' rel='stylesheet' type='title/css'>
+<script src="/assets/js/jquery-1.11.1.min.js"></script>
+<script src="data-array.js"></script>
 
 <style>
 body, html{
-	padding: 0;
+	padding: 30px 10px;
 	margin: 0;
 	font-family: sans-serif;
 	font-weight: 300;
-	color: white;
-	overflow: hidden; 
+	color: #333;
+	background: linear-gradient(to bottom, #f0f0f0, #e4e4e4);
+	text-align: center;
 }
 
-.stats{
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	background: rgba(0,0,0,0.1);
-	transition: 0.5s;
-	z-index: 1000;
+#header{
+	margin-bottom: 40px;
 }
-.stats ul{
-	list-style: none;
-	padding-left: 4vw;
-	margin: 0;
+#header h2{
+	font-weight: lighter;
+}
+#header p{
+	margin-top: -15px;
 }
 
-.stats li.position{
-	padding: 15px 30px 15px 0;
-	display: inline-block;
+ul#boxes{padding: 0;}
+
+.team{
+	text-align: left;
+	background: #fff;
+    margin: 20px auto;
+    padding: 25px 0px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0px 6px 14px 4px rgba(0,0,0,0.05);
+    display: block;
+    border-radius: 5px;
+    color: white;
+    font-size: 18pt;
 }
 
-.stats li a{
-	color: white;
+.team-name{
 	font-weight: bold;
+	padding: 0 20px;
+}
+.team-points{
+	float: right;
+	padding: 0 20px;
 }
 
-
-span#scores{
-	color: white;
-	display: none;
-	cursor: pointer;
-}
-span#scores i{
-	display: inline-block;
-	transition: 0.5s;
-}
-
-
-
-
-.intro span{
-	color: #333 !important;
-	font-size: 20pt;
-	vertical-align: middle;
-    display: table-cell;
-    height: 100vh;
-	margin: 0;
-}
-.team, .intro {
-	display: block;
-	padding-left: 4vw;
-	height: 100vh;
-	background: #f0f0f0;
-
-}
-.team span.title{
-	font-size: 100pt;
-	margin: 0;
-	height: 100vh;
-	max-width: 75vw;
-    vertical-align: middle;
-    display: table-cell;
-}
-
-@media screen and (max-width: 1100px){
-	.team span.title{
-		font-size: 30pt;
-		width: 100vw;
-		font-weight: 700;
-	}
-	.intro span{
-		font-size: 15pt;
-		position: relative;
-		top: -40px;
-	}
-
-
-	.stats{
-		bottom: calc(35px - 80vh);
-		height: 80vh;
-		overflow: hidden;
-		background-color: rgba(0,0,0,0.7);
-		font-size: 11pt !important;
-	}
-	.stats.expand{
-		bottom: 0px;
-	}
-	.stats ul{
-		padding: 10px 0 10px 4vw;
-		
-	}
-	.stats li.position{
+@media screen and (max-width: 552px){
+	.team-name{display:block;}
+	.team-points{
+		float: none;
 		display: block;
-		padding: 5px 0px;
-		
-	}
+		margin-top: 5px;
 
-	span#scores{
-		display: block;
-		padding-bottom: 10px;
-	}
-	span#scores i.expand{
-		transform: rotate(45deg);
 	}
 }
 </style>
 
-
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script>
 document.ontouchmove = function(event){
     event.preventDefault();
 }
 
 $(document).ready(function(){
-	$('div.team').each(function(){
-		var index = $(this).index();
-		switch (index){
+
+	// populate with html based on data from data-array.js
+	for(i = 0; i < 11; i += 2){
+		$('#boxes').append('<li class="team"><span class="team-name">'+data[i]+'</span><span class="team-points">'+data[i+1]+'</span></li>')
+	}
+
+	// color the cards based on order
+	$('.team').each(function(){
+		switch($(this).index()){
+			case 0:
+				$(this).css("background","linear-gradient(to bottom, #2ecc71, #27ae60)");
+				break;
+			case 1:
+				$(this).css("background","linear-gradient(to bottom, #1abc9c, #16a085)");
+				break;
 			case 2:
-			$(this).css("background", "#2ecc71");
-			break;
+				$(this).css("background","linear-gradient(to bottom, #f1c40f, #f39c12)");
+				break;
 			case 3:
-			$(this).css("background", "#16a085");
-			break;
+				$(this).css("background","linear-gradient(to bottom, #e67e22, #d35400)");
+				break;
 			case 4:
-			$(this).css("background", "#f39c12");
-			break;
+				$(this).css("background","linear-gradient(to bottom, #e74c3c, #c0392b)");
+				break;
 			case 5:
-			$(this).css("background", "#e67e22");
-			break;
-			case 6:
-			$(this).css("background", "#e74c3c");
-			break;
-			case 7:
-			$(this).css("background", "#c0392b");
-			break;
+				$(this).css("background","linear-gradient(to bottom, #34495e, #2c3e50)");
+				break;
 		}
-
-		var team = $(this).find("span.title").text().toLowerCase().replace(/[^\w\s]/gi, '').replace(/ /g, "-");
-		$(this).attr("id", team)
 	})
 
-	$('span#scores').click(function(){
-		$('.stats').toggleClass("expand")
-		$('span#scores i').toggleClass("expand")
-	})
-
-	$('a#pick-team').click(function(){
-		$('.stats').removeClass("expand")
-		$('span#scores i').removeClass("expand")
-	})
 })
-  $.ajax({
-  url:"https://www.kimonolabs.com/api/c0xh0bzc?apikey=kULyVYErfQfsy8mkfcSlLie5VvDkXQhh",
-  crossDomain: true,
-  dataType: "jsonp",
-  beforeSend: function(xhr) { xhr.setRequestHeader('authorization', 'Bearer 2uZMXOIbafpMXorDXzuvVa78wXaKB26P'); },
-  success: function (response) {
-    //Do something with the response
-  },
-  error: function (xhr, status) {
-    alert("Oops, something is wrong with the API right now")
-  }
-});</script>
+</script>
 
 <body>
-<div class="stats">
-	<ul>
-		<li><span id="scores"><i class="ion-plus-round"></i> Scores</span></li>
-		<li class="position">Unbeatable Unicorns - <strong>359.3</strong></li>
-		<li class="position">The Young and the Rest of Us - <strong>331.0</strong></li>
-		<li class="position">HASFAL - <strong>219.4</strong></li>
-		<li class="position">S.M.A.R.T@ DE - <strong>161.5</strong></li>
-		<li class="position">London Pride - <strong>133.5</strong></li>
-		<li class="position">Rogue Nation - <strong>100.3</strong></li>
-		<li class="position"><a id="pick-team" href="#">Pick another team</a></li>
-		<li class="position"><a target="_blank" href="https://wellable.co/User/LeaderBoard">Go to Wellable</a></li>
-	</ul>
+<div id="header">
+	<h2>RapidMiner Wellable Challenge Standings</h2>
+	<!-- <p>Updated <span id="updated"></span> ago.</p> -->
 </div>
-<div class="intro">
-	<span>
-		<p><strong>Pick your team:</p></strong></p>
-		<p style="
-    font-size:  0.66em;
-    margin-top: -20px;
-">Each page is an "ambient tracker", using color to indicate each team's relative performance. Red means you're falling behind, green means you're pulling ahead.</p>
-		<p><a href="#hasfal">HASFAL</a></p>
-		<p><a href="#london-pride">London Pride</a></p>
-		<p><a href="#rogue-nation">Rogue Nation</a></p>
-		<p><a href="#smart-de">S.M.A.R.T@ DE</a></p>
-		<p><a href="#unbeatable-unicorns">Unbeatable Unicorns</a></p>
-		<p><a href="#the-young-and-the-rest-of-us">The Young and the Rest of Us</a></p>
-	</span>
-</div>
-<div class="team" id="#">
-	<span class="title">Unbeatable Unicorns</span>
-</div>
-<div class="team" id="#">
-	<span class="title">The Young and the Rest of Us</span>
-</div>
-<div class="team" id="#">
-	<span class="title">HASFAL</span>
-</div>
-<div class="team" id="#">
-	<span class="title">S.M.A.R.T@ DE</span>
-</div>
-<div class="team" id="#">
-	<span class="title">London Pride</span>
-</div>
-<div class="team" id="#">
-	<span class="title">Rogue Nation</span>
-</div>
-</body>
+<ul id="boxes">
+</ul>
+</body><script>var data=[Thu Feb 11 2016 22:25:28, The Young and the Rest of Us, 563.0, Unbeatable Unicorns, 558.1, HASFAL, 366.6, S.M.A.R.T@ DE, 169.9, London Pride, 159.1, Rogue Nation, 157.5, ]</script>
