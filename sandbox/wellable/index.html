@@ -91,14 +91,20 @@ ul#boxes{
 $(document).ready(function(){
 
 	// populate with html based on data from data-array.js
-	for(i = 0; i < 11; i += 2){
-		pointsMargin = Math.floor(data[i+1].replace(',',''));
-		$('#boxes').append('<li class="team"><span class="team-name">'+data[i]+'</span><span class="team-points">'+data[i+1]+'</span></li>')
-		$('#boxes').append('<li class="spacer"><div class="line" style="height:'+(pointsMargin/10)+'px"></div></li>')
-	}
+	var range = data.length
+	for(i = 0; i < (range-1); i += 2){
+		
+		// sets margins based on point differentials between teams
+		if (i+3 < range){
+			pointsMargin = ((Math.floor(data[i+1].replace(',',''))) - (Math.floor(data[i+3].replace(',',''))));
+		} else {
+			pointsMargin = (Math.floor(data[i+1].replace(',','')));
+		}
 
-	var height = ($('ul#boxes').height()) + "px";
-	$('#line').css("height", height)
+		// creates HTML
+		$('#boxes').append('<li class="team"><span class="team-name">'+data[i]+'</span><span class="team-points">'+data[i+1]+'</span></li>')
+		$('#boxes').append('<li class="spacer"><div class="line" style="height:'+(pointsMargin)+'px"></div></li>')
+	}
 
 })
 </script>
