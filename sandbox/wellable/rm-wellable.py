@@ -29,10 +29,10 @@ for x in range(0, 6):
 	points = teamData[2].replace('"Points":"', '')
 	print team
 	print points
-
 	javascript = javascript + team + "','" + points + "','"
 	row = row + team + ", " + points + ", "
 
+row = row[:(len(row)-2)] + ";"
 javascript = javascript + "']"
 
 fa = open('rm-wellable-data.csv','a')
