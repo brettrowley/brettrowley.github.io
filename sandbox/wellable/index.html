@@ -25,28 +25,41 @@ body, html{
 	margin-top: -15px;
 }
 
-ul#boxes{padding: 0;}
+ul#boxes{
+	padding: 0;
+	list-style: none;
+	width: 100%;
+    max-width: 600px;
+    margin: 0px auto;
+    border-bottom: 4px solid #333;
+    border-radius: 5px;
+}
 
 .team{
 	text-align: left;
-	background: #fff;
-    margin: 20px auto;
+	background: #ff6600;
     padding: 25px 0px;
-    width: 100%;
-    max-width: 600px;
     box-shadow: 0px 6px 14px 4px rgba(0,0,0,0.05);
     display: block;
     border-radius: 5px;
     color: white;
     font-size: 18pt;
+    position: relative;
 }
 
 .team:nth-of-type(1){background: linear-gradient(to bottom, #2ecc71, #27ae60);}
-.team:nth-of-type(2){background: linear-gradient(to bottom, #1abc9c, #16a085);}
-.team:nth-of-type(3){background: linear-gradient(to bottom, #f1c40f, #f39c12);}
-.team:nth-of-type(4){background: linear-gradient(to bottom, #e67e22, #d35400);}
-.team:nth-of-type(5){background: linear-gradient(to bottom, #e74c3c, #c0392b);}
-.team:nth-of-type(6){background: linear-gradient(to bottom, #34495e, #2c3e50);}
+.team:nth-of-type(3){background: linear-gradient(to bottom, #1abc9c, #16a085);}
+.team:nth-of-type(5){background: linear-gradient(to bottom, #f1c40f, #f39c12);}
+.team:nth-of-type(7){background: linear-gradient(to bottom, #e67e22, #d35400);}
+.team:nth-of-type(9){background: linear-gradient(to bottom, #e74c3c, #c0392b);}
+.team:nth-of-type(11){background: linear-gradient(to bottom, #34495e, #2c3e50);}
+
+.spacer:nth-of-type(2) .line{background: linear-gradient(to bottom, #27ae60, #1abc9c);}
+.spacer:nth-of-type(4) .line{background: linear-gradient(to bottom, #16a085, #f1c40f);}
+.spacer:nth-of-type(6) .line{background: linear-gradient(to bottom, #f39c12, #e67e22);}
+.spacer:nth-of-type(8) .line{background: linear-gradient(to bottom, #d35400, #e74c3c);}
+.spacer:nth-of-type(10) .line{background: linear-gradient(to bottom, #c0392b, #34495e);}
+.spacer:nth-of-type(12) .line{background: linear-gradient(to bottom, #2c3e50, #333);}
 
 .team-name{
 	font-weight: bold;
@@ -57,13 +70,19 @@ ul#boxes{padding: 0;}
 	padding: 0 20px;
 }
 
+.line{
+    width:4px;
+    background: #ff6600;
+    position: relative;
+    left: calc(50% - 2px);
+}
+
 @media screen and (max-width: 552px){
 	.team-name{display:block;}
 	.team-points{
 		float: none;
 		display: block;
 		margin-top: 5px;
-
 	}
 }
 </style>
@@ -74,9 +93,12 @@ $(document).ready(function(){
 	// populate with html based on data from data-array.js
 	for(i = 0; i < 11; i += 2){
 		pointsMargin = Math.floor(data[i+1].replace(',',''));
-		console.log(pointsMargin)
 		$('#boxes').append('<li class="team"><span class="team-name">'+data[i]+'</span><span class="team-points">'+data[i+1]+'</span></li>')
+		$('#boxes').append('<li class="spacer"><div class="line" style="height:'+(pointsMargin)+'px"></div></li>')
 	}
+
+	var height = ($('ul#boxes').height()) + "px";
+	$('#line').css("height", height)
 
 })
 </script>
