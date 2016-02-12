@@ -94,7 +94,7 @@ $(document).ready(function(){
 	for(i = 0; i < 11; i += 2){
 		pointsMargin = Math.floor(data[i+1].replace(',',''));
 		$('#boxes').append('<li class="team"><span class="team-name">'+data[i]+'</span><span class="team-points">'+data[i+1]+'</span></li>')
-		$('#boxes').append('<li class="spacer"><div class="line" style="height:'+(pointsMargin)+'px"></div></li>')
+		$('#boxes').append('<li class="spacer"><div class="line" style="height:'+(pointsMargin/10)+'px"></div></li>')
 	}
 
 	var height = ($('ul#boxes').height()) + "px";
