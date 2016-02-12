@@ -41,6 +41,13 @@ ul#boxes{padding: 0;}
     font-size: 18pt;
 }
 
+.team:nth-of-type(1){background: linear-gradient(to bottom, #2ecc71, #27ae60);}
+.team:nth-of-type(2){background: linear-gradient(to bottom, #1abc9c, #16a085);}
+.team:nth-of-type(3){background: linear-gradient(to bottom, #f1c40f, #f39c12);}
+.team:nth-of-type(4){background: linear-gradient(to bottom, #e67e22, #d35400);}
+.team:nth-of-type(5){background: linear-gradient(to bottom, #e74c3c, #c0392b);}
+.team:nth-of-type(6){background: linear-gradient(to bottom, #34495e, #2c3e50);}
+
 .team-name{
 	font-weight: bold;
 	padding: 0 20px;
@@ -66,32 +73,10 @@ $(document).ready(function(){
 
 	// populate with html based on data from data-array.js
 	for(i = 0; i < 11; i += 2){
+		pointsMargin = Math.floor(data[i+1].replace(',',''));
+		console.log(pointsMargin)
 		$('#boxes').append('<li class="team"><span class="team-name">'+data[i]+'</span><span class="team-points">'+data[i+1]+'</span></li>')
 	}
-
-	// color the cards based on order
-	$('.team').each(function(){
-		switch($(this).index()){
-			case 0:
-				$(this).css("background","linear-gradient(to bottom, #2ecc71, #27ae60)");
-				break;
-			case 1:
-				$(this).css("background","linear-gradient(to bottom, #1abc9c, #16a085)");
-				break;
-			case 2:
-				$(this).css("background","linear-gradient(to bottom, #f1c40f, #f39c12)");
-				break;
-			case 3:
-				$(this).css("background","linear-gradient(to bottom, #e67e22, #d35400)");
-				break;
-			case 4:
-				$(this).css("background","linear-gradient(to bottom, #e74c3c, #c0392b)");
-				break;
-			case 5:
-				$(this).css("background","linear-gradient(to bottom, #34495e, #2c3e50)");
-				break;
-		}
-	})
 
 })
 </script>
