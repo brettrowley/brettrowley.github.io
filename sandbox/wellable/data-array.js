@@ -1,2 +1,2 @@
-var data = ['The Young and the Rest of Us','1,249.3','Unbeatable Unicorns','998.5','HASFAL','765.3','London Pride','390.6','S.M.A.R.T@ DE','317.8','Rogue Nation','246.6','']
-var hourRun = 14
+var data = ['The Young and the Rest of Us','1,304.9','Unbeatable Unicorns','1,006.3','HASFAL','789.0','London Pride','410.2','S.M.A.R.T@ DE','318.3','Rogue Nation','252.6','']
+var hourRun = 17
