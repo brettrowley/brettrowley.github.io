@@ -89,6 +89,21 @@ ul#boxes{
 
 <script>
 $(document).ready(function(){
+	// calculate time since data was last added
+	var dateRun = new Date(timeRun);
+	var dateNow = new Date();
+	var dateDiff = (dateNow.getHours() - dateRun.getHours())
+
+	// update header text with time difference
+	if (dateDiff == 0){
+		$('#updated').text("just now")
+	} else if (dateDiff == 1){
+		$('#updated').text("an hour ago")
+	} else if (dateDiff >= 2){
+		$('#updated').text(dateDiff + " hours ago")
+	} else if (dateDiff < 0){
+		$('#updated').text("yesterday")
+	}
 
 	// populate with html based on data from data-array.js
 	var range = data.length
@@ -112,7 +127,7 @@ $(document).ready(function(){
 <body>
 	<div id="header">
 		<h2>RapidMiner Wellable Challenge Standings</h2>
-		<!-- <p>Updated <span id="updated"></span> ago.</p> -->
+		<p>Last updated <span id="updated"></span>.</p>
 	</div>
 	<ul id="boxes">
 	</ul>

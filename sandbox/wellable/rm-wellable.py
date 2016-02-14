@@ -11,8 +11,8 @@ row = ""
 date1 = contents.find('thisversionrun":"')
 date2 = contents.find('results')
 
-dateRun = contents[(date1+len('thisversionrun":"')):(date2-18)]
-hourRun = dateRun[(len(dateRun)-8):(len(dateRun)-6)]
+dateRun = contents[(date1+len('thisversionrun":"')):(date2-14)]
+hourRun = dateRun[(len(dateRun)-8):(len(dateRun)-3)]
 
 row = row + dateRun + ", "
 
@@ -41,4 +41,4 @@ fa.close()
 
 
 with open('data-array.js', 'w') as file:
-    file.writelines(javascript + "\n" + "var hourRun = " + str(hourRun))
+    file.writelines(javascript + "\n" + "var timeRun = '" + str(dateRun) + "'")
