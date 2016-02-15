@@ -1,2 +1,2 @@
-var data = ['The Young and the Rest of Us','1,766.4','Unbeatable Unicorns','1,611.7','HASFAL','1,239.7','London Pride','625.6','S.M.A.R.T@ DE','529.0','Rogue Nation','497.1','']
-var timeRun = 'Mon Feb 15 2016 16:12:48 GMT'
+var currentData = ['The Young and the Rest of Us','1,782.0','Unbeatable Unicorns','1,646.3','HASFAL','1,239.7','London Pride','625.6','S.M.A.R.T@ DE','539.5','Rogue Nation','497.1','']
+var timeRun = 'Mon Feb 15 2016 18:14:53 GMT'

@@ -3,6 +3,8 @@
 <link href='/assets/css/ionicons.css' rel='stylesheet' type='title/css'>
 <script src="/assets/js/jquery-1.11.1.min.js"></script>
 <script src="data-array.js"></script>
+<script src="chart-data.js"></script>
+<script src="/bower_components/Chart.js/Chart.js"></script>
 
 <style>
 body, html{
@@ -18,7 +20,7 @@ body, html{
 #header{
 	margin-bottom: 40px;
 }
-#header h2{
+h2{
 	font-weight: lighter;
 }
 #header p{
@@ -30,7 +32,7 @@ ul#boxes{
 	list-style: none;
 	width: 100%;
     max-width: 600px;
-    margin: 0px auto;
+    margin: 0px auto 120px;
     border-bottom: 4px solid #333;
     border-radius: 5px;
 }
@@ -77,6 +79,13 @@ ul#boxes{
     left: calc(50% - 2px);
 }
 
+canvas#historyChart{
+	width: 600px;
+	height: 400px;
+	overflow: scroll;
+	margin: -10px auto 30px;
+}
+
 @media screen and (max-width: 552px){
 	.team-name{display:block;}
 	.team-points{
@@ -106,32 +115,42 @@ $(document).ready(function(){
 	}
 
 	// populate with html based on data from data-array.js
-	var range = data.length
+	var range = currentData.length
 	for(i = 0; i < (range-1); i += 2){
 		
 		// sets margins based on point differentials between teams
 		if (i+3 < range){
-			pointsMargin = ((Math.floor(data[i+1].replace(',',''))) - (Math.floor(data[i+3].replace(',',''))));
+			pointsMargin = ((Math.floor(currentData[i+1].replace(',',''))) - (Math.floor(currentData[i+3].replace(',',''))));
 		} else {
-			pointsMargin = (Math.floor(data[i+1].replace(',','')));
+			pointsMargin = (Math.floor(currentData[i+1].replace(',','')));
 		}
 
 		// creates HTML
-		$('#boxes').append('<li class="team"><span class="team-name">'+data[i]+'</span><span class="team-points">'+data[i+1]+'</span></li>')
+		$('#boxes').append('<li class="team"><span class="team-name">'+currentData[i]+'</span><span class="team-points">'+currentData[i+1]+'</span></li>')
 		$('#boxes').append('<li class="spacer"><div class="line" style="height:'+(pointsMargin)+'px"></div></li>')
 	}
+
+	// Get context with jQuery - using jQuery's .get() method.
+	var ctx = $("#historyChart").get(0).getContext("2d");
+	Chart.defaults.global.multiTooltipTemplate = "<%= datasetLabel %>: <%= value %>"
+	new Chart(ctx).Line(historicalData);
 
 })
 </script>
 
 <body>
 	<div id="header">
-		<h2>RapidMiner Wellable Challenge Standings</h2>
+		<h1>RapidMiner Fitness Challenge</h1>
+		<h2>Current Standings</h2>
 		<p>Last updated <span id="updated"></span>.</p>
 	</div>
 	<ul id="boxes">
+		
 	</ul>
+	<h2 id="history">Team performance over time:</h2>
+	<canvas id="historyChart" ></canvas>
 	<div id="footer">
-	<p><a target="_blank" href="https://wellable.co/user/leaderboard">Go to Wellable</a> | Made by Brett Rowley</p>
+		<p><a target="_blank" href="https://wellable.co/user/leaderboard">Data logged by Wellable</a></p>
+		<p>Made by Brett Rowley</p>
 	</div>
 </body>
