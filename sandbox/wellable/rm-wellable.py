@@ -67,7 +67,6 @@ for i in range(1, (len(txt)-1)):
 	day2 = dateTime2[0]
 	
 	if day1.replace(" ", "")!=day2.replace(" ", ""):
-		print line1
 		
 		# sets chart x-axis values
 		line1[0] = day1.replace("\n", "")
