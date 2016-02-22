@@ -131,7 +131,8 @@ $(document).ready(function(){
 
 	// Get context with jQuery - using jQuery's .get() method.
 	var ctx = $("#historyChart").get(0).getContext("2d");
-	Chart.defaults.global.multiTooltipTemplate = "<%= datasetLabel %>: <%= value %>"
+	Chart.defaults.global.multiTooltipTemplate = "<%= datasetLabel %>: <%= value %>";
+	Chart.defaults.global.bezierCurve = false;
 	new Chart(ctx).Line(historicalData);
 
 })
