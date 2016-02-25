@@ -1,0 +1,181 @@
+---
+layout: default
+title: Wellable
+---
+<script src="data-array.js"></script>
+<script src="chart-data.js"></script>
+<script src="chart-daily.js"></script>
+<script src="/bower_components/Chart.js/Chart.js"></script>
+
+<style>
+body, html{
+	color: #333;
+	height: 100%;
+	background: #f0f0f0
+}
+
+#header{text-align: center;}
+
+ul#tabs {
+	list-style: none;
+	padding: 0;
+}
+
+ul#tabs li{
+	display: inline-block;
+	width: 150px;
+	text-transform: uppercase;
+	font-weight: bolder;
+}
+
+div#standings, div#statistics, div#charts{
+	width: 100%;
+	max-width: 600px;
+	margin: 30px auto;
+}
+
+div#standings, div#footer{
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+canvas{
+	width: 600px;
+	height: 400px;
+	margin: 0px auto 30px;
+}
+
+#charts ol{
+	padding: 0;
+}
+
+#charts ol li{
+	margin-bottom: 10px;
+}
+
+
+
+ul#boxes{
+	padding: 0;
+	list-style: none;
+	width: 100%;
+    margin: 30px auto;
+    border-bottom: 4px solid #333;
+    border-radius: 5px;
+}
+
+ul#boxes.collapsed{
+	border-bottom: 0px;
+}
+ul#boxes.collapsed .team{
+	margin-bottom: 15px;
+}
+ul#boxes.collapsed .spacer{
+	display: none;
+}
+
+.team{
+	text-align: left;
+	background: #ff6600;
+    padding: 25px 0px;
+    box-shadow: 0px 6px 14px 4px rgba(0,0,0,0.05);
+    display: block;
+    border-radius: 5px;
+    color: white;
+    font-size: 14pt;
+    position: relative;
+}
+
+.team:nth-of-type(1){background: linear-gradient(to bottom, #2ecc71, #27ae60);}
+.team:nth-of-type(3){background: linear-gradient(to bottom, #1abc9c, #16a085);}
+.team:nth-of-type(5){background: linear-gradient(to bottom, #f1c40f, #f39c12);}
+.team:nth-of-type(7){background: linear-gradient(to bottom, #e67e22, #d35400);}
+.team:nth-of-type(9){background: linear-gradient(to bottom, #e74c3c, #c0392b);}
+.team:nth-of-type(11){background: linear-gradient(to bottom, #34495e, #2c3e50);}
+
+.spacer:nth-of-type(2) .line{background: linear-gradient(to bottom, #27ae60, #1abc9c);}
+.spacer:nth-of-type(4) .line{background: linear-gradient(to bottom, #16a085, #f1c40f);}
+.spacer:nth-of-type(6) .line{background: linear-gradient(to bottom, #f39c12, #e67e22);}
+.spacer:nth-of-type(8) .line{background: linear-gradient(to bottom, #d35400, #e74c3c);}
+.spacer:nth-of-type(10) .line{background: linear-gradient(to bottom, #c0392b, #34495e);}
+.spacer:nth-of-type(12) .line{background: linear-gradient(to bottom, #2c3e50, #333);}
+
+.team-name{
+	font-weight: 100;
+	padding: 0 20px;
+}
+.team-points{
+	float: right;
+	padding: 0 20px;
+	font-weight: bold;
+}
+
+.line{
+    width:4px;
+    background: #ff6600;
+    position: relative;
+    left: calc(50% - 2px);
+}
+
+@media screen and (max-width: 552px){
+	.team-name{display:block;}
+	.team-points{
+		float: none;
+		display: block;
+		margin-top: 5px;
+	}
+}
+</style>
+
+<script>
+$(document).ready(function(){
+
+	$('#collapseToggle').click(function(){
+		$(this).find('i').toggleClass('ion-arrow-expand').toggleClass('ion-arrow-shrink')
+		$('ul#boxes').toggleClass('collapsed');
+	})
+
+	// Get context with jQuery - using jQuery's .get() method.
+	Chart.defaults.global.multiTooltipTemplate = "<%= datasetLabel %>: <%= value %>";
+	Chart.defaults.global.bezierCurve = false;
+
+	var totalChart = $("#cumulative").get(0).getContext("2d");
+	var dailyChart = $("#daily").get(0).getContext("2d");
+
+	new Chart(totalChart).Line(historicalData);
+	new Chart(dailyChart).Bar(dailyData);
+
+})
+</script>
+
+<body>
+	<div id="header">
+		<h1>RapidMiner Fitness Challenge</h1>
+	</div>
+
+	<div id="standings">
+		<button id="collapseToggle" class="btn btn-default"><i class="ion-arrow-expand"></i> Toggle Standings Spacing</button>
+		<ul id="boxes" class="collapsed"><li class="team"><span class="team-name">The Young and the Rest of Us</span><span class="team-points"><i class="ion-trophy"></i> 5,797.8</span></li><li class="spacer"><div class="line" style="height:426px"></div></li><li class="team"><span class="team-name">Unbeatable Unicorns</span><span class="team-points">5,371.1</span></li><li class="spacer"><div class="line" style="height:1839px"></div></li><li class="team"><span class="team-name">HASFAL</span><span class="team-points">3,532.6</span></li><li class="spacer"><div class="line" style="height:1383px"></div></li><li class="team"><span class="team-name">London Pride</span><span class="team-points">2,149.8</span></li><li class="spacer"><div class="line" style="height:785px"></div></li><li class="team"><span class="team-name">S.M.A.R.T@ DE</span><span class="team-points">1,364.3</span></li><li class="spacer"><div class="line" style="height:2px"></div></li><li class="team"><span class="team-name">Rogue Nation</span><span class="team-points">1,362.9</span></li><li class="spacer"><div class="line" style="height:1362px"></div></li></ul>
+	</div>
+
+	<div id="charts">
+		<h2>Cumulative Points</h2>
+		<canvas id="cumulative" ></canvas>
+		<h2>Daily Points</h2>
+		<canvas id="daily" ></canvas>
+		<h2>Daily Averages</h2>
+		<ol>
+			<li><strong>The Young and the Rest of Us</strong> - 397.8</li>
+			<li><strong>Unbeatable Unicorns</strong> - 369.7</li>
+			<li><strong>HASFAL</strong> - 242.6</li>
+			<li><strong>London Pride</strong> - 147.6</li>
+			<li><strong>Rogue Nation</strong> - 93.4</li>
+			<li><strong>S.M.A.R.T.@DE</strong> - 90.9</li>
+		</ol>
+		<hr>
+	</div>
+	
+	<div id="footer">
+		<p><a target="_blank" href="https://wellable.co/user/leaderboard">Data logged by Wellable</a>, <a target="_blank" href="http://www.chartjs.org/">charted with Chart.JS</a>, made by Brett Rowley</p>
+	</div>
+</body>
