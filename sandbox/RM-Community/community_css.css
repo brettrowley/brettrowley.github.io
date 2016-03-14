@@ -9,7 +9,7 @@ html, body{
 
 /*NAVBAR FRAMEWORK*/
 	div#navbar{
-		background: #fafafa;
+		background: #fff;
 		border-bottom: 3px solid #e4e4e4;
 		line-height: 55px;
 		position: fixed;
