@@ -1,0 +1,327 @@
+/*GLOBAL STYLES*/
+html, body{
+	font-family: 'Open Sans', sans-serif;
+	background: #f0f0f0;
+	margin: 0;
+	padding: 0;
+}
+
+
+/*NAVBAR FRAMEWORK*/
+	div#navbar{
+		background: #fafafa;
+		border-bottom: 3px solid #e4e4e4;
+		line-height: 55px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		color: #333;
+	}
+	div#navbar div.container, div#footer div.container{
+		width: 100%;
+		margin: 0 auto;
+	}
+	div#navbar div.container div{
+		padding: 0 15px;
+	}
+/*	div.links ul li:hover{
+		border-bottom: 3px solid #ff6600;
+		margin-bottom: -3px;
+	}*/
+	div.hamburger:hover, div.user:hover, div.brand:hover, div.links li.child:hover{
+		background: rgba(0,0,0,0.05);
+		color: #ff6600;
+	}
+
+	div.links li.parent:hover{
+		background: rgba(0,0,0,0.05);
+	}
+	div.links li.parent:hover span.parent{
+		color: #ff6600;
+	}
+	div.links li.parent:hover ul.child{
+		display: block;
+	}
+	li.active{
+		background: #e4e4e4;
+	}
+	li.active span.parent{color: #ff6600;}
+	li.child.active{color: #ff6600;}
+
+/*HAMBURGER SPECIFIC*/
+	div.hamburger{
+		display: none;
+		float: left;
+		cursor: pointer;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	div.hamburger i{
+		font-size: 24px;
+		position: relative;
+    	top: 3px;
+	}
+
+/*BRAND SPECIFIC*/
+	div.brand{
+		float: left;
+		height: 55px;
+	}
+	div.brand #logo{
+		display:inline-block;
+		height: 100%;
+		width: 154px;
+		background-image: url('https://rapidminer.com/wp-content/themes/rapidminer/assets/images/rapidminer-logo-retina.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+
+/*MENU SPECIFIC*/
+	div.links{
+		display: inline-block;
+		font-size: 13px;
+	}
+	div.links ul.parent{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		font-weight: bolder;
+		text-transform: uppercase;
+		display: block;
+	}
+	div.links li.parent{
+		display: inline-block;
+		padding: 0 15px;
+		text-align: center;
+		cursor: pointer;
+		/*fills some mysterious hole  ¯\_(ツ)_/¯ */
+		margin-left: -4px;
+	}
+
+	div.links ul.child{
+		position: absolute;
+	    background: white;
+	    box-shadow: 0px 2px 8px 4px rgba(0,0,0,0.1);
+	    top: 55px;
+	    margin-left: -15px;
+	    display: none;
+	    list-style: none;
+	    padding: 0;
+	}
+	div.links ul.child li.child{
+		text-align: left;
+		line-height: 24px;
+		font-weight: normal;
+		padding: 8px 15px;
+		text-transform: none;
+	}
+
+/*USER POROFILE SPECIFIC*/
+	div.user{
+		background: #fafafa;
+		height: 55px;
+		float: right;
+		display:inline-block;
+		font-size: 12px;
+		cursor: pointer;
+		text-align: right;
+
+	}
+	div.user img{
+		height: 35px;
+		margin-top: 10px;
+		border-radius: 50%;
+	}
+	div.user span{
+		vertical-align: top;
+		margin-right: 5px;
+		display: inline-block;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    width: 119px;
+	}
+	/*if necessary to show full username*/
+	/*div.user:hover span{width: auto;}*/
+
+
+
+
+
+
+
+
+
+
+/*PAGE CONTENT PLACEHOLDER*/
+	div#content{
+		padding-top: 80px;
+	}
+	div#content div.container{
+		width: calc(100% - 30px);
+		padding: 0;
+		margin: 0 auto 30px;
+		max-width: 1200px;
+		box-shadow: 0px 2px 8px 4px rgba(0,0,0,0.1);
+	}
+	div#content div.banner{
+		background-image: url('http://ohtoptens.com/wp-content/uploads/2015/05/Geometric-Wallpaper-HD-23.jpg');
+		background-size: cover;
+		display: block;
+		color: white;
+		margin: 0;
+		margin-bottom: -11px;
+	}
+	div.banner h1{
+		line-height: 250px;
+		font-weight: 300;
+		font-size: 48px;
+		margin: 0 0 0 30px;
+	}
+	div#content div.breadcrumbs{
+		background: white;
+		border-bottom: 1px solid #e4e4e4;
+		display: block;
+		line-height: 15px;
+	    padding-top: 1px;
+	    font-size: 12px;
+		text-transform: uppercase;
+		color: #bbb;
+	}
+	div#content div.breadcrumbs a{
+		color: #777;
+		text-decoration: none;
+		letter-spacing: 0.5px;
+		margin: 0 5px 0 5px;
+	}
+	div#content div.breadcrumbs a:hover{
+		color: #444;
+		text-decoration: none;
+	}
+	div#content div.page{
+		background: white;
+		padding: 0 30px 30px;
+	}
+
+	div.page div.article{
+		font-family: 'Lora', serif;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+/*FOOTER*/
+	div#footer{
+		margin-top: 45px;
+		background: #262C33;
+		color: #fafafa;
+		padding: 30px 15px 30px
+	}
+	div#footer div.left{
+		display: inline-block;
+		width: 33%;
+		padding: 0 45px 0 0;
+	}
+	div#footer div.right{
+		display: inline-block;
+		width: 55%;
+		vertical-align: top;
+		padding-left: 45px;
+		border-left: 1px solid #a0a1a1;
+	}
+	div#footer p, div#footer a{
+		font-size: 16px;
+		color: #a0a1a1;
+	}
+	div#footer span.copyright{
+		font-size: 13px;
+	}
+
+	div#footer div.footer-links a{
+		font-size: 13px;
+		display:inline-block;
+		vertical-align: top;
+		padding: 15px;
+	}
+	div#footer div.footer-links a:hover{
+		background: #414C58;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*RESPONSIVE SIZING*/
+@media (min-width: 1270px){
+	div.container{
+		max-width: 1300px;
+	}
+	div#footer div.footer-links a{width: calc((100% - 70px) / 5);}
+}
+@media (max-width: 1270px){
+	div#content{
+		padding-top: 150px;
+	}
+	div.links {
+	    border-top: 1px solid #e4e4e4;
+	    width: 100%;
+	    text-align: center;
+	    padding: 0 !important;
+	}
+	div.links li.parent{
+		padding: 0;
+		width: calc(100% / 7);
+	}
+	div.links ul.child{
+		top: 110px;
+		margin-left: 0; 
+	}
+	div#footer div.footer-links a{width: calc((100% - 70px) / 4);}
+
+}
+@media (max-width: 920px){
+	div#content{
+		padding-top: 80px;
+	}
+	div.user span, div.links{
+		display: none;
+	}
+	div.brand{
+		float: none;
+		display: block;
+    	margin: 0 auto;
+    	width: 154px;
+	}
+	div.user{
+		margin-top: -55px;
+	}
+	div.hamburger{
+		display: inline-block;
+	}
+	div#footer div.footer-links a{width: calc((100% - 70px) / 2);}
+	div#footer div.left, div#footer div.right{
+		display: block;
+		width: 100%;
+		padding: 0;
+	}
+	div#footer div.right{
+		padding: 30px 0 15px 0;
+		border-left: none;
+	}
+}
