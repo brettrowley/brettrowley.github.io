@@ -43,11 +43,11 @@ html, body{
 	div.links li.parent:hover ul.child{
 		display: block;
 	}
-	li.active{
+	div.links li.active{
 		background: rgba(0,0,0,0.05);
 	}
-	li.active span.parent{color: #ff6600;}
-	li.child.active{color: #ff6600;}
+	div.links li.active span.parent{color: #ff6600;}
+	div.links li.child.active{color: #ff6600;}
 
 
 
@@ -202,8 +202,76 @@ html, body{
 
 
 
+/*SIDEBAR STYLING*/
+	div#sidebar{
+		position: fixed;
+		width: 85%;
+		max-width: 350px;
+		right: -475px;
+		top: 0;
+		bottom: 0;
+		padding: 15px;
+		background: #333;
+		box-shadow: -3px 0px 7px 7px rgba(0,0,0,0.3);
+		transition: 0.66s;
+		color: #fafafa;
+	}
+	div#sidebar.active{
+		right: 0;
+	}
+	div#sidebar div.top{
+		display: block;
+		height: 40px;
+		font-size: 14px;
+	}
+	div#sidebar div.name{
+		float: left;
+		font-weight: lighter;
+	    font-size: 16px;
+	    letter-spacing: 1.5px;
+	    line-height: 30px;
+	}
+	div.close{
+		float: right;
+		cursor: pointer;
+		font-weight: bold;
+		text-transform: uppercase;
+		line-height: 30px;
+	}
+	div.close:hover{
+		color: #bbb;
+		background: #262C33;
+	}
+	div .avatar{
+		height: 30px;
+		border-radius: 50%;
+		float: right;
+	}
+	div#sidebar ul{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
 
+	div#sidebar li.parent{
+		border-top: 1px solid #262C33;
+		padding: 5px 0;
+		line-height: 30px;
+	}
+	div#sidebar li.parent span{
+		font-weight: bolder;
+	}
+	div#sidebar li.parent i{
+		float: right;
+		position: relative;
+	    margin-top: 8px;
+	    right: 10px;
+	}
 
+	div#sidebar li.parent:not(.open) ul{
+		height: 0;
+		overflow: hidden;
+	}
 
 
 
@@ -358,6 +426,7 @@ html, body{
 		max-width: 1300px;
 	}
 	div#footer div.footer-links a{width: calc((100% - 70px) / 5);}
+	div#sidebar{display: none;}
 }
 @media (max-width: 1200px){
 	div#content{
@@ -379,6 +448,7 @@ html, body{
 		margin-left: 0; 
 	}
 	div#footer div.footer-links a{width: calc((100% - 70px) / 4);}
+	div#sidebar{display: none;}
 
 }
 @media (max-width: 768px){
@@ -413,4 +483,5 @@ html, body{
 		text-align: center;
 		margin: 0;
 	}
+	div#sidebar{display: block;}
 }
