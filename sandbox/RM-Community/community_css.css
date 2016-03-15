@@ -7,6 +7,9 @@ html, body{
 }
 
 
+
+
+
 /*NAVBAR FRAMEWORK*/
 	div#navbar{
 		background: #fff;
@@ -49,6 +52,14 @@ html, body{
 
 
 
+
+
+
+
+
+
+
+
 /*HAMBURGER SPECIFIC*/
 	div.hamburger{
 		display: none;
@@ -63,6 +74,14 @@ html, body{
 		position: relative;
     	top: 3px;
 	}
+
+
+
+
+
+
+
+
 
 /*BRAND SPECIFIC*/
 	div.brand{
@@ -90,6 +109,15 @@ html, body{
 	    font-size: 19px;
 	    text-decoration: none;
 	}
+
+
+
+
+
+
+
+
+
 
 /*MENU SPECIFIC*/
 	div.links{
@@ -131,6 +159,16 @@ html, body{
 		text-transform: none;
 	}
 
+
+
+
+
+
+
+
+
+
+
 /*USER POROFILE SPECIFIC*/
 	div.user{
 		height: 55px;
@@ -157,6 +195,15 @@ html, body{
 	}
 	/*if necessary to show full username*/
 	/*div.user:hover span{width: auto;}*/
+
+
+
+
+
+
+
+
+
 
 
 
@@ -232,6 +279,17 @@ html, body{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 /*FOOTER*/
 	div#footer{
 		margin-top: 45px;
@@ -282,6 +340,18 @@ html, body{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /*RESPONSIVE SIZING*/
 @media (min-width: 1270px){
 	div.container{
@@ -305,7 +375,7 @@ html, body{
 		width: calc(100% / 6);
 	}
 	div.links ul.child{
-		top: 110px;
+		top: 95px;
 		margin-left: 0; 
 	}
 	div#footer div.footer-links a{width: calc((100% - 70px) / 4);}
@@ -318,12 +388,10 @@ html, body{
 	div.user, div.links{
 		display: none;
 	}
-/*	div.brand{
-		float: none;
-		display: block;
-    	margin: 0 auto;
-    	width: 114px;
-	}*/
+	div.brand a#logo{
+		background-image: url('rm-slinky.png');
+    	width: 34px;
+	}
 	div.user{
 		margin-top: -55px;
 	}
