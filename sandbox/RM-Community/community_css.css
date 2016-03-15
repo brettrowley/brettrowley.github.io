@@ -104,7 +104,7 @@ html, body{
 	    font-weight: lighter;
 	    display: inline-block;
 	    vertical-align: top;
-	    margin-top: 0px;
+	    margin: 0 0 0 -5px;
 	    padding: 0 10px;
 	    font-size: 19px;
 	    text-decoration: none;
