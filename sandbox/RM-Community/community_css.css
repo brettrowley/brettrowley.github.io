@@ -150,6 +150,7 @@ html, body{
 	    display: none;
 	    list-style: none;
 	    padding: 0;
+	    min-width: 150px;
 	}
 	div.links ul.child li.child{
 		text-align: left;
