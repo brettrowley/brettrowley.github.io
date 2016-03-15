@@ -67,14 +67,16 @@ html, body{
 	div.brand{
 		float: left;
 		height: 55px;
+		width: 154px;
 	}
 	div.brand #logo{
 		display:inline-block;
 		height: 100%;
-		width: 154px;
+		width: 100%;
 		background-image: url('https://rapidminer.com/wp-content/themes/rapidminer/assets/images/rapidminer-logo-retina.png');
 		background-size: contain;
 		background-repeat: no-repeat;
+		background-position: center;
 	}
 
 /*MENU SPECIFIC*/
@@ -249,6 +251,7 @@ html, body{
 		display:inline-block;
 		vertical-align: top;
 		padding: 15px;
+		text-decoration: none;
 	}
 	div#footer div.footer-links a:hover{
 		background: #414C58;
@@ -305,7 +308,7 @@ html, body{
 		float: none;
 		display: block;
     	margin: 0 auto;
-    	width: 154px;
+    	width: 114px;
 	}
 	div.user{
 		margin-top: -55px;
@@ -322,5 +325,10 @@ html, body{
 	div#footer div.right{
 		padding: 30px 0 15px 0;
 		border-left: none;
+	}
+	div.banner h1{
+		font-size: 28px;
+		text-align: center;
+		margin: 0;
 	}
 }
