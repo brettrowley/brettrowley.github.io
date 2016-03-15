@@ -210,8 +210,8 @@ html, body{
 		right: -475px;
 		top: 0;
 		bottom: 0;
-		padding: 15px;
-		background: #333;
+		padding: 15px 0;
+		background: #262C33;
 		box-shadow: -3px 0px 7px 7px rgba(0,0,0,0.3);
 		transition: 0.66s;
 		color: #fafafa;
@@ -223,27 +223,23 @@ html, body{
 		display: block;
 		height: 40px;
 		font-size: 14px;
+		line-height: 28px;
+		padding: 0 15px;
 	}
 	div#sidebar div.name{
 		float: left;
-		font-weight: lighter;
+		font-weight: 300;
 	    font-size: 16px;
-	    letter-spacing: 1.5px;
-	    line-height: 30px;
 	}
 	div.close{
 		float: right;
 		cursor: pointer;
 		font-weight: bold;
 		text-transform: uppercase;
-		line-height: 30px;
-	}
-	div.close:hover{
-		color: #bbb;
-		background: #262C33;
 	}
 	div .avatar{
 		height: 30px;
+		margin-top:5px;
 		border-radius: 50%;
 		float: right;
 	}
@@ -252,25 +248,35 @@ html, body{
 		margin: 0;
 		list-style: none;
 	}
-
 	div#sidebar li.parent{
-		border-top: 1px solid #262C33;
+		border-top: 1px solid #2c3e50;
 		padding: 5px 0;
-		line-height: 30px;
+		line-height: 40px;
+		padding: 0 15px;
 	}
-	div#sidebar li.parent span{
-		font-weight: bolder;
-	}
+	div#sidebar li.parent span{font-weight: 600;}
+	div#sidebar li.parent:last-child{border-bottom: 1px solid #2c3e50;}
 	div#sidebar li.parent i{
 		float: right;
 		position: relative;
-	    margin-top: 8px;
+	    margin-top: 11px;
 	    right: 10px;
 	}
-
-	div#sidebar li.parent:not(.open) ul{
+	div#sidebar ul.child{
+		padding-bottom: 15px;
+	}
+	div#sidebar li.parent:not(.open) ul.child{
+		padding: 0;
 		height: 0;
 		overflow: hidden;
+	}
+	div#sidebar li.child.active{
+		background: #2c3e50;
+	}
+	div#sidebar li.child{
+		font-size: 14px;
+		line-height: 30px;
+		padding-left: 15px;
 	}
 
 
