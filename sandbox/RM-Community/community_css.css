@@ -22,14 +22,11 @@ html, body{
 		width: 100%;
 		margin: 0 auto;
 	}
-	div#navbar div.container div{
-		padding: 0 15px;
-	}
 /*	div.links ul li:hover{
 		border-bottom: 3px solid #ff6600;
 		margin-bottom: -3px;
 	}*/
-	div.hamburger:hover, div.user:hover, div.brand:hover, div.links li.child:hover{
+	div.hamburger:hover, div.user:hover, div.brand a:hover, div.links li.child:hover{
 		background: rgba(0,0,0,0.05);
 		color: #ff6600;
 	}
@@ -44,15 +41,19 @@ html, body{
 		display: block;
 	}
 	li.active{
-		background: #e4e4e4;
+		background: rgba(0,0,0,0.05);
 	}
 	li.active span.parent{color: #ff6600;}
 	li.child.active{color: #ff6600;}
 
+
+
+
 /*HAMBURGER SPECIFIC*/
 	div.hamburger{
 		display: none;
-		float: left;
+		padding: 0 15px;
+		float: right;
 		cursor: pointer;
 		font-weight: bold;
 		text-transform: uppercase;
@@ -67,16 +68,27 @@ html, body{
 	div.brand{
 		float: left;
 		height: 55px;
-		width: 154px;
+		padding: 0 15px;
 	}
 	div.brand #logo{
 		display:inline-block;
 		height: 100%;
-		width: 100%;
+		width: 140px;
 		background-image: url('https://rapidminer.com/wp-content/themes/rapidminer/assets/images/rapidminer-logo-retina.png');
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: center;
+	}
+
+	div.brand #home{
+		color: #ff6600;
+	    font-weight: lighter;
+	    display: inline-block;
+	    vertical-align: top;
+	    margin-top: 0px;
+	    padding: 0 10px;
+	    font-size: 19px;
+	    text-decoration: none;
 	}
 
 /*MENU SPECIFIC*/
@@ -127,6 +139,7 @@ html, body{
 		font-size: 12px;
 		cursor: pointer;
 		text-align: right;
+		padding: 0 15px;
 
 	}
 	div.user img{
@@ -140,7 +153,7 @@ html, body{
 		display: inline-block;
 	    overflow: hidden;
 	    text-overflow: ellipsis;
-	    width: 119px;
+	    font-weight: bolder;
 	}
 	/*if necessary to show full username*/
 	/*div.user:hover span{width: auto;}*/
@@ -156,13 +169,13 @@ html, body{
 
 /*PAGE CONTENT PLACEHOLDER*/
 	div#content{
-		padding-top: 80px;
+		padding: 80px 7px 0;
 	}
 	div#content div.container{
-		width: calc(100% - 30px);
+		width: 100%;
+		margin: 0 auto;
 		padding: 0;
-		margin: 0 auto 30px;
-		max-width: 1200px;
+		max-width: 1300px;
 		box-shadow: 0px 2px 8px 4px rgba(0,0,0,0.1);
 	}
 	div#content div.banner{
@@ -276,19 +289,20 @@ html, body{
 	}
 	div#footer div.footer-links a{width: calc((100% - 70px) / 5);}
 }
-@media (max-width: 1270px){
+@media (max-width: 1200px){
 	div#content{
-		padding-top: 150px;
+		padding-top: 110px;
 	}
 	div.links {
 	    border-top: 1px solid #e4e4e4;
 	    width: 100%;
 	    text-align: center;
 	    padding: 0 !important;
+	    line-height: 40px;
 	}
 	div.links li.parent{
 		padding: 0;
-		width: calc(100% / 7);
+		width: calc(100% / 6);
 	}
 	div.links ul.child{
 		top: 110px;
@@ -297,19 +311,19 @@ html, body{
 	div#footer div.footer-links a{width: calc((100% - 70px) / 4);}
 
 }
-@media (max-width: 920px){
+@media (max-width: 768px){
 	div#content{
-		padding-top: 80px;
+		padding-top: 65px;
 	}
-	div.user span, div.links{
+	div.user, div.links{
 		display: none;
 	}
-	div.brand{
+/*	div.brand{
 		float: none;
 		display: block;
     	margin: 0 auto;
     	width: 114px;
-	}
+	}*/
 	div.user{
 		margin-top: -55px;
 	}
