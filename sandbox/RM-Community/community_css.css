@@ -45,6 +45,8 @@ html, body{
 	}
 	div.links li.active{
 		background: rgba(0,0,0,0.05);
+		border-right: 1px solid #e4e4e4;
+		border-left: 1px solid #e4e4e4;
 	}
 	div.links li.active span.parent{color: #ff6600;}
 	div.links li.child.active{color: #ff6600;}
