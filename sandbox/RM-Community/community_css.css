@@ -185,7 +185,7 @@ html, body{
 		margin-top: 10px;
 		border-radius: 50%;
 	}
-	div.user span{
+	div.user span.name{
 		vertical-align: top;
 		margin-right: 5px;
 		display: inline-block;
@@ -193,8 +193,30 @@ html, body{
 	    text-overflow: ellipsis;
 	    font-weight: bolder;
 	}
-	/*if necessary to show full username*/
-	/*div.user:hover span{width: auto;}*/
+	span.badge{
+	    font-size: 10px;
+	    font-weight: bold;
+	    color: white;
+	    background: red;
+	    padding: 1px 5px;
+	    border-radius: 50%;
+	    position: relative;
+	    margin-left: -10px;
+	}
+
+	div.user span.badge{
+		top: -25px;
+    	right: -45px;
+	}
+	div#sidebar span.badge{
+	    top: -10px;
+    	right: -260px;
+	}
+	div.hamburger span.badge{
+		top: -10px;
+    	right: -4px;
+
+	}
 
 
 
