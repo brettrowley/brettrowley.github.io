@@ -274,6 +274,9 @@ html, body{
 		margin: 0;
 		list-style: none;
 	}
+	div#sidebar li{
+		cursor: pointer;
+	}
 	div#sidebar li.parent{
 		border-top: 1px solid #2c3e50;
 		padding: 5px 0;
@@ -460,7 +463,7 @@ html, body{
 	div#footer div.footer-links a{width: calc((100% - 70px) / 5);}
 	div#sidebar{display: none;}
 }
-@media (max-width: 1200px){
+@media (max-width: 1230px){
 	div#content{
 		padding-top: 110px;
 	}
@@ -483,7 +486,7 @@ html, body{
 	div#sidebar{display: none;}
 
 }
-@media (max-width: 768px){
+@media (max-width: 800px){
 	div#content{
 		padding-top: 65px;
 	}
