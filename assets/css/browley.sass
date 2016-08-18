@@ -1,8 +1,9 @@
-$color-brand: #F64747
-$color-resume: #59ABE3
-$color-portfolio: #9B59B6
-$color-sandbox: #F5AB35
-$color-contact: #1BA39C
+$color-red: #F64747
+$color-blue: #59ABE3
+$color-purple: #9B59B6
+$color-yellow: #F5AB35
+$color-green: #1BA39C
+$color-gray: #95A5A6
 $color-trans-black: rgba(0,0,0,0.05)
 
 $max-width: 900px
@@ -10,6 +11,9 @@ $banner-height: 200px
 $page-offset: 50px
 $breakpoint: 600px
 $transition-fade: 0.25s
+
+.shadowed
+	box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.3)
 
 html,body
 	padding: 0
@@ -23,6 +27,39 @@ a:not(.btn)
 	&:hover
 		@media (min-width: $breakpoint)
 			background: $color-trans-black
+a.btn
+	color: white
+	border-radius: 3px
+	text-decoration: none
+	transition: background $transition-fade
+	background: $color-gray
+	&:hover
+		background: darken($color-gray, 10%)
+	&.btn-light
+		color: #333
+		background: #f0f0f0
+		&:hover
+			background: #e6e6e6
+	&.btn-red
+		background: $color-red
+		&:hover
+			background: darken($color-red, 10%)
+	&.btn-blue
+		background: $color-blue
+		&:hover
+			background: darken($color-blue, 10%)
+	&.btn-purple
+		background: $color-purple
+		&:hover
+			background: darken($color-purple, 10%)
+	&.btn-yellow
+		background: $color-yellow
+		&:hover
+			background: darken($color-yellow, 10%)
+	&.btn-green
+		background: $color-green
+		&:hover
+			background: darken($color-green, 10%)
 
 
 .navbar.banner
@@ -30,15 +67,15 @@ a:not(.btn)
 	color: white
 	margin: 0
 	z-index: 0
-	background: linear-gradient(darken($color-brand, 12%), $color-brand)
+	background: linear-gradient(darken($color-red, 12%), $color-red)
 	&.resume
-		background: linear-gradient(darken($color-resume, 15%), $color-resume)
+		background: linear-gradient(darken($color-blue, 15%), $color-blue)
 	&.portfolio
-		background: linear-gradient(darken($color-portfolio, 9%), $color-portfolio)
+		background: linear-gradient(darken($color-purple, 9%), $color-purple)
 	&.sandbox
-		background: linear-gradient(darken($color-sandbox, 12%), $color-sandbox)
+		background: linear-gradient(darken($color-yellow, 12%), $color-yellow)
 	&.contact
-		background: linear-gradient(darken($color-contact, 7%), $color-contact)
+		background: linear-gradient(darken($color-green, 7%), $color-green)
 	.menu
 		list-style: none
 		margin: 0
@@ -86,15 +123,31 @@ a:not(.btn)
 			margin-top: 30px
 			font-weight: bolder
 			&.btn
-				background: $color-brand
-				border-radius: 3px
-				color: white
-				text-decoration: none
 				margin-left: 1em
 	.content
 
 .page.contact .content
-	h3 a
-		display: block
-		padding: 3em
-		text-decoration: none
+	text-align: center
+	#contactButtons
+		padding: 100px 30px
+	a.btn
+		display: inline-block
+		border-radius: 50%
+		margin: 30px
+		vertical-align: top
+		.text
+			font-size: 18px
+			position: absolute
+			color: #333
+			margin-top: -30px
+			margin-left: -100px
+			width: 100px
+			color: $color-gray
+			font-weight: bolder
+		i
+			font-size: 40px
+			display: inline-block
+			height: 100px
+			width: 100px
+			line-height: 100px
+			text-align: center

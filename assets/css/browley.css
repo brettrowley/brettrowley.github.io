@@ -1,3 +1,6 @@
+.shadowed {
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.3); }
+
 html, body {
   padding: 0;
   margin: 0;
@@ -10,6 +13,40 @@ a:not(.btn) {
   @media (min-width: 600px) {
     a:not(.btn):hover {
       background: rgba(0, 0, 0, 0.05); } }
+
+a.btn {
+  color: white;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.25s;
+  background: #95A5A6; }
+  a.btn:hover {
+    background: #798d8f; }
+  a.btn.btn-light {
+    color: #333;
+    background: #f0f0f0; }
+    a.btn.btn-light:hover {
+      background: #e6e6e6; }
+  a.btn.btn-red {
+    background: #F64747; }
+    a.btn.btn-red:hover {
+      background: #f41616; }
+  a.btn.btn-blue {
+    background: #59ABE3; }
+    a.btn.btn-blue:hover {
+      background: #2d95dc; }
+  a.btn.btn-purple {
+    background: #9B59B6; }
+    a.btn.btn-purple:hover {
+      background: #804399; }
+  a.btn.btn-yellow {
+    background: #F5AB35; }
+    a.btn.btn-yellow:hover {
+      background: #eb950c; }
+  a.btn.btn-green {
+    background: #1BA39C; }
+    a.btn.btn-green:hover {
+      background: #147772; }
 
 .navbar.banner {
   height: 200px;
@@ -71,15 +108,32 @@ a:not(.btn) {
     margin-top: 30px;
     font-weight: bolder; }
     .page .header a.btn {
-      background: #F64747;
-      border-radius: 3px;
-      color: white;
-      text-decoration: none;
       margin-left: 1em; }
 
-.page.contact .content h3 a {
-  display: block;
-  padding: 3em;
-  text-decoration: none; }
+.page.contact .content {
+  text-align: center; }
+  .page.contact .content #contactButtons {
+    padding: 100px 30px; }
+  .page.contact .content a.btn {
+    display: inline-block;
+    border-radius: 50%;
+    margin: 30px;
+    vertical-align: top; }
+    .page.contact .content a.btn .text {
+      font-size: 18px;
+      position: absolute;
+      color: #333;
+      margin-top: -30px;
+      margin-left: -100px;
+      width: 100px;
+      color: #95A5A6;
+      font-weight: bolder; }
+    .page.contact .content a.btn i {
+      font-size: 40px;
+      display: inline-block;
+      height: 100px;
+      width: 100px;
+      line-height: 100px;
+      text-align: center; }
 
 /*# sourceMappingURL=browley.css.map */
