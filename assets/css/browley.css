@@ -12,19 +12,18 @@ a {
 
 .navbar.banner {
   height: 200px;
-  background: #F64747;
   color: white;
-  margin: 0; }
-  .navbar.banner .brand {
-    font-weight: bold;
-    position: absolute;
-    font-size: 50px;
-    line-height: 0.8em;
-    letter-spacing: -2px;
-    margin-top: 35px;
-    margin-left: 35px;
-    opacity: 0.15;
-    cursor: default; }
+  margin: 0;
+  z-index: 0;
+  background: linear-gradient(#f30d0d, #F64747); }
+  .navbar.banner.resume {
+    background: linear-gradient(#2388cd, #59ABE3); }
+  .navbar.banner.portfolio {
+    background: linear-gradient(#83459c, #9B59B6); }
+  .navbar.banner.sandbox {
+    background: linear-gradient(#e28f0b, #F5AB35); }
+  .navbar.banner.contact {
+    background: linear-gradient(#16847f, #1BA39C); }
   .navbar.banner .menu {
     list-style: none;
     margin: 0;
@@ -33,17 +32,21 @@ a {
     max-width: 900px;
     margin: 0 auto;
     padding-top: calc((200px - 2.33*50px)/1);
-    font-size: 18px; }
+    font-size: 0px;
+    z-index: 1; }
     .navbar.banner .menu li {
       display: inline-block;
       margin: 0; }
       .navbar.banner .menu li a {
+        font-size: 18px;
         color: white;
         text-decoration: none;
         padding: 1em;
         display: inline-block; }
-      .navbar.banner .menu li.active {
-        border-bottom: 3px solid white; }
+        .navbar.banner .menu li a.active {
+          border-bottom: 7px solid white; }
+        .navbar.banner .menu li a:not(.active):hover {
+          border-bottom: 7px solid rgba(0, 0, 0, 0.05); }
 
 .page {
   width: 100%;
@@ -51,7 +54,8 @@ a {
   margin: -50px auto 50px;
   padding: 0 30px 30px;
   background: white;
-  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.11); }
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.11);
+  z-index: 2; }
   .page .header h1 {
     display: inline-block;
     margin: 0;

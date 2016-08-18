@@ -1,4 +1,10 @@
-$color-about: #F64747
+$color-brand: #F64747
+$color-resume: #59ABE3
+$color-portfolio: #9B59B6
+$color-sandbox: #F5AB35
+$color-contact: #1BA39C
+$color-trans-black: rgba(0,0,0,0.05)
+
 $max-width: 900px
 $banner-height: 200px
 $page-offset: 50px
@@ -14,22 +20,22 @@ a
 	color: #3498db
 	&:hover
 		@media (min-width: $breakpoint)
-			background: rgba(0,0,0,0.05)
+			background: $color-trans-black
+
 .navbar.banner
 	height: $banner-height
-	background: $color-about
 	color: white
 	margin: 0
-	.brand
-		font-weight: bold
-		position: absolute
-		font-size: 50px
-		line-height: 0.8em
-		letter-spacing: -2px
-		margin-top: 35px
-		margin-left: 35px
-		opacity: 0.15
-		cursor: default
+	z-index: 0
+	background: linear-gradient(darken($color-brand, 12%), $color-brand)
+	&.resume
+		background: linear-gradient(darken($color-resume, 15%), $color-resume)
+	&.portfolio
+		background: linear-gradient(darken($color-portfolio, 9%), $color-portfolio)
+	&.sandbox
+		background: linear-gradient(darken($color-sandbox, 12%), $color-sandbox)
+	&.contact
+		background: linear-gradient(darken($color-contact, 7%), $color-contact)
 	.menu
 		list-style: none
 		margin: 0
@@ -38,17 +44,21 @@ a
 		max-width: $max-width
 		margin: 0 auto
 		padding-top: calc((#{$banner-height} - 2.33*#{$page-offset})/1)
-		font-size: 18px
+		font-size: 0px
+		z-index: 1
 		li
 			display: inline-block
 			margin: 0
 			a
+				font-size: 18px
 				color: white
 				text-decoration: none
 				padding: 1em
 				display: inline-block
-			&.active
-				border-bottom: 3px solid white
+				&.active
+					border-bottom: 7px solid white
+				&:not(.active):hover
+					border-bottom: 7px solid $color-trans-black
 
 .page
 	width: 100%
@@ -57,6 +67,7 @@ a
 	padding: 0 30px 30px
 	background: white
 	box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.11)
+	z-index: 2
 	.header
 		h1
 			display: inline-block
@@ -70,7 +81,7 @@ a
 			margin-top: 30px
 			font-weight: bolder
 			&.btn
-				background: $color-about
+				background: $color-brand
 				border-radius: 3px
 				color: white
 				text-decoration: none
