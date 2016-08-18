@@ -2,77 +2,13 @@
 layout: default
 title: Portfolio
 ---
-<style>
-div.container{
-	max-width: 768px;
-}
 
-div.project-desc:nth-of-type(1){
-	margin-top:calc(30px + 2vw);
-}
-
-div.project-desc{
-	max-width: 750px;
-	display: block;
-	margin: 0 auto;
-	margin-bottom: calc(60px + 2vw);
-	text-align: center;
-}
-
-
-
-div.project-desc div.project-icon{
-	display: inline-block;
-	border-radius: 50%;
-	box-shadow: 0px 5px 7px rgba(0,0,0,0.5);
-}
-div.project-desc div.project-icon img{
-	width: 125px;
-}
-
-
-
-div.project-desc div.project-text{
-	display:inline-block;
-	color: #333;
-}
-div.project-desc div.project-text p{
-	letter-spacing: 0.5px;
-	font-size: 12pt;
-}
-div.project-desc div.project-text h2{
-	font-weight: bolder;
-}
-
-
-
-@media screen and (min-width: 768px) {
-	div.project-desc{
-		text-align: left;
-	}
-	div.project-desc div.project-icon{
-		display: inline-block;
-		float: left;
-		margin: 25px 25px 0 0;
-	}
-
-	div.project-desc div.project-text{
-		width: 550px;
-	}
-}
-</style>
-
-<script>
-$(document).ready(function(){
-})
-</script>
-</head>
-<body>
-<div class="container">
-<h1 class="page-title">{{page.title}}</h1>
-<p class="page-lead">Download as <a href="brett_rowley_portfolio.pdf">PDF</a></p>
-<hr>
-	<div class="project-desc">	
+<div class="header">
+<h1>Brett Rowley's Portfolio</h1>
+<a href="brett_rowley_portfolio.pdf" class="btn">Download PDF</a>
+</div>
+<div class="content">
+	<div class="project-desc">
 		<div class="project-icon" style="background-color: #1abc9c">
 			<a href="tap"><img src="tap-icon.png" /></a>
 		</div>

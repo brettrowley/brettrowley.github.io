@@ -1,157 +1,69 @@
-	html{margin: 0; width: 100%;}
+html, body {
+  padding: 0;
+  margin: 0;
+  background: #fafafa;
+  font-family: "Source Sans Pro", sans-serif; }
 
-	body{
-		font-family: 'Open Sans', sans-serif !important;
-		padding-top: 50px;
-		padding-bottom: 30px;
-	}
+a {
+  color: #3498db; }
+  a:hover {
+    background: rgba(0, 0, 0, 0.05); }
 
-	h1.page-title{
-	  text-align: center;
-	  text-transform: uppercase;
-	  letter-spacing: 5px;
-	  font-weight: 100;
-	  color: #333;
-	  margin-top: 50px;
-	  font-family: 'Open Sans';
-	}
+.navbar.banner {
+  height: 200px;
+  background: #F64747;
+  color: white;
+  margin: 0; }
+  .navbar.banner .brand {
+    font-weight: bold;
+    position: absolute;
+    font-size: 50px;
+    line-height: 0.8em;
+    letter-spacing: -2px;
+    margin-top: 35px;
+    margin-left: 35px;
+    opacity: 0.15;
+    cursor: default; }
+  .navbar.banner .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: calc((200px - 2.33*50px)/1);
+    font-size: 18px; }
+    .navbar.banner .menu li {
+      display: inline;
+      margin: 0; }
+      .navbar.banner .menu li a {
+        color: white;
+        text-decoration: none;
+        padding: 1em; }
 
-	p.page-lead{
-		text-align: center;
-		padding: 0px 15px 30px;
-		color: #333;
-		letter-spacing: 0.5px;
-		font-family: 'Open Sans';
-	}
+.page {
+  width: 100%;
+  max-width: 900px;
+  margin: -50px auto 50px;
+  padding: 0 30px 30px;
+  background: white;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.11); }
+  .page .header h1 {
+    display: inline-block;
+    margin: 0;
+    line-height: 100px;
+    cursor: default; }
+  .page .header a {
+    padding: 0 1em;
+    line-height: 3em;
+    float: right;
+    margin-top: 30px;
+    font-weight: bolder; }
+    .page .header a.btn {
+      background: #F64747;
+      border-radius: 3px;
+      color: white;
+      text-decoration: none;
+      margin-left: 1em; }
 
-
-	nav#navbar{
-		background: #c0392b;
-		box-shadow: 0px 3px 5px rgba(0,0,0,0.3);
-		border: none;
-	}
-	nav#navbar li a{
-		color: white;
-		font-size: 11pt;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		font-weight: 300;
-	}
-	#deskHome{
-		font-weight: 700 !important;
-		text-transform: none !important;
-	}
-	nav#navbar a:hover{
-		text-decoration: underline;
-	}
-
-
-	@media screen and (min-width: 768px) {
-		ul#menu{
-			display: block !important;
-		  	float: none;
-		  	margin: 0 auto;
-		  	width: 768px;
-		}
-		#mobileMenu{display: none;}
-		#mobileHome{display: none;}
-		#deskHome{display: block;}
-	}
-
-	@media screen and (max-width: 768px) {
-		#mobileMenu{
-			display: block;
-			text-align: center;
-			font-size: 14pt;
-			font-weight: 700;
-			cursor: pointer;
-			margin-top: 10px;
-			color: white;
-		}
-		#mobileHome{display: block;}
-		#deskHome{display: none;}
-		#menu{
-			display: none;
-			background: #e74c3c;
-			margin-top: 15px !important;
-			margin-bottom: 0px !important;
-		}
-		ul#menu li a{
-			font-weight:400 !important;
-			border-top: 1px solid rgba(0,0,0,0.15);
-		}
-		#click-to-close{
-			position: fixed;
-			display: none;
-			left: 0;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			z-index: 100;
-			background: rgba(0,0,0,0.6);
-		}
-
-		
-
-		nav#navbar a.active{
-			background: rgba(0,0,0,0.05);
-			border: none;
-		}
-	}
-
-
-
-div.container{
-	max-width: 768px;
-}
-
-.portfolio-page h4{
-	display: block;
-	font-size: 14pt;
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
-	margin: 45px auto 5px;
-}
-
-.portfolio-page p:not(.page-lead), .portfolio-page ul{
-	font-size: 14pt;
-	font-family: 'Lora';
-}
-
-.portfolio-page img.screenshot{
-	width: 100%;
-	border-radius: 5px;
-	margin: 7.5px auto;
-}
-
-
-
-	div#homepage{
-		padding-top: 50px;
-		text-align: center;
-		padding-left: 30px;
-		padding-right: 30px;
-		max-width: 700px;
-	}
-
-	div#homepage img#profilePhoto{
-		width: 200px;
-	}
-
-	ul{
-		padding-left: 20px;
-	}
-
-	ul.no-bullets{
-		list-style: none;
-	}
-
-	ul.no-margins{
-		padding:0;
-		margin: 0;
-	}
-
-	div.center-container{
-		text-align: center;
-	}
+/*# sourceMappingURL=browley.css.map */

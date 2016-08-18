@@ -2,81 +2,6 @@
 layout: default
 title: Resume
 ---
-
-<style>
-	.watermark{
-		position: absolute;
-		left: 50px;
-		top: 50px;
-		color: #f0f0f0;
-		font-size: 150pt;
-	}
-
-	div#resume{
-		max-width: 768px;
-		font-family: 'Lora';
-		color: #333;
-	}
-
-	div#resume p:not(.page-lead), div#resume li{
-		font-size: 14pt;
-		line-height: 1.6em;
-	}
-
-	h2{
-		font-family: 'Open Sans';
-		font-weight:bolder;
-		margin-top: calc(25px + 2vw);
-	}
-
-	h3{
-		margin: 0;
-		line-height: 1.3;
-	}
-
-
-	#toggle-courses{cursor: pointer;}
-	#course-list{
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-	.course-num{
-		color: #999;
-	}
-
-	.job:not(:nth-of-type(1)){
-		margin-top: calc(25px + 2vw);
-	}
-	.job hr{
-		margin: 5px auto 10px;
-	}
-
-	#competencies{
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	span.badge{
-		font-family: 'Open Sans';
-		margin-right: 5px;
-		padding: 5px 10px;
-		vertical-align: top;
-  		margin-top: 3px;
-	}
-
-	@media screen and (max-width: 768px){
-		h2:not(:nth-child(1)){
-			margin-top: calc(75px + 2vw);
-		}
-		.job:not(:nth-of-type(1)){
-			margin-top: calc(50px + 2vw);
-		}
-	}
-
-</style>
-
 <script>
 	$(document).ready(function(){
 		//dynamically calculates working period for current job
@@ -95,7 +20,7 @@ title: Resume
 		//colors competency year markings; adds 'yr.' after each number
 		$('.badge').each(function(){
 			$(this).append(' yr.')
-			
+
 			year = ($(this).text().substr(0,1))
 			if (year == 1) {
 				$(this).css("background-color", "#95a5a6")
@@ -108,13 +33,13 @@ title: Resume
 
 	})
 	</script>
-</head>
-<body>
-<div id="resume" class="container">
+
+<div class="header">
 <!-- <i class="ion-ios-chatbubble-outline watermark"></i> -->
-	<h1 class="page-title">{{page.title}}</h1>
-	<p class="page-lead">Download as <a href="brett_rowley_resume.pdf">PDF</a></p>
-	<hr>
+	<h1>Brett Rowley's Resume</h1>
+	<a href="brett_rowley_resume.pdf" class="btn">Download PDF</a>
+</div>
+<div class="content">
 	<h2 id="about">About</h2>
 	<p>Olin College of Engineering gave me not only a solid grounding in engineering, but also significant experience in user-centered design by building real products for real people. Add some business courses plus free-lance graphic design into the mix and you're probably getting the picture.</p>
 	<p>My education helped grow my passion for creating products with a superior user experience, tempered with a big-picture perspective on technical and business constraints. I consider myself an "in-betweener" who works best in interdisciplinary teams and loves to guide projects from a whiteboard sketch to a public product.</p>
@@ -186,7 +111,7 @@ title: Resume
 
 	<h2>Competencies</h2>
 	<p><ul id="competencies">
-		
+
 		<li>
 			<span class="badge">2</span>
 			HTML/CSS/JS
@@ -238,4 +163,3 @@ title: Resume
 	</ul>
 	</p>
 	</div>
-</body>

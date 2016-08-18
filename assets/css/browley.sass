@@ -1,0 +1,73 @@
+$color-about: #F64747
+$max-width: 900px
+$banner-height: 200px
+$page-offset: 50px
+
+html,body
+	padding: 0
+	margin: 0
+	background: #fafafa
+	font-family: 'Source Sans Pro', sans-serif
+
+a
+	color: #3498db
+	&:hover
+		background: rgba(0,0,0,0.05)
+.navbar.banner
+	height: $banner-height
+	background: $color-about
+	color: white
+	margin: 0
+	.brand
+		font-weight: bold
+		position: absolute
+		font-size: 50px
+		line-height: 0.8em
+		letter-spacing: -2px
+		margin-top: 35px
+		margin-left: 35px
+		opacity: 0.15
+		cursor: default
+	.menu
+		list-style: none
+		margin: 0
+		padding: 0
+		width: 100%
+		max-width: $max-width
+		margin: 0 auto
+		padding-top: calc((#{$banner-height} - 2.33*#{$page-offset})/1)
+		font-size: 18px
+		li
+			display: inline
+			margin: 0
+			a
+				color: white
+				text-decoration: none
+				padding: 1em
+
+.page
+	width: 100%
+	max-width: $max-width
+	margin: -$page-offset auto 50px
+	padding: 0 30px 30px
+	background: white
+	box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.11)
+	.header
+		h1
+			display: inline-block
+			margin: 0
+			line-height: 2*$page-offset
+			cursor: default
+		a
+			padding: 0 1em
+			line-height: 3em
+			float: right
+			margin-top: 30px
+			font-weight: bolder
+			&.btn
+				background: $color-about
+				border-radius: 3px
+				color: white
+				text-decoration: none
+				margin-left: 1em
+	.content
