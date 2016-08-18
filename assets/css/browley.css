@@ -4,10 +4,11 @@ html, body {
   background: #fafafa;
   font-family: "Source Sans Pro", "Open Sans", "Helvetica Neue", sans-serif; }
 
-a {
-  color: #3498db; }
+a:not(.btn) {
+  color: #3498db;
+  transition: 0.25s; }
   @media (min-width: 600px) {
-    a:hover {
+    a:not(.btn):hover {
       background: rgba(0, 0, 0, 0.05); } }
 
 .navbar.banner {
@@ -42,11 +43,13 @@ a {
         color: white;
         text-decoration: none;
         padding: 1em;
-        display: inline-block; }
+        display: inline-block;
+        border-bottom: 7px solid transparent; }
         .navbar.banner .menu li a.active {
-          border-bottom: 7px solid white; }
+          border-color: white;
+          font-weight: bolder; }
         .navbar.banner .menu li a:not(.active):hover {
-          border-bottom: 7px solid rgba(0, 0, 0, 0.05); }
+          border-color: rgba(0, 0, 0, 0.05); }
 
 .page {
   width: 100%;
@@ -73,5 +76,10 @@ a {
       color: white;
       text-decoration: none;
       margin-left: 1em; }
+
+.page.contact .content h3 a {
+  display: block;
+  padding: 3em;
+  text-decoration: none; }
 
 /*# sourceMappingURL=browley.css.map */

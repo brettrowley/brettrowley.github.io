@@ -9,6 +9,7 @@ $max-width: 900px
 $banner-height: 200px
 $page-offset: 50px
 $breakpoint: 600px
+$transition-fade: 0.25s
 
 html,body
 	padding: 0
@@ -16,11 +17,13 @@ html,body
 	background: #fafafa
 	font-family: 'Source Sans Pro', 'Open Sans', 'Helvetica Neue', sans-serif
 
-a
+a:not(.btn)
 	color: #3498db
+	transition: $transition-fade
 	&:hover
 		@media (min-width: $breakpoint)
 			background: $color-trans-black
+
 
 .navbar.banner
 	height: $banner-height
@@ -55,10 +58,12 @@ a
 				text-decoration: none
 				padding: 1em
 				display: inline-block
+				border-bottom: 7px solid rgba(0,0,0,0)
 				&.active
-					border-bottom: 7px solid white
+					border-color: white
+					font-weight: bolder
 				&:not(.active):hover
-					border-bottom: 7px solid $color-trans-black
+					border-color: $color-trans-black
 
 .page
 	width: 100%
@@ -87,3 +92,9 @@ a
 				text-decoration: none
 				margin-left: 1em
 	.content
+
+.page.contact .content
+	h3 a
+		display: block
+		padding: 3em
+		text-decoration: none
