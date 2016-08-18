@@ -1,11 +1,15 @@
 <div class="navbar banner">
 	<!-- <span class="brand">Brett<br>Rowley</span> -->
 	<ul class="navbar menu">
-		<li><a href="/">About</a></li>
-		<li><a href="/resume">Resume</a></li>
-		<li><a href="/portfolio">Portfolio</a></li>
-		<li><a href="/sandbox">Sandbox</a></li>
-		<li><a href="/photography">Photography</a></li>
-		<li><a href="/contact">Contact</a></li>
+		{% assign page_href = page.url | split: '/' | last | prepend: '/' %}
+		{% for link in site.data.menu %}
+			{% if page_href == link.href%}
+				<li class="active"><a href="{{link.href}}">{{link.name}}</a></li>
+			{% elsif link.type == "external"%}
+				<li class=""><a target="_blank" href="{{link.href}}">{{link.name}}</a></li>
+			{% else %}
+				<li class=""><a href="{{link.href}}">{{link.name}}</a></li>
+			{% endif %}
+		{% endfor %}
 	</ul>
 </div>

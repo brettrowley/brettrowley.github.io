@@ -2,12 +2,13 @@ html, body {
   padding: 0;
   margin: 0;
   background: #fafafa;
-  font-family: "Source Sans Pro", sans-serif; }
+  font-family: "Source Sans Pro", "Open Sans", "Helvetica Neue", sans-serif; }
 
 a {
   color: #3498db; }
-  a:hover {
-    background: rgba(0, 0, 0, 0.05); }
+  @media (min-width: 600px) {
+    a:hover {
+      background: rgba(0, 0, 0, 0.05); } }
 
 .navbar.banner {
   height: 200px;
@@ -34,12 +35,15 @@ a {
     padding-top: calc((200px - 2.33*50px)/1);
     font-size: 18px; }
     .navbar.banner .menu li {
-      display: inline;
+      display: inline-block;
       margin: 0; }
       .navbar.banner .menu li a {
         color: white;
         text-decoration: none;
-        padding: 1em; }
+        padding: 1em;
+        display: inline-block; }
+      .navbar.banner .menu li.active {
+        border-bottom: 3px solid white; }
 
 .page {
   width: 100%;

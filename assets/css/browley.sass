@@ -2,17 +2,19 @@ $color-about: #F64747
 $max-width: 900px
 $banner-height: 200px
 $page-offset: 50px
+$breakpoint: 600px
 
 html,body
 	padding: 0
 	margin: 0
 	background: #fafafa
-	font-family: 'Source Sans Pro', sans-serif
+	font-family: 'Source Sans Pro', 'Open Sans', 'Helvetica Neue', sans-serif
 
 a
 	color: #3498db
 	&:hover
-		background: rgba(0,0,0,0.05)
+		@media (min-width: $breakpoint)
+			background: rgba(0,0,0,0.05)
 .navbar.banner
 	height: $banner-height
 	background: $color-about
@@ -38,12 +40,15 @@ a
 		padding-top: calc((#{$banner-height} - 2.33*#{$page-offset})/1)
 		font-size: 18px
 		li
-			display: inline
+			display: inline-block
 			margin: 0
 			a
 				color: white
 				text-decoration: none
 				padding: 1em
+				display: inline-block
+			&.active
+				border-bottom: 3px solid white
 
 .page
 	width: 100%
