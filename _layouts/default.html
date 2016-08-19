@@ -3,12 +3,12 @@
 
   {% include head.html %}
 
-  <div class="navbar banner {{page.title | downcase}}">
+  <div class="navbar banner {{page.category}}">
     {% include header.html %}
   </div>
 
   <body>
-    <div class="page {{page.title | downcase}}">
+    <div class="page {{page.category}}">
       {{ content }}
     </div>
   </body>

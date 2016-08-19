@@ -1,12 +1,15 @@
 	<ul class="navbar menu">
-		{% assign page_href = page.url | split: '/' | last | prepend: '/' %}
+		{% assign page_href = page.url | split: '/' %}
+		{% assign section = page_href[1] | prepend: '/' %}
+		{% assign page_last = page_href | last | prepend: '/' %}
+
 		{% for link in site.data.menu %}
-			{% if page_href == link.href%}
-				<li class="active"><a class="active" href="{{link.href}}">{{link.name}}</a></li>
-			{% elsif link.type == "external"%}
-				<li class=""><a class="" target="_blank" href="{{link.href}}">{{link.name}}</a></li>
-			{% else %}
-				<li class=""><a class="" href="{{link.href}}">{{link.name}}</a></li>
-			{% endif %}
+				{% if page_last == link.href %}
+					<li class="active"><a class="active" href="{{link.href}}">{{link.name}}</a></li>
+				{% elsif link.type == "external"%}
+					<li class=""><a class="" target="_blank" href="{{link.href}}">{{link.name}}</a></li>
+				{% else %}
+					<li class=""><a class="" href="{{link.href}}">{{link.name}}</a></li>
+				{% endif %}
 		{% endfor %}
 	</ul>
