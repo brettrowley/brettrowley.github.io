@@ -1,0 +1,98 @@
+---
+layout: default
+title: 'Lunchbot'
+---
+<head>
+	<meta charset="utf-8">
+	<title>Lunchbot</title>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300, 400, 700" rel="stylesheet">
+	<style>
+		.app-container{
+			font-family: 'Poppins', 'Open Sans', sans-serif;
+			padding-top: 50px;
+			text-align: center;
+			width: 100vw;
+		}
+		#loading.loading{
+			bottom: 0;
+		}
+		#result{
+			font-size: 10vw;
+			font-weight: bolder;
+			color: #AA076B;
+			line-height: 1.1em;
+			margin-top: calc(43vh - 5vw - 50px);
+		}
+		#result.placeholder{
+			color: #ccc;
+		}
+		#skip{
+			display: inline-block;
+			padding: 1em;
+			background: #AA076B; /* fallback for old browsers */
+			background: -webkit-linear-gradient(to left, #AA076B , #61045F); /* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to left, #AA076B , #61045F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			color: white;
+			border-radius: 4px;
+			box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.24), 0px 2px 2px 0px rgba(0,0,0,0.12);
+			cursor: pointer;
+			position: absolute;
+			width: 200px;
+			margin-left: -100px;
+			bottom: 15px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var lunches = [
+				"Zo's Greek Cuisine",
+				"Piperi Mediterranean Grill",
+				"Crush Pizza",
+				"Pita Thyme",
+				"Freshii",
+				"Bonapita",
+				"Viva Burrito",
+				"Zuma Tex-Mex Grill",
+				"Falafel King",
+				"Casa Razdora Italian",
+				"Monthien Thai",
+				"Panza",
+				"My Thai Vegan Café",
+				"Clover",
+				"Viga Italian",
+				"Shawarma Falafel",
+				"Tenoch",
+				"Post Office Café",
+				"Chacarero"
+			]
+
+			$('#skip').click(function(){
+				getLunch()
+			})
+
+			$('.app-container').hide()
+			getLunch()
+
+			function getLunch(){
+				var result = lunches[Math.floor(Math.random()*lunches.length)];
+				if (result == $('#result').text()){
+					result = lunches[Math.floor(Math.random()*lunches.length)];
+				}
+				$('.app-container').fadeOut()
+				window.setTimeout(function(){
+					$('#result').removeClass('placeholder').text(result)
+					$('.app-container').fadeIn()
+				}, 500)
+				
+			}
+		})
+
+		
+	</script>
+</head>
+<body>
+<div class="app-container">
+	<div id="result" class="placeholder">Hmm, couldn't find a place today...</div>
+	<div id="skip">Go somewhere else</div>
+</div>
+</body>
