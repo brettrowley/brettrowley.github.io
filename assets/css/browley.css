@@ -1,12 +1,15 @@
 html, body {
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
   padding: 0;
-  margin: 0;
+  margin: 0; }
+
+body {
   color: #333;
   font-size: 14pt;
-  background: #fafafa; }
+  background-color: #fafafa;
+  background: linear-gradient(#ffb199, #ff0844); }
   @media screen and (max-width: 700px) {
-    html, body {
+    body {
       font-size: 12pt; } }
 
 a {
@@ -44,6 +47,7 @@ hr {
   max-width: 600px; }
   .container.home {
     padding: 3em;
+    border-radius: 5px;
     background: white;
     box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.18); }
     @media screen and (max-width: 700px) {
