@@ -1,0 +1,154 @@
+/*GENERIC*/
+html, body{
+  padding: 0;
+  margin: 0;
+  background: #efefef;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 18px;
+  color: #333;
+}
+
+a{color: #3498db}
+
+.page{
+  width: calc(100% - 100px);
+  min-height: calc(100vh - 50px);
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  padding: 25px 50px;
+}
+
+.page.centered{
+  text-align: center;
+}
+
+p ion-icon{
+  position: relative;
+  top: 0.15em;
+}
+
+/*HOME PAGE*/
+#headshot{
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  margin: 0 auto;
+  background: #efefef;
+  background-image: url('/assets/img/headshot.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+#toc{
+  list-style: none;
+  padding: 0;
+}
+
+.toc-link a{
+  text-decoration: none;
+  color: inherit;
+  font-weight: bolder;
+  padding: 15px;
+  min-height: 40px;
+  line-height: 40px;
+  display: block;
+  border-radius: 5px;
+  border: 2px solid rgba(0,0,0,0);
+}
+
+.toc-link ion-icon{
+  padding-right: 10px;
+  font-size: 1.5em;
+  position: relative;
+  top: 0.24em;
+}
+
+.toc-link#email a:hover{
+  color: #34495e;
+  border-color: #34495e;
+}
+.toc-link:hover#linkedin a:hover{
+  color: #0077b5;
+  border-color: #0077b5;
+}
+.toc-link:hover#resume a:hover{
+  color: #e74c3c;
+  border-color: #e74c3c;
+}
+.toc-link:hover#portfolio a:hover{
+  color: #1abc9c;
+  border-color: #1abc9c;
+}
+.toc-link:hover#twitter a:hover{
+  color: #1da1f2;
+  border-color: #1da1f2;
+}
+.toc-link:hover#photography a:hover{
+  color: #f1c40f;
+  border-color: #f1c40f;
+}
+
+/*RESUME*/
+#competencies-list .dots{
+  display: inline-block;
+  margin-right: 5px;
+  color: #3498db;
+}
+
+#resume, #resume ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#resume li p{
+  margin: 0.25em 0;
+}
+#resume li p:last-child{
+  margin-bottom: 2em;
+}
+
+#resume h2{
+  margin-top: 3em;
+}
+/*PHOTOGRAPHY*/
+
+h2{margin-top: 3em;}
+
+#photos-list, #photos-list ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li.photo-tile{
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.photo-tile a{
+  text-align: center;
+  padding: 50px 0;
+  display: block;
+  background-color: #efefef;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-decoration: none;
+  color: white;
+  /*text-shadow: 0px 0px 20px black;*/
+}
+
+.photo-tile a .album-title{
+  background: rgba(0,0,0,0.55);
+  display: inline-block;
+  padding: 0.5em;
+}
+
+.photo-tile a:hover .album-title{
+  background: black;
+  text-decoration: underline;
+}
