@@ -28,6 +28,10 @@ p ion-icon{
   top: 0.15em;
 }
 
+h1, h2, h3{
+  line-height: 1em;
+}
+
 /*HOME PAGE*/
 #headshot{
   display: block;
