@@ -8,6 +8,8 @@ html, body{
   color: #333;
 }
 
+p{line-height: 1.8em}
+
 a{color: #3498db}
 
 .page{
