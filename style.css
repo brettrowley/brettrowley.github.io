@@ -1,0 +1,468 @@
+/* ------------------------------------------------------------------
+   brettrowley.me — hub page
+   ------------------------------------------------------------------ */
+
+:root {
+  --brand: #31319e;          /* "brand purple" from the resume */
+  --accent: #9092e2;         /* lavender from the LinkedIn illustration */
+  --tertiary: #d3d4ec;       /* quiet rules, e.g. the links divider */
+  --button: #ffffff;         /* fill for the mobile link buttons */
+  --card: #fcfcfd;           /* project card background */
+
+  --bg-1: #dee7ed;
+  --bg-2: #dcdfe9;
+  --bg-3: #d8cfe3;
+
+  /* Desktop vertical layout */
+  --space-top: clamp(2.5rem, 15svh, 6rem);  /* above the illustration: 15% of screen height, 40–96px (96px on a 900px screen) */
+  --peek: 6rem;     /* projects heading + ~35px of the first row of cards above the fold */
+  --gap-min: 4rem;  /* smallest gap between the links and the projects heading */
+
+  --font: "Zalando Sans SemiExpanded", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background: var(--bg-2); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  font-optical-sizing: auto;
+  color: var(--brand);
+  background: linear-gradient(172deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; text-decoration: none; }
+
+/* Brand, not accent: the outline needs 3:1 contrast with the background
+   (accent is only ~2:1) */
+a:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* ------------------------------------------------------------------
+   Hero: illustration + name + links, in normal top-down flow with
+   generous space above.
+   ------------------------------------------------------------------ */
+
+.hero {
+  /* Fills the screen except for the peek, so the projects section always
+     starts just above the fold; grows past that if the content needs it */
+  min-height: calc(100vh - var(--peek));
+  min-height: calc(100svh - var(--peek));
+  padding: var(--space-top) 1.5rem var(--gap-min);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero__inner {
+  /* Capped by width (45rem = 720px), and by height so short laptop
+     screens still keep the peek: the content is ~0.56x as tall as it is
+     wide, hence x1.8. Never narrower than 36rem (576px) on desktop. */
+  width: min(100%, 45rem, max(36rem, (100svh - var(--space-top) - var(--gap-min) - var(--peek)) * 1.8));
+  container-type: inline-size;   /* sizes below use cqi = 1% of this width */
+}
+
+/* Illustration collage ------------------------------------------------ */
+
+.illustration {
+  position: relative;
+  aspect-ratio: 915 / 290;
+  margin: 0 5cqi 3.5cqi;   /* inset 5% each side of the hero width */
+}
+
+/* --r is each card's resting tilt; the entrance animation (see Motion)
+   multiplies it for a bigger spin in */
+.illo { position: absolute; rotate: var(--r); }
+
+.illo--research   { left: 0.8%;  top: 1.9%;  width: 23.7%; --r: -4.5deg; z-index: 1; }
+.illo--design     { left: 17.1%; top: 30.5%; width: 32.5%; --r: 2deg;    z-index: 2; }
+.illo--code       { left: 36.5%; top: 8.5%;  width: 38.3%; --r: -1.3deg; z-index: 3; }
+.illo--production { left: 66.3%; top: 24.5%; width: 34%;   --r: 1.2deg;  z-index: 4; }
+
+/* Name row ----------------------------------------------------------- */
+
+.identity {
+  display: flex;
+  align-items: center;
+}
+
+.headshot {
+  position: relative;
+  flex: none;
+  width: 22.5cqi;
+  margin-right: 1.8cqi;
+}
+
+/* Offset purple disc behind the photo, showing as a crescent */
+.headshot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--brand);
+  translate: 4% 5.5%;
+}
+
+.headshot img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--bg-2);  /* gap between photo and crescent */
+}
+
+.name {
+  margin: 0;
+  font-size: 11.4cqi;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.015em;
+}
+
+.links {
+  margin-left: auto;
+  display: grid;
+  padding-left: 2.2cqi;
+  border-left: 3px solid var(--tertiary);
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6cqi;
+  font-size: 4.1cqi;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: 0.005em;
+  transition: translate 0.2s ease;
+}
+
+.icon {
+  width: 0.85em;
+  height: 0.85em;
+  flex: none;
+  fill: none;
+  stroke: var(--brand);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ------------------------------------------------------------------
+   Projects
+   ------------------------------------------------------------------ */
+
+.projects { padding: 0 1.5rem 6rem; }
+
+.projects__inner {
+  width: min(100%, 70rem);
+  margin: 0 auto;
+  container-type: inline-size;   /* the gallery picks its column count from this width */
+}
+
+/* Centred heading with a full-width rule underneath */
+.section-heading {
+  margin: 0 0 1.1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+.section-heading::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 0.625rem;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+/* Gallery: a wrapping row of equal-width cards, centred so that a
+   part-filled last row (or a single project) sits in the middle. Cards
+   are at least ~19rem wide: three per row when there's room, then two,
+   then one. */
+.project-grid {
+  --grid-gap: 1.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--grid-gap);
+}
+
+.project-grid > li { flex: 0 0 100%; }
+
+@container (min-width: 39.4rem) {   /* 2 × 19rem + 1 gap */
+  .project-grid > li { flex-basis: calc((100% - var(--grid-gap)) / 2); }
+}
+
+@container (min-width: 59.8rem) {   /* 3 × 19rem + 2 gaps */
+  .project-grid > li { flex-basis: calc((100% - 2 * var(--grid-gap)) / 3); }
+}
+
+/* Offset-shadow motif, echoing the crescent behind the headshot: a solid
+   shadow down and to the right, with a border in the same colour.
+   At rest both are accent; on hover the card moves part-way into its
+   shadow and both darken to brand; pressed, it sits flat on the shadow.
+   The mobile link buttons use the same pattern at a smaller offset. */
+.project-card {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  border: 2px solid var(--accent);
+  border-radius: 0.75rem;
+  background: var(--card);
+  box-shadow: 6px 8px 0 var(--accent);
+  transition: translate 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.project-card__title {
+  display: block;
+  padding: 0.85rem 1rem 0.95rem;
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+/* ------------------------------------------------------------------
+   Mobile
+   ------------------------------------------------------------------ */
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 0;
+    padding: 2.5rem 1.25rem 0;
+  }
+
+  .hero__inner { width: min(100%, 28rem); }
+
+  /* Same single-row collage as desktop, using the full column width */
+  .illustration { margin: 0 0 10cqi; }
+
+  /* Photo and name stay side by side (they never wrap); the links
+     drop to a full-width row underneath */
+  .identity {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: 4cqi;
+  }
+
+  .headshot {
+    width: 28cqi;
+    margin-right: 0;
+  }
+
+  .name { font-size: 15.5cqi; }
+
+  .links {
+    grid-column: 1 / -1;
+    margin: 2rem 0 0;
+    padding: 0;
+    border: 0;
+    gap: 0.8rem;
+  }
+
+  /* Buttons with the offset-shadow motif (see .project-card) */
+  .links a {
+    padding: 0.7rem 1.1rem;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    border: 2px solid var(--accent);
+    border-radius: 0.6rem;
+    background: var(--button);
+    box-shadow: 4px 5px 0 var(--accent);
+    transition: translate 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+
+  .projects {
+    margin-top: 6rem;
+    padding: 0 1.25rem 4rem;
+  }
+
+  .projects__inner { width: min(100%, 28rem); }
+
+  .section-heading { font-size: 1.15rem; }
+  .section-heading::after { margin-top: 0.5rem; }
+
+  .project-grid { --grid-gap: 1.75rem; }
+}
+
+/* ------------------------------------------------------------------
+   Hover states, only for devices with a real pointer. On touch screens
+   :hover "sticks" after a tap, leaving a button looking half-pressed when
+   you come back to the page. Press (:active) states below still apply.
+   ------------------------------------------------------------------ */
+
+@media (hover: hover) {
+  .links a:hover { translate: 4px 0; }
+
+  .project-card:hover {
+    translate: 3px 4px;
+    border-color: var(--brand);
+    box-shadow: 3px 4px 0 var(--brand);
+  }
+}
+
+@media (hover: hover) and (max-width: 700px) {
+  .links a:hover {
+    translate: 2px 2.5px;
+    border-color: var(--brand);
+    box-shadow: 2px 2.5px 0 var(--brand);
+  }
+}
+
+/* Pressed: the card or button sits flat on its shadow. These come after
+   the hover rules so they win while a mouse button is held down. */
+.project-card:active {
+  translate: 6px 8px;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 var(--brand);
+}
+
+@media (max-width: 700px) {
+  .links a:active {
+    translate: 4px 5px;
+    border-color: var(--brand);
+    box-shadow: 0 0 0 var(--brand);
+  }
+}
+
+/* Reduced motion: hover and press states still apply, but instantly */
+@media (prefers-reduced-motion: reduce) {
+  .links a, .project-card { transition: none; }
+}
+
+/* ------------------------------------------------------------------
+   Motion
+   Screen only (printing always shows the finished page), and only when
+   the visitor hasn't asked for reduced motion. The hidden
+   "before" states only apply under html.js (set in <head>), so with
+   JavaScript off everything simply shows. Every entrance uses
+   fill-mode "backwards": once it ends, the normal styles above take back
+   over, so hover and press states keep working.
+
+   On load:
+     0.00s  illustration cards deal in, 90ms apart, as soon as all four
+            images have decoded (at most 1.2s wait; any image still
+            loading deals in by itself when it arrives)
+     0.35s  headshot pops in, then the crescent slides out from behind it
+     0.45s  name, line by line
+     0.60s  links divider draws down; links slide in
+     ~1.0s  projects section fades up (or on scroll, if it starts off screen)
+   Then the illustration cards drift slowly, each on its own rhythm.
+   ------------------------------------------------------------------ */
+
+@media screen and (prefers-reduced-motion: no-preference) {
+
+  :root {
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-back: cubic-bezier(0.34, 1.45, 0.64, 1);   /* slight overshoot */
+  }
+
+  /* Illustration: dealt onto the table, then drifting ------------------ */
+
+  html.js .illo:not(.is-in) { opacity: 0; }
+
+  .illo.is-in {
+    animation:
+      illo-in 0.7s var(--ease-back) var(--in-delay) backwards,
+      illo-drift var(--drift) ease-in-out calc(var(--in-delay) + 0.7s) infinite alternate;
+  }
+
+  /* Mismatched drift lengths so the four never fall into step */
+  .illo--research   { --in-delay: 0ms;   --drift: 5.2s; --drift-y: -3%; }
+  .illo--design     { --in-delay: 90ms;  --drift: 6.1s; --drift-y: 3%; }
+  .illo--code       { --in-delay: 180ms; --drift: 5.6s; --drift-y: -2.5%; }
+  .illo--production { --in-delay: 270ms; --drift: 6.7s; --drift-y: 3%; }
+
+  @keyframes illo-in {
+    from { opacity: 0; translate: 0 25%; scale: 0.8; rotate: calc(var(--r) * 4); }
+  }
+  @keyframes illo-drift {
+    to { translate: 0 var(--drift-y); }
+  }
+
+  /* Headshot: photo pops in, crescent slides out from behind it -------- */
+
+  html.js .headshot img {
+    animation: pop-in 0.6s var(--ease-back) 0.35s backwards;
+  }
+  html.js .headshot::before {
+    animation: crescent-out 0.6s var(--ease-out) 0.75s backwards;
+  }
+
+  @keyframes pop-in       { from { opacity: 0; scale: 0.6; } }
+  @keyframes crescent-out { from { opacity: 0; translate: 0 0; } }
+
+  /* Name, one line at a time ------------------------------------------ */
+
+  html.js .name__line {
+    display: inline-block;
+    animation: rise-in 0.6s var(--ease-out) 0.45s backwards;
+  }
+  html.js .name__line:last-of-type { animation-delay: 0.55s; }
+
+  @keyframes rise-in { from { opacity: 0; translate: 0 0.35em; } }
+
+  /* Links: divider draws down, then each link slides in --------------- */
+
+  html.js .links a { animation: slide-in 0.5s var(--ease-out) 0.7s backwards; }
+  html.js .links a:nth-child(2) { animation-delay: 0.78s; }
+  html.js .links a:nth-child(3) { animation-delay: 0.86s; }
+
+  @keyframes slide-in { from { opacity: 0; translate: -1.5rem 0; } }
+
+  /* Desktop only (on mobile the links are buttons with no divider). The
+     border stays for spacing but goes clear; a pseudo-element draws it. */
+  @media (min-width: 701px) {
+    html.js .links {
+      position: relative;
+      border-left-color: transparent;
+    }
+    html.js .links::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -3px;
+      width: 3px;
+      background: var(--tertiary);
+      transform-origin: top;
+      animation: draw-down 0.5s var(--ease-out) 0.6s backwards;
+    }
+  }
+
+  @keyframes draw-down { from { scale: 1 0; } }
+
+  /* Projects: the whole section fades up as one piece ----------------- */
+
+  html.js [data-reveal]:not(.is-visible) { opacity: 0; }
+
+  html.js .projects.is-visible {
+    animation: fade-up 0.8s var(--ease-out) var(--reveal-delay) backwards;
+  }
+
+  @keyframes fade-up { from { opacity: 0; translate: 0 2.5rem; } }
+}

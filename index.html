@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brett Rowley</title>
+  <meta name="description" content="Brett Rowley: resume and personal side projects.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:wght@200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Lets style.css hide things that animate in, only when JS is running to reveal them -->
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+  <main>
+    <header class="hero">
+      <div class="hero__inner">
+
+        <!-- Decorative collage from the LinkedIn banner (originals in assets/) -->
+        <div class="illustration" aria-hidden="true">
+          <img class="illo illo--research"   src="img/illustration/01-research.webp"   alt="" width="560"  height="681">
+          <img class="illo illo--design"     src="img/illustration/02-design.webp"     alt="" width="1000" height="648">
+          <img class="illo illo--code"       src="img/illustration/03-code.webp"       alt="" width="1000" height="648">
+          <img class="illo illo--production" src="img/illustration/04-production.webp" alt="" width="1000" height="648">
+        </div>
+
+        <div class="identity">
+          <div class="headshot">
+            <!-- Placeholder crop; swap in the new headshot at the same path -->
+            <!-- Empty alt: the name is the next thing read, so "Brett Rowley" twice adds nothing -->
+            <img src="img/headshot.jpg" alt="" width="384" height="384">
+          </div>
+
+          <h1 class="name"><span class="name__line">Brett</span><br><span class="name__line">Rowley</span></h1>
+
+          <nav class="links" aria-label="Professional links">
+            <a href="https://www.linkedin.com/in/brett-rowley-boston/">
+              <span>LinkedIn</span>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(-45 12 12)"><rect x="1.5" y="8" width="12" height="8" rx="4"/><rect x="10.5" y="8" width="12" height="8" rx="4"/></g></svg>
+            </a>
+            <a href="resume/brett-rowley-resume.pdf">
+              <span>Resume</span>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h16M13.5 5.5 20 12l-6.5 6.5"/></svg>
+            </a>
+          </nav>
+        </div>
+
+      </div>
+    </header>
+
+    <section class="projects" aria-labelledby="projects-heading" data-reveal>
+      <div class="projects__inner">
+        <h2 id="projects-heading" class="section-heading">Personal projects</h2>
+
+        <!-- One card per project repo. Later this becomes a loop over _data/projects.yml -->
+        <ul class="project-grid">
+          <li>
+            <a class="project-card" href="caligari-title-cards/">
+              <img src="img/projects/caligari-title-cards.jpg" alt="" width="692" height="386" loading="lazy">
+              <span class="project-card__title">Dr. Caligari Title Card Generator</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Motion timing only; the animations themselves live in style.css ("Motion").
+    (() => {
+      // Deal the illustration cards in as a set once all four images have
+      // decoded, waiting at most 1.2s. A card whose image is still loading
+      // then deals in by itself when it arrives, rather than popping in.
+      const cards = [...document.querySelectorAll(".illo")];
+      const loaded = cards.map(img =>
+        Promise.resolve(img.decode && img.decode()).catch(() => {}));
+      Promise.race([
+        Promise.all(loaded),
+        new Promise(done => setTimeout(done, 1200)),
+      ]).then(() => {
+        const start = performance.now();
+        cards.forEach((img, i) => loaded[i].then(() => {
+          if (performance.now() - start > 50) img.style.setProperty("--in-delay", "0ms");
+          img.classList.add("is-in");
+        }));
+      });
+
+      // Reveal [data-reveal] elements as they scroll into view. Anything
+      // already on screen at load waits until the hero sequence is mostly
+      // done (~1s in); items arriving together stagger 90ms apart.
+      const reveal = (el, delay) => {
+        el.style.setProperty("--reveal-delay", delay + "ms");
+        el.classList.add("is-visible");
+      };
+      const items = document.querySelectorAll("[data-reveal]");
+      if (!("IntersectionObserver" in window)) return items.forEach(el => reveal(el, 0));
+
+      const observer = new IntersectionObserver(entries => {
+        const wait = Math.max(0, 1000 - performance.now());
+        entries.filter(e => e.isIntersecting).forEach((e, i) => {
+          reveal(e.target, Math.round(wait + i * 90));
+          observer.unobserve(e.target);
+        });
+      });
+      items.forEach(el => observer.observe(el));
+    })();
+  </script>
+
+</body>
+</html>
