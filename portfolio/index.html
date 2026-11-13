@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio · Brett Rowley</title>
+  <meta name="description" content="Brett Rowley's public portfolio is on its way.">
+  <!--
+    TEMPORARY PLACEHOLDER.
+    When the "portfolio" repo is created and its Pages site goes live, delete
+    this whole portfolio/ folder from the hub repo. A hub folder with the same
+    name as a project repo will clash with it at brettrowley.me/portfolio.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@200..900&family=Zalando+Sans+SemiExpanded:wght@200..900&display=swap" rel="stylesheet">
+  <!-- Shared colours, fonts and background from the hub -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../favicon.ico" sizes="32x32">
+  <link rel="icon" href="../img/BR-favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <style>
+    /* Page-only styles, kept here so they're deleted along with the page */
+
+    .placeholder {
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 3rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .placeholder__inner {
+      width: min(100%, 37rem);
+      text-align: center;
+    }
+
+    /* Illustration: a chat panel beside a code editor */
+    .workspace {
+      display: block;
+      width: min(100%, 31.25rem);   /* 500px, its drawn size */
+      margin: 0 auto;
+      height: auto;
+      border-radius: 0.6rem;
+      box-shadow: 0 10px 28px -8px rgb(49 49 158 / 0.2);
+    }
+
+    /* Transform origins for the animation (script at the bottom).
+       fill-box makes them relative to each shape, not the whole SVG. */
+    .workspace * { transform-box: fill-box; }
+    .code rect, .bubble__line, .composer__text { transform-origin: 0 50%; }   /* type in from the left */
+    .bubble--user  { transform-origin: 100% 100%; }
+    .bubble--reply { transform-origin: 0 100%; }
+    .attachments rect, .composer__send { transform-origin: 50% 50%; }
+
+    .placeholder h1 {
+      margin: 2.2rem 0 0;
+      font-size: clamp(1.6rem, 6.5vw, 2.65rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.005em;
+    }
+
+    .placeholder p {
+      margin: 2.8rem 0 0;
+      font-family: "Zalando Sans", var(--font);
+      font-size: clamp(1.15rem, 4.4vw, 1.75rem);
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .placeholder p a {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.28em;
+      transition: text-decoration-color 0.15s ease;
+    }
+
+    @media (hover: hover) {
+      .placeholder p a:hover { text-decoration-color: var(--accent); }
+    }
+
+    /* Lines break where the mockup has them on wider screens, and wrap
+       naturally on phones */
+    .br { display: none; }
+    @media (min-width: 560px) { .br { display: inline; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .placeholder p a { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="placeholder">
+    <div class="placeholder__inner">
+
+      <!-- Decorative. Without the script (or with reduced motion) this is a
+           still image; with it, this is the first frame and the conversation
+           carries on from here. viewBox units are pixels at full size (500 × 308). -->
+      <svg class="workspace" viewBox="0 0 500 308" aria-hidden="true" focusable="false">
+        <defs>
+          <clipPath id="window-clip"><rect width="500" height="308" rx="8"/></clipPath>
+          <!-- Messages scroll inside this, so they never overlap the message box -->
+          <clipPath id="chat-clip"><rect width="166" height="248"/></clipPath>
+        </defs>
+
+        <g clip-path="url(#window-clip)">
+          <!-- Panels -->
+          <rect class="panel panel--code" width="500" height="308" fill="#2c2b3c"/>
+          <rect class="panel panel--chat" width="166" height="308" fill="#1f1e2b"/>
+          <rect class="divider" x="166" width="1" height="308" fill="#4a4960"/>
+
+          <!-- Chat ---------------------------------------------------- -->
+          <g clip-path="url(#chat-clip)">
+          <g class="messages" fill="#e9e9f6">
+            <!-- Message with three image attachments -->
+            <g class="bubble bubble--user">
+              <rect x="46" y="16" width="104" height="54" rx="5" fill="#31319e"/>
+              <rect class="bubble__line" x="56" y="26" width="76" height="4" rx="2"/>
+              <rect class="bubble__line" x="56" y="34" width="56" height="4" rx="2"/>
+              <g class="attachments" fill="#8f91e0">
+                <rect x="56" y="44" width="16" height="16" rx="1.5"/>
+                <rect x="76" y="44" width="16" height="16" rx="1.5"/>
+                <rect x="96" y="44" width="16" height="16" rx="1.5"/>
+              </g>
+            </g>
+
+            <g class="bubble bubble--reply">
+              <rect x="16" y="82" width="104" height="40" rx="5" fill="#2c2b3a"/>
+              <rect class="bubble__line" x="26" y="92" width="58" height="4" rx="2"/>
+              <rect class="bubble__line" x="26" y="100" width="80" height="4" rx="2"/>
+              <rect class="bubble__line" x="26" y="108" width="46" height="4" rx="2"/>
+            </g>
+
+            <g class="bubble bubble--user">
+              <rect x="46" y="134" width="104" height="24" rx="5" fill="#31319e"/>
+              <rect class="bubble__line" x="56" y="144" width="74" height="4" rx="2"/>
+            </g>
+
+            <g class="bubble bubble--reply">
+              <rect x="16" y="170" width="104" height="32" rx="5" fill="#2c2b3a"/>
+              <rect class="bubble__line" x="26" y="180" width="80" height="4" rx="2"/>
+              <rect class="bubble__line" x="26" y="188" width="24" height="4" rx="2"/>
+            </g>
+          </g>
+
+          </g>
+
+          <g class="composer">
+            <rect x="16.5" y="254.5" width="133" height="37" rx="5" fill="#252433" stroke="#8a8aa6"/>
+            <!-- Text being typed before each message is sent; hidden in the still image -->
+            <rect class="composer__text" x="26" y="271" width="80" height="4" rx="2" fill="#e9e9f6" opacity="0"/>
+            <rect class="composer__send" x="121" y="263" width="20" height="20" rx="3" fill="#31319e"/>
+          </g>
+
+          <!-- Code: 6px "characters" on a 16px line pitch. Grey = syntax,
+               colour = values. One <g> per line, blank lines included. -->
+          <g class="code">
+            <g class="code-line"><rect x="183" y="16" width="30" height="5" rx="1" fill="#8e90a8"/><rect x="219" y="16" width="54" height="5" rx="1" fill="#8e90a8"/><rect x="279" y="16" width="12" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="195" y="32" width="24" height="5" rx="1" fill="#8e90a8"/><rect x="225" y="32" width="132" height="5" rx="1" fill="#e2a46c"/><rect x="363" y="32" width="6" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="195" y="48" width="30" height="5" rx="1" fill="#8e90a8"/><rect x="231" y="48" width="84" height="5" rx="1" fill="#8f91e0"/><rect x="321" y="48" width="6" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="183" y="64" width="12" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"></g>
+            <g class="code-line"><rect x="183" y="96" width="48" height="5" rx="1" fill="#8e90a8"/><rect x="237" y="96" width="72" height="5" rx="1" fill="#8e90a8"/><rect x="315" y="96" width="18" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="195" y="112" width="36" height="5" rx="1" fill="#8e90a8"/><rect x="237" y="112" width="60" height="5" rx="1" fill="#8e90a8"/><rect x="303" y="112" width="12" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="207" y="128" width="24" height="5" rx="1" fill="#8e90a8"/><rect x="237" y="128" width="78" height="5" rx="1" fill="#7fc6a2"/><rect x="321" y="128" width="6" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="207" y="144" width="30" height="5" rx="1" fill="#8e90a8"/><rect x="243" y="144" width="102" height="5" rx="1" fill="#7fc6a2"/><rect x="351" y="144" width="6" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="207" y="160" width="18" height="5" rx="1" fill="#8e90a8"/><rect x="231" y="160" width="150" height="5" rx="1" fill="#8f91e0"/><rect x="387" y="160" width="6" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="195" y="176" width="12" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="195" y="192" width="36" height="5" rx="1" fill="#8e90a8"/><rect x="237" y="192" width="84" height="5" rx="1" fill="#8e90a8"/><rect x="327" y="192" width="48" height="5" rx="1" fill="#8e90a8"/><rect x="381" y="192" width="6" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="207" y="208" width="24" height="5" rx="1" fill="#8e90a8"/><rect x="237" y="208" width="174" height="5" rx="1" fill="#8f91e0"/><rect x="417" y="208" width="6" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="207" y="224" width="30" height="5" rx="1" fill="#8e90a8"/><rect x="243" y="224" width="90" height="5" rx="1" fill="#7fc6a2"/><rect x="339" y="224" width="6" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="195" y="240" width="12" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="195" y="256" width="36" height="5" rx="1" fill="#8e90a8"/><rect x="237" y="256" width="54" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="207" y="272" width="18" height="5" rx="1" fill="#8e90a8"/><rect x="231" y="272" width="84" height="5" rx="1" fill="#e2a46c"/><rect x="321" y="272" width="6" height="5" rx="1" fill="#8e90a8"/></g>
+            <g class="code-line"><rect x="195" y="288" width="6" height="5" rx="1" fill="#8e90a8"/></g>
+            <!-- Cut off by the bottom edge, so the file reads as continuing -->
+            <g class="code-line"><rect x="183" y="304" width="12" height="5" rx="1" fill="#8e90a8"/><rect x="201" y="304" width="120" height="5" rx="1" fill="#e2a46c"/><rect x="327" y="304" width="6" height="5" rx="1" fill="#8e90a8"/></g>
+          </g>
+
+          <!-- Text cursor in the editor; hidden in the still image -->
+          <g class="caret" opacity="0"><rect width="1.5" height="10" fill="#e9e9f6"/></g>
+        </g>
+      </svg>
+
+      <h1>Sorry, I’m still working <br class="br">on my public portfolio.</h1>
+
+      <p>In the meantime, connect with me <br class="br">on <a href="https://www.linkedin.com/in/brett-rowley-boston/">LinkedIn</a> or download my <a href="../resume/brett-rowley-resume.pdf">resume</a>.</p>
+
+    </div>
+  </main>
+
+  <script>
+    /* Illustration animation: an endless chat, with the code changing in reply.
+
+       The drawing above is the first frame. From there, on repeat:
+         1. A message is typed into the box and sent (sometimes with
+            attachments). Older messages scroll up out of view.
+         2. A reply streams in while the code is edited: one or two of
+            inserting lines (the rest move down), deleting lines (the rest
+            move up), resizing or retyping a value, or scrolling the file.
+       Messages and lines are made up as they're needed, and anything that
+       leaves the window is removed, so it can run indefinitely.
+
+       It pauses while the tab is hidden. Skipped for visitors who've asked
+       for reduced motion: they get the still image. */
+    (() => {
+      const svg = document.querySelector(".workspace");
+      if (!svg || !svg.animate || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      // Layout: the same grid as the drawing ----------------------------
+      const PAD = 16;                         // outer inset
+      const PITCH = 16, CHAR = 6, INDENT = 12; // code: line spacing, character width, indent step
+      const CODE_X = 183, CODE_MAX_X = 484;   // code column, left edge to right limit
+      const ROWS = 20;                        // lines kept: 0–18 on screen (18 is cut off), 19 just below
+      const BUBBLE_W = 104, USER_X = 46, REPLY_X = 16;
+      const GAP = 12, BPAD = 10, LINE_H = 4, LINE_PITCH = 8;
+      const CHAT_BOTTOM = 242;                // messages stay above the message box
+      const COLOURS = { k: "#8e90a8", o: "#e2a46c", g: "#7fc6a2", l: "#8f91e0" };   // k = grey syntax
+      const VALUES = ["o", "g", "l"];
+
+      const easeOut  = "cubic-bezier(0.22, 1, 0.36, 1)";
+      const easeBack = "cubic-bezier(0.34, 1.45, 0.64, 1)";
+      const easeBoth = "cubic-bezier(0.65, 0, 0.35, 1)";
+
+      // Helpers ---------------------------------------------------------
+      const rand  = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+      const pick  = list => list[Math.floor(Math.random() * list.length)];
+      const sleep = s => new Promise(done => setTimeout(done, s * 1000));
+      const num   = (node, attr) => parseFloat(node.getAttribute(attr));
+      const T     = (x, y) => `translate(${x}px, ${y}px)`;
+      const rowY  = row => PAD + row * PITCH;
+      const steps = n => `steps(${Math.max(1, n)}, end)`;
+
+      function make(tag, attrs, parent) {
+        const node = document.createElementNS("http://www.w3.org/2000/svg", tag);
+        for (const name in attrs) node.setAttribute(name, attrs[name]);
+        return parent.appendChild(node);
+      }
+
+      // Animate from one style to another, then keep the end style. Nothing
+      // is left running afterwards, so nothing piles up over time.
+      function tween(node, from, to, duration, { easing = easeOut, delay = 0 } = {}) {
+        const a = node.animate([from, to], { duration: duration * 1000, delay: delay * 1000, easing, fill: "both" });
+        return a.finished.then(() => { Object.assign(node.style, to); a.cancel(); });
+      }
+
+      // Text cursor ------------------------------------------------------
+      const caretBox = svg.querySelector(".caret");
+      const caret = caretBox.firstElementChild;
+      let caretX = 0, caretY = 0;            // caretY: top of the line it's on
+      const caretTo = (x, y) => { caretX = x; caretY = y; caret.style.transform = T(x, y - 2.5); };
+      function caretSlide(x, y, duration, easing) {
+        const from = { transform: T(caretX, caretY - 2.5) };
+        caretX = x; caretY = y;
+        return tween(caret, from, { transform: T(x, y - 2.5) }, duration, { easing });
+      }
+
+      // Code ------------------------------------------------------------
+      // file: one entry per line, in order; file[i].row === i always.
+      // Each token is a bar: { rect, x, w, value } (value = coloured).
+      const code = svg.querySelector(".code");
+      const file = [];
+      const lineStart = line => CODE_X + line.indent * INDENT;
+      const lineEnd = line => {
+        const last = line.tokens[line.tokens.length - 1];
+        return last ? last.x + last.w : lineStart(line);
+      };
+      const caretAtEnd = line => caretTo(lineEnd(line) + 1.5, rowY(line.row));
+
+      // Take over the lines already drawn, positioning each by its row
+      svg.querySelectorAll(".code-line").forEach((g, row) => {
+        const tokens = [...g.children].map(rect => {
+          rect.setAttribute("y", 0);
+          return { rect, x: num(rect, "x"), w: num(rect, "width"), value: rect.getAttribute("fill") !== COLOURS.k };
+        });
+        const indent = tokens.length ? Math.round((tokens[0].x - CODE_X) / INDENT) : 0;
+        g.style.transform = T(0, rowY(row));
+        file.push({ g, row, indent, tokens });
+      });
+
+      // A made-up line of code, loosely following the indent of the one above
+      function inventLine(prevIndent) {
+        const r = Math.random();
+        if (r < 0.15 && prevIndent > 0) return { indent: prevIndent - 1, tokens: [["k", rand(1, 2)]] };   // closing bracket
+        const indent = Math.max(0, Math.min(3, prevIndent + pick([-1, 0, 0, 1])));
+        const room = Math.floor((CODE_MAX_X - CODE_X - indent * INDENT) / CHAR);   // characters that fit
+        if (r < 0.6)  return { indent, tokens: [["k", rand(3, 6)], [pick(VALUES), rand(6, Math.min(30, room - 12))], ["k", 1]] };
+        if (r < 0.85) return { indent, tokens: [["k", rand(4, 8)], ["k", rand(6, 14)], ["k", rand(1, 2)]] };
+        return { indent, tokens: [["k", rand(5, 7)], ["k", rand(8, 16)], ["k", rand(5, 9)], ["k", 1]] };
+      }
+
+      function addLine({ indent, tokens }, row, hidden) {
+        const g = make("g", { class: "code-line" }, code);
+        g.style.transform = T(0, rowY(row));
+        let x = CODE_X + indent * INDENT;
+        const bars = tokens.map(([kind, chars]) => {
+          const w = chars * CHAR;
+          const rect = make("rect", { x, y: 0, width: w, height: 5, rx: 1, fill: COLOURS[kind] }, g);
+          if (hidden) rect.style.transform = "scaleX(0)";
+          const bar = { rect, x, w, value: kind !== "k" };
+          x += w + CHAR;
+          return bar;
+        });
+        return { g, row, indent, tokens: bars };
+      }
+
+      // New lines below the window, ready to scroll up into view
+      function addBelow(count) {
+        let indent = file[file.length - 1].indent;
+        for (let i = 0; i < count; i++) {
+          const spec = inventLine(indent);
+          indent = spec.indent;
+          file.push(addLine(spec, file[file.length - 1].row + 1, false));
+        }
+      }
+      addBelow(ROWS - file.length);   // the drawing has 19 lines; keep one spare below
+
+      function moveRows(lines, by, duration = 0.5) {
+        return Promise.all(lines.map(line => {
+          const from = { transform: T(0, rowY(line.row)) };
+          line.row += by;
+          return tween(line.g, from, { transform: T(0, rowY(line.row)) }, duration, { easing: easeBoth });
+        }));
+      }
+
+      function dropOutOfView() {
+        for (let i = file.length - 1; i >= 0; i--) {
+          if (file[i].row < 0 || file[i].row >= ROWS) { file[i].g.remove(); file.splice(i, 1); }
+        }
+        file.forEach((line, i) => { line.row = i; });
+      }
+
+      // Type a line, a bar at a time, roughly a character at a time
+      async function typeLine(line) {
+        const y = rowY(line.row);
+        caretTo(lineStart(line), y);
+        for (const bar of line.tokens) {
+          const chars = Math.round(bar.w / CHAR), d = chars * 0.016;
+          caretTo(bar.x, y);
+          await Promise.all([
+            tween(bar.rect, { transform: "scaleX(0)" }, { transform: "scaleX(1)" }, d, { easing: steps(chars) }),
+            caretSlide(bar.x + bar.w + 1.5, y, d, steps(chars)),
+          ]);
+          await sleep(0.05);
+        }
+      }
+
+      // Change a bar's width; the bars after it on the line move with its end
+      function resizeBar(line, i, newW, duration, easing) {
+        const bar = line.tokens[i], oldW = bar.w, shift = newW - oldW;
+        const big = Math.max(oldW, newW, 0.001);
+        const after = line.tokens.slice(i + 1);
+        bar.rect.setAttribute("width", big);
+        return Promise.all([
+          tween(bar.rect, { transform: `scaleX(${oldW / big})` }, { transform: `scaleX(${newW / big})` }, duration, { easing }),
+          ...after.map(b => tween(b.rect, { transform: T(0, 0) }, { transform: T(shift, 0) }, duration, { easing })),
+          caretSlide(bar.x + newW + 1.5, rowY(line.row), duration, easing),
+        ]).then(() => {
+          bar.w = newW;
+          bar.rect.setAttribute("width", newW);
+          bar.rect.style.transform = "";
+          for (const b of after) { b.x += shift; b.rect.setAttribute("x", b.x); b.rect.style.transform = ""; }
+        });
+      }
+
+      // Pick a coloured value on screen, and a new length for it that fits
+      function chooseValue() {
+        const lines = file.filter(l => l.row >= 1 && l.row <= 16 && l.tokens.some(b => b.value));
+        if (!lines.length) return null;
+        const line = pick(lines);
+        const i = line.tokens.findIndex(b => b.value), bar = line.tokens[i];
+        const maxChars = Math.min(30, Math.floor((CODE_MAX_X - lineEnd(line) + bar.w) / CHAR));
+        for (let tries = 0; tries < 10; tries++) {
+          const chars = rand(6, maxChars);
+          if (Math.abs(chars * CHAR - bar.w) >= 4 * CHAR) return { line, i, bar, chars };
+        }
+        return null;
+      }
+
+      // The edits ----------------------------------------------------------
+
+      async function insertLines() {
+        const at = rand(3, 13), count = rand(2, 4);
+        const above = file[at - 1];
+        caretAtEnd(above);
+        await sleep(0.25);
+        await moveRows(file.slice(at), count);
+        let indent = Math.min(3, above.indent + rand(0, 1));
+        const fresh = [];
+        for (let i = 0; i < count; i++) {
+          const spec = inventLine(indent);
+          indent = spec.indent;
+          fresh.push(addLine(spec, at + i, true));
+        }
+        file.splice(at, 0, ...fresh);
+        dropOutOfView();
+        for (const line of fresh) await typeLine(line);
+      }
+
+      async function deleteLines() {
+        const at = rand(3, 14), count = rand(1, 3);
+        const doomed = file.slice(at, at + count);
+        caretAtEnd(doomed[count - 1]);
+        await sleep(0.2);
+        // Select them...
+        const marks = doomed.map(line => {
+          const mark = make("rect", {
+            x: lineStart(line) - 3, y: rowY(line.row) - 3.5, height: 12, rx: 2,
+            width: Math.max(lineEnd(line) - lineStart(line) + 6, 12), fill: COLOURS.l, opacity: 0,
+          }, code);
+          code.insertBefore(mark, code.firstChild);
+          return mark;
+        });
+        await Promise.all(marks.map(m => tween(m, { opacity: 0 }, { opacity: 0.3 }, 0.15)));
+        await sleep(0.35);
+        // ...delete them...
+        await Promise.all([
+          ...marks.map(m => tween(m, { opacity: 0.3 }, { opacity: 0 }, 0.2)),
+          ...doomed.map(l => tween(l.g, { opacity: 1 }, { opacity: 0 }, 0.2)),
+        ]);
+        marks.forEach(m => m.remove());
+        doomed.forEach(l => l.g.remove());
+        file.splice(at, count);
+        // ...and close the gap, bringing new lines up from below
+        addBelow(count);
+        caretAtEnd(file[at - 1]);
+        await moveRows(file.slice(at), -count, 0.45);
+        dropOutOfView();
+      }
+
+      async function scrollFile() {
+        const count = rand(3, 6);
+        addBelow(count);
+        await Promise.all([
+          moveRows(file, -count, 0.7),
+          caretSlide(caretX, caretY - count * PITCH, 0.7, easeBoth),
+        ]);
+        dropOutOfView();
+      }
+
+      async function growValue() {           // the value's bar smoothly changes length
+        const v = chooseValue();
+        if (!v) return;
+        caretTo(v.bar.x + v.bar.w + 1.5, rowY(v.line.row));
+        await sleep(0.3);
+        await resizeBar(v.line, v.i, v.chars * CHAR, 0.7, easeBoth);
+      }
+
+      async function retypeValue() {         // backspace the value, then type a new one
+        const v = chooseValue();
+        if (!v) return;
+        const oldChars = Math.round(v.bar.w / CHAR);
+        caretTo(v.bar.x + v.bar.w + 1.5, rowY(v.line.row));
+        await sleep(0.3);
+        await resizeBar(v.line, v.i, 0, oldChars * 0.012, steps(oldChars));
+        v.bar.rect.setAttribute("fill", COLOURS[pick(VALUES)]);
+        await sleep(0.2);
+        await resizeBar(v.line, v.i, v.chars * CHAR, v.chars * 0.016, steps(v.chars));
+      }
+
+      // What a reply does to the code: one of these, at random
+      const EDITS = [
+        [insertLines], [insertLines], [insertLines, growValue], [growValue], [retypeValue],
+        [deleteLines], [deleteLines, insertLines], [retypeValue, insertLines], [scrollFile, insertLines],
+      ];
+
+      // Chat --------------------------------------------------------------
+      const messages = svg.querySelector(".messages");
+      const composerText = svg.querySelector(".composer__text");
+      const send = svg.querySelector(".composer__send");
+      const chat = [];       // bubbles on screen: { g, y, h, lines, attachments }; y is in scrolled space
+      let scrolled = 0;
+
+      // Take over the bubbles already drawn
+      svg.querySelectorAll(".bubble").forEach(g => {
+        const rects = [...g.querySelectorAll("rect")];
+        const y = num(rects[0], "y"), h = num(rects[0], "height");
+        rects.forEach(r => r.setAttribute("y", num(r, "y") - y));
+        g.style.transform = T(0, y);
+        chat.push({ g, y, h });
+      });
+
+      function addBubble(user, widths, attachments = 0) {
+        const x = user ? USER_X : REPLY_X;
+        const textH = LINE_H + (widths.length - 1) * LINE_PITCH;
+        const h = BPAD * 2 + textH + (attachments ? 6 + 16 : 0);
+        const prev = chat[chat.length - 1];
+        const y = prev.y + prev.h + GAP;
+        const g = make("g", { class: `bubble bubble--${user ? "user" : "reply"}` }, messages);
+        g.style.opacity = 0;
+        make("rect", { x, y: 0, width: BUBBLE_W, height: h, rx: 5, fill: user ? "#31319e" : "#2c2b3a" }, g);
+        const lines = widths.map((w, i) =>
+          make("rect", { class: "bubble__line", x: x + BPAD, y: BPAD + i * LINE_PITCH, width: w, height: LINE_H, rx: 2 }, g));
+        const files = [];
+        if (attachments) {
+          const group = make("g", { class: "attachments", fill: COLOURS.l }, g);
+          for (let i = 0; i < attachments; i++) {
+            const a = make("rect", { x: x + BPAD + i * 20, y: BPAD + textH + 6, width: 16, height: 16, rx: 1.5 }, group);
+            a.style.transform = "scale(0)";
+            files.push(a);
+          }
+        }
+        const bubble = { g, y, h, lines, attachments: files };
+        chat.push(bubble);
+        return bubble;
+      }
+
+      // Scroll the conversation up if a new bubble would run into the message box
+      async function makeRoom(bubble) {
+        const over = bubble.y + bubble.h - scrolled - CHAT_BOTTOM;
+        if (over <= 0) return;
+        const from = { transform: T(0, -scrolled) };
+        scrolled += over;
+        await tween(messages, from, { transform: T(0, -scrolled) }, 0.45, { easing: easeBoth });
+        while (chat.length > 1 && chat[0].y + chat[0].h - scrolled < 0) chat.shift().g.remove();
+      }
+
+      function popIn(bubble, user) {
+        const at = T(0, bubble.y);
+        return tween(bubble.g,
+          { opacity: 0, transform: `${at} translateY(${user ? 14 : 0}px) scale(0.9)` },
+          { opacity: 1, transform: `${at} translateY(0px) scale(1)` },
+          user ? 0.45 : 0.35, { easing: easeBack });
+      }
+
+      async function sendMessage() {
+        const two = Math.random() < 0.3;
+        const widths = two ? [rand(64, 84), rand(24, 70)] : [rand(40, 84)];
+        const attachments = Math.random() < 0.25 ? rand(1, 3) : 0;
+
+        // Type...
+        const typed = rand(50, 95), chars = Math.round(typed / 5);
+        composerText.setAttribute("width", typed);
+        composerText.style.transform = "scaleX(0)";
+        composerText.style.opacity = 1;
+        await tween(composerText, { transform: "scaleX(0)" }, { transform: "scaleX(1)" }, chars * 0.03, { easing: steps(chars) });
+        await sleep(0.25);
+
+        // ...send
+        send.animate([{ transform: "scale(1)" }, { transform: "scale(0.82)" }, { transform: "scale(1)" }], 300);
+        await tween(composerText, { opacity: 1 }, { opacity: 0 }, 0.12);
+        const bubble = addBubble(true, widths, attachments);
+        await Promise.all([
+          makeRoom(bubble),
+          popIn(bubble, true),
+          ...bubble.attachments.map((a, i) =>
+            tween(a, { transform: "scale(0)" }, { transform: "scale(1)" }, 0.4, { easing: easeBack, delay: 0.25 + i * 0.09 })),
+        ]);
+      }
+
+      async function reply() {
+        const n = rand(1, 4);
+        const widths = Array.from({ length: n }, (_, i) => (i === n - 1 ? rand(24, 70) : rand(60, 84)));
+        const bubble = addBubble(false, widths);
+        bubble.lines.forEach(l => { l.style.transform = "scaleX(0)"; });
+        await Promise.all([makeRoom(bubble), popIn(bubble, false)]);
+        for (const line of bubble.lines) {
+          const w = num(line, "width");
+          await tween(line, { transform: "scaleX(0)" }, { transform: "scaleX(1)" }, w / 80, { easing: steps(Math.round(w / 12)) });
+          await sleep(0.15);
+        }
+      }
+
+      // The conversation ---------------------------------------------------
+      async function converse() {
+        caretBox.animate([{ opacity: 1 }, { opacity: 1, offset: 0.5 }, { opacity: 0, offset: 0.5 }, { opacity: 0 }],
+                         { duration: 1100, iterations: Infinity });
+        caretAtEnd(file[9]);
+        await sleep(1.5);
+        for (;;) {
+          while (document.hidden) await new Promise(go => document.addEventListener("visibilitychange", go, { once: true }));
+          await sendMessage();
+          await sleep(0.4);
+          const edits = pick(EDITS);
+          await Promise.all([
+            reply(),
+            (async () => {
+              await sleep(0.3);
+              for (const edit of edits) { await edit(); await sleep(0.3); }
+            })(),
+          ]);
+          await sleep(rand(10, 16) / 10);
+        }
+      }
+
+      converse().catch(() => {});   // if anything goes wrong, it just stops where it is
+    })();
+  </script>
+
+</body>
+</html>
