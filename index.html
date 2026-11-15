@@ -7,7 +7,7 @@
   <meta name="description" content="Brett Rowley: resume and personal side projects.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:wght@200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <!-- Favicons. favicon.ico and apple-touch-icon.png sit at the root so project sites
        (brettrowley.me/<repo>) pick them up automatically too. -->
@@ -19,62 +19,43 @@
 </head>
 <body>
 
-  <main>
-    <header class="hero">
-      <div class="hero__inner">
+  <main class="home">
+    <div class="home__inner">
 
-        <!-- Decorative collage from the LinkedIn banner (originals in assets/) -->
-        <div class="illustration" aria-hidden="true">
-          <img class="illo illo--research"   src="img/illustration/01-research.webp"   alt="" width="560"  height="681">
-          <img class="illo illo--design"     src="img/illustration/02-design.webp"     alt="" width="1000" height="648">
-          <img class="illo illo--code"       src="img/illustration/03-code.webp"       alt="" width="1000" height="648">
-          <img class="illo illo--production" src="img/illustration/04-production.webp" alt="" width="1000" height="648">
+      <!-- Decorative collage from the LinkedIn banner, with the headshot in the middle.
+           Empty alts: the name is the next thing read, so "Brett Rowley" twice adds nothing. -->
+      <div class="collage" aria-hidden="true">
+        <img class="illo illo--research"   src="img/illustration/01-research.webp"   alt="" width="560"  height="681">
+        <img class="illo illo--code"       src="img/illustration/03-code.webp"       alt="" width="1000" height="648">
+        <img class="illo illo--design"     src="img/illustration/02-design.webp"     alt="" width="1000" height="648">
+        <img class="illo illo--production" src="img/illustration/04-production.webp" alt="" width="1000" height="648">
+        <div class="headshot">
+          <img src="img/Cleaned_Headshot.png" alt="" width="336" height="336">
         </div>
-
-        <div class="identity">
-          <div class="headshot">
-            <!-- Placeholder crop; swap in the new headshot at the same path -->
-            <!-- Empty alt: the name is the next thing read, so "Brett Rowley" twice adds nothing -->
-            <img src="img/Cleaned_Headshot.png" alt="" width="384" height="384">
-          </div>
-
-          <h1 class="name"><span class="name__line">Brett</span><br><span class="name__line">Rowley</span></h1>
-
-          <nav class="links" aria-label="Professional links">
-            <a href="https://www.linkedin.com/in/brett-rowley-boston/">
-              <span>LinkedIn</span>
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(-45 12 12)"><rect x="1.5" y="8" width="12" height="8" rx="4"/><rect x="10.5" y="8" width="12" height="8" rx="4"/></g></svg>
-            </a>
-            <a href="resume/brett-rowley-resume.pdf">
-              <span>Resume</span>
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h16M13.5 5.5 20 12l-6.5 6.5"/></svg>
-            </a>
-            <!-- Placeholder page lives at portfolio/ in this repo until the "portfolio" repo exists -->
-            <a href="portfolio/">
-              <span>Portfolio</span>
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h16M13.5 5.5 20 12l-6.5 6.5"/></svg>
-            </a>
-          </nav>
-        </div>
-
       </div>
-    </header>
 
-    <section class="projects" aria-labelledby="projects-heading" data-reveal>
-      <div class="projects__inner">
-        <h2 id="projects-heading" class="section-heading">Personal projects</h2>
+      <header class="intro">
+        <!-- The space before <br> makes screen readers say "Brett Rowley", not "BrettRowley" -->
+        <h1 class="name"><span class="name__line">Brett</span> <br><span class="name__line">Rowley</span></h1>
 
-        <!-- One card per project repo. Later this becomes a loop over _data/projects.yml -->
-        <ul class="project-grid">
-          <li>
-            <a class="project-card" href="caligari-title-cards/">
-              <img src="img/projects/caligari-title-cards.jpg" alt="" width="692" height="386" loading="lazy">
-              <span class="project-card__title">Dr. Caligari Title Card Generator</span>
-            </a>
-          </li>
+        <h2 class="label" id="links-heading">Professional links</h2>
+        <nav class="links" aria-labelledby="links-heading">
+          <a href="https://www.linkedin.com/in/brett-rowley-boston/">LinkedIn</a>
+          <a href="resume/brett-rowley-resume.pdf">Resume</a>
+          <!-- Placeholder page lives at portfolio/ in this repo until the "portfolio" repo exists -->
+          <a href="portfolio/">Portfolio</a>
+        </nav>
+      </header>
+
+      <section class="projects" aria-labelledby="projects-heading" data-reveal>
+        <h2 class="label" id="projects-heading">Personal projects</h2>
+        <!-- One line per project repo. Later this becomes a loop over _data/projects.yml -->
+        <ul class="project-list">
+          <li><a href="caligari-title-cards/">Dr. Caligari Title Card Generator</a></li>
         </ul>
-      </div>
-    </section>
+      </section>
+
+    </div>
   </main>
 
   <script>
@@ -99,7 +80,8 @@
 
       // Reveal [data-reveal] elements as they scroll into view. Anything
       // already on screen at load waits until the hero sequence is mostly
-      // done (~1s in); items arriving together stagger 90ms apart.
+      // done (~1s after the first paint, when the CSS animations start);
+      // items arriving together stagger 90ms apart.
       const reveal = (el, delay) => {
         el.style.setProperty("--reveal-delay", delay + "ms");
         el.classList.add("is-visible");
@@ -107,8 +89,10 @@
       const items = document.querySelectorAll("[data-reveal]");
       if (!("IntersectionObserver" in window)) return items.forEach(el => reveal(el, 0));
 
+      let firstPaint;   // the observer's first callback comes right after it
       const observer = new IntersectionObserver(entries => {
-        const wait = Math.max(0, 1000 - performance.now());
+        firstPaint ??= performance.now();
+        const wait = Math.max(0, 1000 - (performance.now() - firstPaint));
         entries.filter(e => e.isIntersecting).forEach((e, i) => {
           reveal(e.target, Math.round(wait + i * 90));
           observer.unobserve(e.target);
