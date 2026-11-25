@@ -1,0 +1,99 @@
+/* ------------------------------------------------------------------
+   brettrowley.me — design tokens  ·  v0.2 (2026-11-21)
+
+   THE MASTER COPY. This file is served at https://brettrowley.me/tokens.css
+   and is linked by every site on the domain:
+     - this repo (hub):  <link rel="stylesheet" href="/tokens.css">
+     - portfolio repo:   <link rel="stylesheet" href="https://brettrowley.me/tokens.css">
+   Change values here, never in the other repos. Usage notes and open
+   decisions live in the portfolio repo's STYLE_GUIDE.md.
+
+   Only custom properties belong in this file: no selectors other than
+   :root, so linking it can never change how a page looks by itself.
+   ------------------------------------------------------------------ */
+
+:root {
+  /* Colour: core ----------------------------------------------------- */
+  --brand: #31319e;            /* deep indigo: text, labels, links, buttons, focus */
+  --accent: #9092e2;           /* lavender: decorative only, never text on light bg (2:1) */
+  --tertiary: #d3d4ec;         /* quiet rules, borders, timeline rail, text on brand */
+
+  --surface: #ffffff;
+  --surface-tint: #f6f6fd;     /* cards and chips on white */
+  --text: #1b1b1c;             /* body copy */
+  --text-on-brand: #ffffff;
+  --text-muted: #4f4fa8;       /* secondary text; >= 4.5:1 on every background */
+
+  /* Colour: page gradient -------------------------------------------- */
+  --bg-1: #dee7ed;
+  --bg-2: #dcdfe9;
+  --bg-3: #d8cfe3;
+  --bg-gradient: linear-gradient(172deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
+
+  /* Colour: supporting ------------------------------------------------ */
+  --orange: #e2a46c;
+  --green: #7fc6a2;
+  --annotation: var(--orange); /* numbered markers on screenshots (dark numerals) */
+  --positive: var(--green);    /* badges: use --text on it, not white */
+  --positive-bg: #eefff8;
+  --negative-bg: #fcf1f1;
+
+  /* Type: families ---------------------------------------------------- */
+  --font-display: "Zalando Sans SemiExpanded", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font: var(--font-display);       /* original hub name */
+  --font-label: var(--font-body);    /* original hub name */
+
+  /* Type: sizes, leading, tracking
+     Provisional until the Figma typography export is in. */
+  --text-xs: 0.75rem;     /* 12 */
+  --text-sm: 0.875rem;    /* 14 */
+  --text-md: 1rem;        /* 16 */
+  --text-lg: 1.375rem;    /* 22 */
+  --text-xl: 1.5rem;      /* 24 */
+  --text-2xl: 1.875rem;   /* 30 */
+  --text-3xl: 2rem;       /* 32 */
+
+  --leading-tight: 0.94;
+  --leading-heading: 1.2;
+  --leading-snug: 1.35;
+  --leading-body: 1.5;
+
+  --tracking-label: 0.07em;
+  --tracking-display: -0.015em;
+
+  /* Spacing ----------------------------------------------------------- */
+  --space-2xs: 0.25rem;   /* 4 */
+  --space-xs: 0.625rem;   /* 10 */
+  --space-sm: 1rem;       /* 16 */
+  --space-md: 1.25rem;    /* 20 */
+  --space-lg: 2.5rem;     /* 40 */
+  --space-xl: 4rem;       /* 64 */
+  --space-2xl: 7.5rem;    /* 120 */
+
+  /* Layout ------------------------------------------------------------ */
+  --content-width: 50rem; /* 800: portfolio column */
+  --hub-width: 68.5rem;   /* 1096: hub composition cap */
+  --page-gutter: 1.5rem;
+  /* Mobile breakpoint is 700px; media queries can't read custom properties. */
+
+  /* Shape & elevation ------------------------------------------------- */
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-pill: 999px;
+  --radius-focus: 6px;
+
+  --border-hairline: 1px solid var(--tertiary);
+  --border-rule: 2px solid var(--accent);
+
+  --shadow-card: 0 3px 10px -2px rgb(49 49 158 / 0.45);
+  --shadow-soft: 0 10px 28px -8px rgb(49 49 158 / 0.2);
+
+  /* Motion ------------------------------------------------------------ */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-back: cubic-bezier(0.34, 1.45, 0.64, 1);   /* slight overshoot */
+  --dur-fast: 0.2s;
+  --dur-base: 0.5s;
+  --stagger: 90ms;
+}

@@ -1,21 +1,10 @@
 /* ------------------------------------------------------------------
    brettrowley.me — hub page
-   The base rules at the top (variables, body, links, focus) are also
-   used by portfolio/index.html, so change them with that page in mind.
+   Colours, fonts, spacing and motion values come from tokens.css (the
+   master copy for every site on brettrowley.me), linked before this
+   file. The base rules at the top (body, links, focus) are also used by
+   portfolio/index.html, so change them with that page in mind.
    ------------------------------------------------------------------ */
-
-:root {
-  --brand: #31319e;          /* "brand purple" from the resume */
-  --accent: #9092e2;         /* lavender from the LinkedIn illustration */
-  --tertiary: #d3d4ec;       /* quiet rules and fills */
-
-  --bg-1: #dee7ed;
-  --bg-2: #dcdfe9;
-  --bg-3: #d8cfe3;
-
-  --font: "Zalando Sans SemiExpanded", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-label: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-}
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -27,7 +16,7 @@ body {
   font-family: var(--font);
   font-optical-sizing: auto;
   color: var(--brand);
-  background: linear-gradient(172deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
+  background: var(--bg-gradient);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -282,11 +271,6 @@ a:focus-visible {
    ------------------------------------------------------------------ */
 
 @media screen and (prefers-reduced-motion: no-preference) {
-
-  :root {
-    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-    --ease-back: cubic-bezier(0.34, 1.45, 0.64, 1);   /* slight overshoot */
-  }
 
   /* Illustration: dealt onto the table, then drifting ------------------ */
 
